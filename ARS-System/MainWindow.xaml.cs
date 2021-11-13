@@ -24,5 +24,115 @@ namespace ARS_System
         {
             InitializeComponent();
         }
+
+        private void rUsuariosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rRolesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rCiudadesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rDoctoresMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rEspecialidadesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rAfiliadosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rOcupacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rAseguradorasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rDiagnosticosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rServiciosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rReclamacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cUsuariosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cRolesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cCiudadesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cDoctoresMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cEspecialidadesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cAfiliadosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cOcupacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cAseguradorasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cDiagnosticosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cServiciosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cReclamacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
