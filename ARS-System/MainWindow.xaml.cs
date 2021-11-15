@@ -107,7 +107,8 @@ namespace ARS_System
 
         private void cEspecialidadesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cEspecialidades cespecialidad = new cEspecialidades();
+            cespecialidad.Show();
         }
 
         private void cAfiliadosMenuItem_Click(object sender, RoutedEventArgs e)
