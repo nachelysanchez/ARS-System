@@ -13,8 +13,10 @@
                     <Label x:Name="FiltroLabel" Content="Filtro:"/>
                     <ComboBox x:Name="FiltroComboBox" Width="100" Height="25">
                         <ComboBoxItem x:Name="ListadoComboBoxItem" Content="Listado"/>
-                        <ComboBoxItem x:Name="CiudadComboBoxItem" Content="Ciudad"/>
+                        <ComboBoxItem x:Name="CiudadIdComboBoxItem" Content="Ciudad Id"/>
+                        <ComboBoxItem x:Name="CiudadComboBoxItem" Content="Nombre Ciudad"/>
                         <ComboBoxItem x:Name="ProvinciaComboBoxItem" Content="Provincia"/>
+                        
                     </ComboBox>
                 </StackPanel>
 
