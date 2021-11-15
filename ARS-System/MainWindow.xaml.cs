@@ -93,7 +93,9 @@ namespace ARS_System
 
         private void cRolesMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            cRoles roles = new cRoles();
 
+            roles.Show();
         }
 
         private void cCiudadesMenuItem_Click(object sender, RoutedEventArgs e)
