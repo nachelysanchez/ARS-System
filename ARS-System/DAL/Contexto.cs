@@ -13,6 +13,8 @@ namespace ARS_System.DAL
         public DbSet<Ciudades> Ciudades { get; set; }
         public DbSet<Especialidades> Especialidades { get; set; }
 
+        public DbSet<Roles> Roles { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
