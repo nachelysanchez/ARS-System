@@ -9,10 +9,9 @@ namespace ARS_System.Entidades
 {
     public class Roles
     {
-            [Key]
+        [Key]
 
-            public int RolesId { get; set; }
-            public string Nombre { get; set; }
-        
+        public int RolId { get; set; }
+        public string Nombre { get; set; }
     }
 }
