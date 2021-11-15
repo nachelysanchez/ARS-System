@@ -11,7 +11,7 @@
             <StackPanel Orientation="Vertical" Margin="20,20,20,0">
                 <Label Content="Ciudad Id" Margin="0,0,0,0"/>
                 <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
-                    <TextBox x:Name="CiudadIdTextBox" Width="120" Height="20"/>
+                    <TextBox x:Name="CiudadIdTextBox" Width="120" Height="20" Text="{Binding CiudadId}"/>
                     <Button  x:Name="BuscarButton"  Margin="5,0,0,0" Height="28" Click="BuscarButton_Click" >
                         <StackPanel >
                             <Label Content="Buscar"/>
@@ -19,10 +19,10 @@
                     </Button>
                 </StackPanel>
                 <Label Content="Nombre de la Ciudad : "/>
-                <TextBox x:Name="NombreCiudadTextBox" Margin="5,0,0,0"/>
+                <TextBox x:Name="NombreCiudadTextBox" Margin="5,0,0,0" Text="{Binding NombreCiudad}"/>
                 
                 <Label Content="Provincia : "/>
-                <TextBox x:Name="ProvinciaTextBox" Margin="5,0,0,0"/>
+                <TextBox x:Name="ProvinciaTextBox" Margin="5,0,0,0" Text="{Binding Provincia}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="20,20" >
