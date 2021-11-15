@@ -13,7 +13,11 @@
                 <StackPanel Orientation="Horizontal" >
                     <TextBox x:Name="EspecialidadIdTextBox" Text="{Binding EspecialidadId}" Width="100" Margin="5"/>
                     <Button x:Name="BuscarButton" Click="BuscarButton_Click_1" Height="30">
-                        <Label Content="Buscar"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Buscar"/>
+                            <Image Source="/Resources/icons8-google-web-search-24.png" Width="30"/>
+                        </StackPanel>
+                        
                     </Button>
                 </StackPanel>
 
@@ -28,16 +32,19 @@
                 <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Nuevo" />
+                        <Image Source="/Resources/nuevo.png" Width="30"/>
                     </StackPanel>
                 </Button>
                 <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Guardar" />
+                        <Image Source="/Resources/icons8-guardar-48.png" Width="30"/>
                     </StackPanel>
                 </Button>
                 <Button x:Name="EliminarButton"  Margin="5,0" Click="EliminarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Eliminar" />
+                        <Image Source="/Resources/icons8-eliminar-16.png" Width="30"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
