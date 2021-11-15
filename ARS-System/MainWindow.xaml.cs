@@ -50,7 +50,8 @@ namespace ARS_System
 
         private void rEspecialidadesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rEspecialidades respecialidad = new rEspecialidades();
+            respecialidad.Show();
         }
 
         private void rAfiliadosMenuItem_Click(object sender, RoutedEventArgs e)
