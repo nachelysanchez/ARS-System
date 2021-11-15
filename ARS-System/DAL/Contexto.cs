@@ -11,6 +11,7 @@ namespace ARS_System.DAL
     public class Contexto : DbContext
     {
         public DbSet<Ciudades> Ciudades { get; set; }
+        public DbSet<Especialidades> Especialidades { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
