@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ARS_System.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211115024129_Migracion_Inical")]
-    partial class Migracion_Inical
+    [Migration("20211115190530_Migracion_Inicial")]
+    partial class Migracion_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,20 @@ namespace ARS_System.Migrations
                     b.HasKey("CiudadId");
 
                     b.ToTable("Ciudades");
+                });
+
+            modelBuilder.Entity("ARS_System.Entidades.Especialidades", b =>
+                {
+                    b.Property<int>("EspecialidadId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("NombreEspecialidad")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("EspecialidadId");
+
+                    b.ToTable("Especialidades");
                 });
 #pragma warning restore 612, 618
         }

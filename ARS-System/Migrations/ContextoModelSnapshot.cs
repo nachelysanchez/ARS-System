@@ -31,6 +31,20 @@ namespace ARS_System.Migrations
 
                     b.ToTable("Ciudades");
                 });
+
+            modelBuilder.Entity("ARS_System.Entidades.Especialidades", b =>
+                {
+                    b.Property<int>("EspecialidadId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("NombreEspecialidad")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("EspecialidadId");
+
+                    b.ToTable("Especialidades");
+                });
 #pragma warning restore 612, 618
         }
     }
