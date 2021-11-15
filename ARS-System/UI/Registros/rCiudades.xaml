@@ -12,7 +12,7 @@
                 <Label Content="Ciudad Id" Margin="0,0,0,0"/>
                 <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
                     <TextBox x:Name="CiudadIdTextBox" Width="120" Height="20"/>
-                    <Button  x:Name="BuscarButton"  Margin="5,0,0,0" Height="28">
+                    <Button  x:Name="BuscarButton"  Margin="5,0,0,0" Height="28" Click="BuscarButton_Click" >
                         <StackPanel >
                             <Label Content="Buscar"/>
                         </StackPanel>
