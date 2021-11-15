@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ARS_System.BLL;
+using ARS_System.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +28,30 @@ namespace ARS_System.UI.Consultas
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
+            var listado = new List<Especialidades>();
 
+            if (CriterioTextBox.Text.Trim().Length > 0)
+            {
+                switch (FiltroComboBox.SelectedIndex)
+                {
+                    case 0: //Listado
+                        listado = EspecialidadesBLL.GetEspecialidades();
+                        break;
+                    case 1: //Id
+                        listado = EspecialidadesBLL.GetList(e => e.EspecialidadId == Utilidades.ToInt(CriterioTextBox.Text));
+                        break;
+                    case 2:
+                        listado = EspecialidadesBLL.GetList(e => e.NombreEspecialidad.Contains(CriterioTextBox.Text.ToLower()));
+                        break;
+                }
+            }
+            else
+            {
+                listado = EspecialidadesBLL.GetList(e => true);
+            }
+
+            DatosDataGrid.ItemsSource = null;
+            DatosDataGrid.ItemsSource = listado;
         }
     }
 }
