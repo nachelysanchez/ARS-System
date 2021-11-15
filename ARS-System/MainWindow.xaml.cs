@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ARS_System.UI.Consultas;
+using ARS_System.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,7 +39,8 @@ namespace ARS_System
 
         private void rCiudadesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rCiudades ciudades = new rCiudades();
+            ciudades.Show();
         }
 
         private void rDoctoresMenuItem_Click(object sender, RoutedEventArgs e)
@@ -92,7 +95,8 @@ namespace ARS_System
 
         private void cCiudadesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cCiudades ciudades = new cCiudades();
+            ciudades.Show();
         }
 
         private void cDoctoresMenuItem_Click(object sender, RoutedEventArgs e)
