@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ARS_System.BLL;
+using ARS_System.Entidades;
 
 namespace ARS_System.UI.Consultas
 {
@@ -26,7 +28,32 @@ namespace ARS_System.UI.Consultas
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
+            var listado = new List<Ciudades>();
 
+            if (CriterioTextBox.Text.Trim().Length > 0)
+            {
+                switch (FiltroComboBox.SelectedIndex)
+                {
+                    case 0:
+                        listado = CiudadesBLL.GetCiudades();
+                        break;
+                    case 1:
+                        listado = CiudadesBLL.GetList(e => e.CiudadId == Utilidades.ToInt(CriterioTextBox.Text));
+                        break;
+                    case 2:
+                        listado = CiudadesBLL.GetList(e => e.NombreCiudad.Contains(CriterioTextBox.Text.ToLower()));
+                        break;
+                    case 3:
+                        listado = CiudadesBLL.GetList(e => e.Provincia.Contains(CriterioTextBox.Text.ToLower()));
+                        break;
+                }
+            }
+            else
+            {
+                listado = CiudadesBLL.GetList(e => true);
+            }
+            DatosDataGrid.ItemsSource = null;
+            DatosDataGrid.ItemsSource = listado;
         }
     }
 }
