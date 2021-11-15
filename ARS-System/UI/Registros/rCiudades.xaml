@@ -1,0 +1,50 @@
+﻿<Window x:Class="ARS_System.UI.Registros.rCiudades"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARS_System.UI.Registros"
+        mc:Ignorable="d"
+        Title="Registro de Ciudades" Height="350" Width="400">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Vertical" Margin="20,20,20,0">
+                <Label Content="Ciudad Id" Margin="0,0,0,0"/>
+                <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
+                    <TextBox x:Name="CiudadIdTextBox" Width="120" Height="20"/>
+                    <Button  x:Name="BuscarButton"  Margin="5,0,0,0" Height="28">
+                        <StackPanel >
+                            <Label Content="Buscar"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <Label Content="Nombre de la Ciudad : "/>
+                <TextBox x:Name="NombreCiudadTextBox" Margin="5,0,0,0"/>
+                
+                <Label Content="Provincia : "/>
+                <TextBox x:Name="ProvinciaTextBox" Margin="5,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="20,20" >
+                <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        
+                        <Label Content="Nuevo" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        
+                        <Label Content="Guardar" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="EliminarButton"  Margin="5,0" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                       
+                        <Label Content="Eliminar" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
