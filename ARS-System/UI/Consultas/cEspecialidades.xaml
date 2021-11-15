@@ -27,7 +27,7 @@
                     <Button x:Name="BuscarButton" Height="28" Width="85" Margin="0,20,0,0" Click="BuscarButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Buscar"/>
-
+                            <Image Source="/Resources/icons8-google-web-search-24.png" Width="30"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>
