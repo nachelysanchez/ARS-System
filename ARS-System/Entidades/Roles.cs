@@ -13,7 +13,6 @@ namespace ARS_System.Entidades
 
             public int RolesId { get; set; }
             public string Nombre { get; set; }
-            public DateTime Fecha { get; set; } = DateTime.Now;
         
     }
 }
