@@ -1,0 +1,46 @@
+﻿<Window x:Class="ARS_System.UI.Registros.rEspecialidades"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARS_System.UI.Registros"
+        mc:Ignorable="d"
+        Title="Registro de Especialidades" Height="250" Width="400">
+    <Grid>
+        <StackPanel>
+            <StackPanel Margin="10" HorizontalAlignment="Left">
+                <Label Content="Especialidad Id"/>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBox x:Name="EspecialidadIdTextBox" Text="{Binding EspecialidadId}" Width="100" Margin="5"/>
+                    <Button x:Name="BuscarButton" Click="BuscarButton_Click_1" Height="30">
+                        <Label Content="Buscar"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel>
+                    <Label Content="Nombre de la Especialidad"/>
+                    <TextBox x:Name="NombreEspecialidadTextBox" Text="{Binding NombreEspecialidad}" Margin="5" Width="350"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,15" HorizontalAlignment="Center">
+                <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Nuevo" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Guardar" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="EliminarButton"  Margin="5,0" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Eliminar" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
