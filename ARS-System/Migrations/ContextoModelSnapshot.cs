@@ -44,6 +44,59 @@ namespace ARS_System.Migrations
                     b.HasKey("EspecialidadId");
 
                     b.ToTable("Especialidades");
+
+                    b.HasData(
+                        new
+                        {
+                            EspecialidadId = 1,
+                            NombreEspecialidad = "Pediatría"
+                        });
+                });
+
+            modelBuilder.Entity("ARS_System.Entidades.Provincias", b =>
+                {
+                    b.Property<int>("ProvinciaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nombres")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ProvinciaId");
+
+                    b.ToTable("Provincias");
+
+                    b.HasData(
+                        new
+                        {
+                            ProvinciaId = 1,
+                            Nombres = "Duarte"
+                        },
+                        new
+                        {
+                            ProvinciaId = 2,
+                            Nombres = "María Trinidad Sánchez"
+                        },
+                        new
+                        {
+                            ProvinciaId = 3,
+                            Nombres = "Sánchez Ramirez"
+                        },
+                        new
+                        {
+                            ProvinciaId = 4,
+                            Nombres = "Hermanas Mirabal"
+                        },
+                        new
+                        {
+                            ProvinciaId = 5,
+                            Nombres = "La Vega"
+                        },
+                        new
+                        {
+                            ProvinciaId = 6,
+                            Nombres = "Samaná"
+                        });
                 });
 
             modelBuilder.Entity("ARS_System.Entidades.Roles", b =>

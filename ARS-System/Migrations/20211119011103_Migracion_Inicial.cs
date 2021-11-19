@@ -34,6 +34,19 @@ namespace ARS_System.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Provincias",
+                columns: table => new
+                {
+                    ProvinciaId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombres = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Provincias", x => x.ProvinciaId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
                 {
@@ -45,6 +58,41 @@ namespace ARS_System.Migrations
                 {
                     table.PrimaryKey("PK_Roles", x => x.RolId);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Especialidades",
+                columns: new[] { "EspecialidadId", "NombreEspecialidad" },
+                values: new object[] { 1, "Pediatría" });
+
+            migrationBuilder.InsertData(
+                table: "Provincias",
+                columns: new[] { "ProvinciaId", "Nombres" },
+                values: new object[] { 1, "Duarte" });
+
+            migrationBuilder.InsertData(
+                table: "Provincias",
+                columns: new[] { "ProvinciaId", "Nombres" },
+                values: new object[] { 2, "María Trinidad Sánchez" });
+
+            migrationBuilder.InsertData(
+                table: "Provincias",
+                columns: new[] { "ProvinciaId", "Nombres" },
+                values: new object[] { 3, "Sánchez Ramirez" });
+
+            migrationBuilder.InsertData(
+                table: "Provincias",
+                columns: new[] { "ProvinciaId", "Nombres" },
+                values: new object[] { 4, "Hermanas Mirabal" });
+
+            migrationBuilder.InsertData(
+                table: "Provincias",
+                columns: new[] { "ProvinciaId", "Nombres" },
+                values: new object[] { 5, "La Vega" });
+
+            migrationBuilder.InsertData(
+                table: "Provincias",
+                columns: new[] { "ProvinciaId", "Nombres" },
+                values: new object[] { 6, "Samaná" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -54,6 +102,9 @@ namespace ARS_System.Migrations
 
             migrationBuilder.DropTable(
                 name: "Especialidades");
+
+            migrationBuilder.DropTable(
+                name: "Provincias");
 
             migrationBuilder.DropTable(
                 name: "Roles");
