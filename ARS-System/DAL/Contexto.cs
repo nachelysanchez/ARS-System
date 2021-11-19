@@ -23,6 +23,11 @@ namespace ARS_System.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Especialidades>().HasData(new Especialidades
+            {
+                EspecialidadId = 1,
+                NombreEspecialidad = "Pediatría"
+            });
             modelBuilder.Entity<Provincias>().HasData(new Provincias
             {
                 ProvinciaId = 1,
