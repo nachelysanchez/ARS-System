@@ -8,13 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Consultas.ico" />
     <None Remove="Resources\icons8-eliminar-16.png" />
     <None Remove="Resources\icons8-google-web-search-24.png" />
     <None Remove="Resources\icons8-guardar-48.png" />
+    <None Remove="Resources\Login.ico" />
     <None Remove="Resources\nuevo.png" />
+    <None Remove="Resources\Registros.ico" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources\Consultas.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\icons8-eliminar-16.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -24,7 +30,13 @@
     <Content Include="Resources\icons8-guardar-48.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Login.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\nuevo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Registros.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
