@@ -15,7 +15,7 @@ namespace ARS_System
     {
         private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            MessageBox.Show("Ocurrio un error\n"+e.Exception.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Ocurrió una excepción\n"+e.Exception.Message, "Excepción", MessageBoxButton.OK, MessageBoxImage.Error);
 
             e.Handled = true;
         }
