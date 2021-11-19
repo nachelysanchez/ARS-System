@@ -63,6 +63,16 @@ namespace ARS_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Consultas {
+            get {
+                object obj = ResourceManager.GetObject("Consultas", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] icons8_eliminar_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8_eliminar_16", resourceCulture);
@@ -93,9 +103,29 @@ namespace ARS_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Login {
+            get {
+                object obj = ResourceManager.GetObject("Login", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] nuevo {
             get {
                 object obj = ResourceManager.GetObject("nuevo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Registros {
+            get {
+                object obj = ResourceManager.GetObject("Registros", resourceCulture);
                 return ((byte[])(obj));
             }
         }
