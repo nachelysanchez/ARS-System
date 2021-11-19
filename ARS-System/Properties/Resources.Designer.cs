@@ -129,5 +129,15 @@ namespace ARS_System.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] seguro_medico_icono {
+            get {
+                object obj = ResourceManager.GetObject("seguro_medico_icono", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

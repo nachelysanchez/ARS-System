@@ -15,6 +15,7 @@
     <None Remove="Resources\Login.ico" />
     <None Remove="Resources\nuevo.png" />
     <None Remove="Resources\Registros.ico" />
+    <None Remove="Resources\seguro-medico icono.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +38,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Registros.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\seguro-medico icono.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

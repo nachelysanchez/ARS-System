@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System"
         mc:Ignorable="d"
+        Icon="Resources/seguro-medico icono.ico"
         Title="Ventana Principal" Height="350" Width="400">
     <Grid>
         <StackPanel>

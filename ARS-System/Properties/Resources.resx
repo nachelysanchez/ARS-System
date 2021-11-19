@@ -139,4 +139,7 @@
   <data name="Registros" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Registros.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="seguro_medico_icono" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\seguro-medico icono.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
