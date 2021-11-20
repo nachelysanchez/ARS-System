@@ -25,7 +25,11 @@ namespace ARS_System.UI.Registros
         public rCiudades()
         {
             InitializeComponent();
+
             this.DataContext = ciudades;
+            ProvinciaComboBox.ItemsSource = ProvinciasBLL.GetProvincias();
+            ProvinciaComboBox.SelectedValuePath = "ProvinciaId";
+            ProvinciaComboBox.DisplayMemberPath = "Nombres";
         }
         private void Limpiar()
         {
@@ -35,7 +39,7 @@ namespace ARS_System.UI.Registros
         private bool Validar()
         {
             bool esValido = true;
-            if(CiudadIdTextBox.Text.Length == 0 || NombreCiudadTextBox.Text.Length == 0 || ProvinciaTextBox.Text.Length == 0)
+            if(CiudadIdTextBox.Text.Length == 0 || NombreCiudadTextBox.Text.Length == 0 )
             {
                 esValido = false;
                 MessageBox.Show("Ingrese El campo faltante", "Fallo",
