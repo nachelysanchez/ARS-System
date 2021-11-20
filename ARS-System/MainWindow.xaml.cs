@@ -122,7 +122,8 @@ namespace ARS_System
 
         private void cOcupacionesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cOcupaciones ocupaciones = new cOcupaciones();
+            ocupaciones.Show();
         }
 
         private void cAseguradorasMenuItem_Click(object sender, RoutedEventArgs e)
