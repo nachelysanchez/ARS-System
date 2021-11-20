@@ -61,9 +61,10 @@ namespace ARS_System
 
         }
 
-        private void rOcupacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        private void rPermisosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rPermisos permisos = new rPermisos();
+            permisos.Show();
         }
 
         private void rAseguradorasMenuItem_Click(object sender, RoutedEventArgs e)
@@ -119,7 +120,11 @@ namespace ARS_System
         {
 
         }
-
+        private void cPermisosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cPermisos permisos = new cPermisos();
+            permisos.Show();
+        }
         private void cOcupacionesMenuItem_Click(object sender, RoutedEventArgs e)
         {
             cOcupaciones ocupaciones = new cOcupaciones();
@@ -150,5 +155,7 @@ namespace ARS_System
         {
 
         }
+
+       
     }
 }
