@@ -14,6 +14,7 @@ namespace ARS_System.DAL
         public DbSet<Especialidades> Especialidades { get; set; }
         public DbSet<Provincias> Provincias { get; set; }
         public DbSet<Roles> Roles { get; set; }
+        public DbSet<Ocupaciones> Ocupaciones { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -28,6 +29,7 @@ namespace ARS_System.DAL
                 EspecialidadId = 1,
                 NombreEspecialidad = "Pediatría"
             });
+            //Provincias
             modelBuilder.Entity<Provincias>().HasData(new Provincias
             {
                 ProvinciaId = 1,
@@ -57,6 +59,32 @@ namespace ARS_System.DAL
             {
                 ProvinciaId = 6,
                 Nombres = "Samaná"
+            });
+
+            //Ocupaciones
+            modelBuilder.Entity<Ocupaciones>().HasData(new Ocupaciones{
+                OcupacionesId = 1,
+                Nombre = "Plomero"
+            });
+            modelBuilder.Entity<Ocupaciones>().HasData(new Ocupaciones
+            {
+                OcupacionesId = 2,
+                Nombre = "Electricista"
+            });
+            modelBuilder.Entity<Ocupaciones>().HasData(new Ocupaciones
+            {
+                OcupacionesId = 1,
+                Nombre = "Abogado"
+            });
+            modelBuilder.Entity<Ocupaciones>().HasData(new Ocupaciones
+            {
+                OcupacionesId = 1,
+                Nombre = "Ingeniero"
+            });
+            modelBuilder.Entity<Ocupaciones>().HasData(new Ocupaciones
+            {
+                OcupacionesId = 1,
+                Nombre = "Chofer"
             });
         }
     }
