@@ -19,7 +19,7 @@
                     </Button>
                 </StackPanel>
                 <Label Content="Nombre de la Ciudad : "/>
-                <TextBox x:Name="NombreCiudadTextBox" Margin="5,0,0,0" Text="{Binding NombreCiudad}"/>
+                <TextBox x:Name="NombreCiudadTextBox" Margin="5,0,0,0" Text="{Binding Nombres}"/>
                 
                 <Label Content="Provincia : "/>
                 <ComboBox x:Name="ProvinciaComboBox" Margin="5,0,0,0" SelectedValue="{Binding ProvinciaId}"/>
