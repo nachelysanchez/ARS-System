@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ARS_System.BLL;
+using ARS_System.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,29 +21,79 @@ namespace ARS_System.UI.Registros
     /// </summary>
     public partial class rPermisos : Window
     {
+        private Permisos permisos = new Permisos();
         public rPermisos()
         {
             InitializeComponent();
+            this.DataContext = permisos;
+        }
+
+        private void Limpiar()
+        {
+            this.permisos = new Permisos();
+            this.DataContext = permisos;
+        }
+        private bool Validar()
+        {
+            bool esValido = true;
+            if (PermisoIdTextBox.Text.Length == 0 || NombrePermisoTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese El campo faltante", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            return esValido;
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
+            var permiso = PermisosBLL.Buscar(Utilidades.ToInt(PermisoIdTextBox.Text));
 
+            if (permiso != null)
+            {
+                this.permisos = permiso;
+            }
+            else
+            {
+                this.permisos = new Permisos();
+            }
+            this.DataContext = this.permisos;
         }
 
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Limpiar();
         }
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!Validar())
+                return;
 
+            var paso = PermisosBLL.Guardar(permisos);
+
+            if (paso)
+            {
+                Limpiar();
+                MessageBox.Show("Guardado con exito!", "Exito",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+                MessageBox.Show("Guardado Fallida", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (PermisosBLL.Eliminar(Utilidades.ToInt(PermisoIdTextBox.Text)))
+            {
+                Limpiar();
+                MessageBox.Show("Registro eliminado!", "Exito",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+                MessageBox.Show("No fue posible eliminar", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
