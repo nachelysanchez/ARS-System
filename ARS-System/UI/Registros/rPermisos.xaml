@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Permisos" Height="200" Width="350">
+        Title="Registro de Permisos" Height="220" Width="350">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Vertical" Margin="20,20,20,0">
