@@ -41,10 +41,10 @@ namespace ARS_System.UI.Consultas
                         listado = CiudadesBLL.GetList(e => e.CiudadId == Utilidades.ToInt(CriterioTextBox.Text));
                         break;
                     case 2:
-                        listado = CiudadesBLL.GetList(e => e.NombreCiudad.Contains(CriterioTextBox.Text.ToLower()));
+                        listado = CiudadesBLL.GetList(e => e.Nombres.Contains(CriterioTextBox.Text.ToLower()));
                         break;
                     case 3:
-                        listado = CiudadesBLL.GetList(e => e.Provincia.Contains(CriterioTextBox.Text.ToLower()));
+                        listado = CiudadesBLL.GetList(e => e.Provincias.Nombres.Contains(CriterioTextBox.Text.ToLower()));
                         break;
                 }
             }
