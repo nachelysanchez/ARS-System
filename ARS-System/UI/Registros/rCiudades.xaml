@@ -22,7 +22,7 @@
                 <TextBox x:Name="NombreCiudadTextBox" Margin="5,0,0,0" Text="{Binding NombreCiudad}"/>
                 
                 <Label Content="Provincia : "/>
-                <TextBox x:Name="ProvinciaTextBox" Margin="5,0,0,0" Text="{Binding Provincia}"/>
+                <ComboBox x:Name="ProvinciaComboBox" Margin="5,0,0,0" Text="{Binding ProvinciaId}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="20,20" >
