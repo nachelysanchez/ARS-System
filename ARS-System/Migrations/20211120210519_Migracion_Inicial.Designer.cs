@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ARS_System.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211120165117_Migracion_Inicial")]
+    [Migration("20211120210519_Migracion_Inicial")]
     partial class Migracion_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,6 +96,20 @@ namespace ARS_System.Migrations
                             OcupacionesId = 5,
                             Nombre = "Chofer"
                         });
+                });
+
+            modelBuilder.Entity("ARS_System.Entidades.Permisos", b =>
+                {
+                    b.Property<int>("PermisoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("PermisoId");
+
+                    b.ToTable("Permisos");
                 });
 
             modelBuilder.Entity("ARS_System.Entidades.Provincias", b =>

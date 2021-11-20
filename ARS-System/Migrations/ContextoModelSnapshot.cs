@@ -96,6 +96,20 @@ namespace ARS_System.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ARS_System.Entidades.Permisos", b =>
+                {
+                    b.Property<int>("PermisoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("PermisoId");
+
+                    b.ToTable("Permisos");
+                });
+
             modelBuilder.Entity("ARS_System.Entidades.Provincias", b =>
                 {
                     b.Property<int>("ProvinciaId")

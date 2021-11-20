@@ -33,6 +33,19 @@ namespace ARS_System.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Permisos",
+                columns: table => new
+                {
+                    PermisoId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombre = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Permisos", x => x.PermisoId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Provincias",
                 columns: table => new
                 {
@@ -154,6 +167,9 @@ namespace ARS_System.Migrations
 
             migrationBuilder.DropTable(
                 name: "Ocupaciones");
+
+            migrationBuilder.DropTable(
+                name: "Permisos");
 
             migrationBuilder.DropTable(
                 name: "Roles");
