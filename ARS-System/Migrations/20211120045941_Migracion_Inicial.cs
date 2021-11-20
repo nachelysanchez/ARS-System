@@ -7,20 +7,6 @@ namespace ARS_System.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Ciudades",
-                columns: table => new
-                {
-                    CiudadId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    NombreCiudad = table.Column<string>(type: "TEXT", nullable: true),
-                    Provincia = table.Column<string>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Ciudades", x => x.CiudadId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Especialidades",
                 columns: table => new
                 {
@@ -59,6 +45,26 @@ namespace ARS_System.Migrations
                     table.PrimaryKey("PK_Roles", x => x.RolId);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Ciudades",
+                columns: table => new
+                {
+                    CiudadId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombres = table.Column<string>(type: "TEXT", nullable: true),
+                    ProvinciaId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ciudades", x => x.CiudadId);
+                    table.ForeignKey(
+                        name: "FK_Ciudades_Provincias_ProvinciaId",
+                        column: x => x.ProvinciaId,
+                        principalTable: "Provincias",
+                        principalColumn: "ProvinciaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "Especialidades",
                 columns: new[] { "EspecialidadId", "NombreEspecialidad" },
@@ -93,6 +99,11 @@ namespace ARS_System.Migrations
                 table: "Provincias",
                 columns: new[] { "ProvinciaId", "Nombres" },
                 values: new object[] { 6, "Samaná" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ciudades_ProvinciaId",
+                table: "Ciudades",
+                column: "ProvinciaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -104,10 +115,10 @@ namespace ARS_System.Migrations
                 name: "Especialidades");
 
             migrationBuilder.DropTable(
-                name: "Provincias");
+                name: "Roles");
 
             migrationBuilder.DropTable(
-                name: "Roles");
+                name: "Provincias");
         }
     }
 }

@@ -21,13 +21,15 @@ namespace ARS_System.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("NombreCiudad")
+                    b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Provincia")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("ProvinciaId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("CiudadId");
+
+                    b.HasIndex("ProvinciaId");
 
                     b.ToTable("Ciudades");
                 });
@@ -111,6 +113,17 @@ namespace ARS_System.Migrations
                     b.HasKey("RolId");
 
                     b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("ARS_System.Entidades.Ciudades", b =>
+                {
+                    b.HasOne("ARS_System.Entidades.Provincias", "Provincias")
+                        .WithMany()
+                        .HasForeignKey("ProvinciaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Provincias");
                 });
 #pragma warning restore 612, 618
         }
