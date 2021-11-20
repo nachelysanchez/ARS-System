@@ -17,6 +17,6 @@ namespace ARS_System.Entidades
         public int ProvinciaId { get; set; }
 
         [ForeignKey("ProvinciaId")]
-        virtual public Provincias Provincias { get; set; }
+       public virtual Provincias Provincias { get; set; }
     }
 }
