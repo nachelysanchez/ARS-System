@@ -17,7 +17,7 @@
                     <MenuItem x:Name="rDoctoresMenuItem" Header="Registro de Doctores" Click="rDoctoresMenuItem_Click"/>
                     <MenuItem x:Name="rEspecialidadesMenuItem" Header="Registro de Especialidades" Click="rEspecialidadesMenuItem_Click"/>
                     <MenuItem x:Name="rAfiliadosMenuItem" Header="Registro de Afiliado" Click="rAfiliadosMenuItem_Click"/>
-                    <MenuItem x:Name="rOcupacionesMenuItem" Header="Registro de Ocupaciones" Click="rOcupacionesMenuItem_Click"/>
+                    <MenuItem x:Name="rPermisosMenuItem" Header="Registro de Permisos" Click="rPermisosMenuItem_Click"/>
                     <MenuItem x:Name="rAseguradorasMenuItem" Header="Registro de Aseguradoras" Click="rAseguradorasMenuItem_Click"/>
                     <MenuItem x:Name="rDiagnosticosMenuItem" Header="Registro de Diagnosticos" Click="rDiagnosticosMenuItem_Click"/>
                     <MenuItem x:Name="rServiciosMenuItem" Header="Registro de Servicios" Click="rServiciosMenuItem_Click"/>
@@ -30,12 +30,14 @@
                     <MenuItem x:Name="cDoctoresMenuItem" Header="Consulta de Doctores" Click="cDoctoresMenuItem_Click"/>
                     <MenuItem x:Name="cEspecialidadesMenuItem" Header="Consulta de Especialidades" Click="cEspecialidadesMenuItem_Click"/>
                     <MenuItem x:Name="cAfiliadosMenuItem" Header="Consulta de Afiliado" Click="cAfiliadosMenuItem_Click"/>
+                    <MenuItem x:Name="cPermisosMenuItem" Header="Consulta de Permisos" Click="cPermisosMenuItem_Click"/>
                     <MenuItem x:Name="cOcupacionesMenuItem" Header="Consulta de Ocupaciones" Click="cOcupacionesMenuItem_Click"/>
                     <MenuItem x:Name="cAseguradorasMenuItem" Header="Consulta de Aseguradoras" Click="cAseguradorasMenuItem_Click"/>
                     <MenuItem x:Name="cDiagnosticosMenuItem" Header="Consulta de Diagnosticos" Click="cDiagnosticosMenuItem_Click"/>
                     <MenuItem x:Name="cServiciosMenuItem" Header="Consulta de Servicios" Click="cServiciosMenuItem_Click"/>
                     <MenuItem x:Name="cReclamacionesMenuItem" Header="Consulta de Reclamaciones" Click="cReclamacionesMenuItem_Click"/>
                     <MenuItem x:Name="cProvincias" Header="Consulta de Provincias" Click="cProvincias_Click_1"/>
+                    
                 </MenuItem>
             </Menu>
         </StackPanel>
