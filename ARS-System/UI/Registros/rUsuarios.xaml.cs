@@ -76,7 +76,7 @@ namespace ARS_System.UI.Registros
             this.DataContext = usuarios;
         }
 
-        private void AgregarButton_Click(object sender, RoutedEventArgs e)
+        private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
             usuarios.DetalleUsuario.Add(new UsuariosDetalle(Utilidades.ToInt(UsuarioIdTextBox.Text), (int)PermisoComboBox.SelectedValue,
                 ObservacionTextBox.Text, (Permisos)PermisoComboBox.SelectedItem));
