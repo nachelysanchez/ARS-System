@@ -1,0 +1,98 @@
+﻿<Window x:Class="ARS_System.UI.Registros.rUsuarios"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARS_System.UI.Registros"
+        mc:Ignorable="d"
+        Title="Registro de Usuarios" Height="650" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+
+            <StackPanel Orientation="Vertical">
+                <Label Content="Usuarios Id:"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="GrupoIdTextBox" Text="{Binding UsuarioId}" Width="100" Height="20" Margin="5,0,0,0"/>
+                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="28">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Buscar"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <Label Content="Nombres: "/>
+                <TextBox x:Name="NombresTextBox" Text="{Binding Nombres}" Margin="5,0,10,0"/>
+               
+
+                <Label Content="Username"/>
+                <TextBox x:Name="UsernameTextBox" Text="{Binding Username}" Margin="5,0,10,0"/>
+
+                <Label Content="Rol : "/>
+                <ComboBox x:Name="RolComboBox" SelectedValue="{Binding RolId}" Margin="5,0,10,0"/>
+
+                <Label Content="Contraseña"/>
+                <TextBox x:Name="ContraseniaTextBox" Text="{Binding Contrasena}" Margin="5,0,10,0"/>
+
+                <Label Content="Confirmar Contraseña"/>
+                <TextBox x:Name="ConfirmarContraseniaTextBox" Margin="5,0,10,10"/>
+
+                <StackPanel Orientation="Vertical">
+                    <GroupBox Header="Detalle de Usuarios">
+                        <StackPanel Margin="10">
+                            <Label Content="Permiso:"/>
+                            <ComboBox x:Name="PermisoComboBox" SelectedValue="{Binding Permisos.PermisoId}" />
+                            <Label Content="Observacion:"/>
+                            <TextBox x:Name="ObservacionTextBox" Text="{Binding DetalleUsuario.Observacion}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="AgregarFilaButton" Margin="10" Click="AgregarFilaButton_Click" Width="100">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Agregar fila"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="RemoverFilaButton" Margin="10" Click="RemoverFilaButton_Click" Width="100">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Eliminar fila"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+
+                            <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding DetalleUsuario}" Height="80" AutoGenerateColumns="False" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Id" Binding="{Binding GrupoId}" Visibility="Hidden" />
+                                    <DataGridTextColumn Header="Usuario Id" Binding="{Binding UsuarioId}"/>
+                                    <DataGridTextColumn Header="Permisos" Binding="{Binding Permisos.Nombre}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Observacion" Binding="{Binding Observacion}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+
+            </StackPanel>
+
+            <!--BARRA DE BOTONES-->
+            <StackPanel Orientation="Horizontal" Margin="0,5" HorizontalAlignment="Center" >
+                <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        
+                        <Label Content="Nuevo" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        
+                        <Label Content="Guardar" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="EliminarButton"  Margin="5,0" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        
+                        <Label Content="Eliminar" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
