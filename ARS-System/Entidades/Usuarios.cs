@@ -23,5 +23,14 @@ namespace ARS_System.Entidades
         [ForeignKey("UsuarioId")]
         public virtual List<UsuariosDetalle> DetalleUsuario { get; set; } = new List<UsuariosDetalle>();
 
+        public Usuarios(int usuarioId, string nombres, string username, string contrasena)
+        {
+            UsuarioId = usuarioId;
+            Nombres = nombres;
+            Username = username;
+            Contrasena = contrasena;
+            RolId = 0;
+        }
+
     }
 }
