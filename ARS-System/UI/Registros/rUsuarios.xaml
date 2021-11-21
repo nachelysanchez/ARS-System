@@ -13,7 +13,7 @@
                 <Label Content="Usuarios Id:"/>
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="GrupoIdTextBox" Text="{Binding UsuarioId}" Width="100" Height="20" Margin="5,0,0,0"/>
+                    <TextBox x:Name="UsuarioIdTextBox" Text="{Binding UsuarioId}" Width="100" Height="20" Margin="5,0,0,0"/>
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="28">
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Buscar"/>
