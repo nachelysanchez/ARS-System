@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
+        xmlns:PasswordHelper ="clr-namespace:ARS_System.Password"
         mc:Ignorable="d"
         Title="Registro de Usuarios" Height="650" Width="800">
     <Grid>
@@ -32,7 +33,8 @@
                 <ComboBox x:Name="RolComboBox" SelectedValue="{Binding RolId}" Margin="5,0,10,0"/>
 
                 <Label Content="Contraseña"/>
-                <PasswordBox x:Name="ContraseniaPasswordBox"  Margin="5,0,10,0"/>
+                <PasswordBox x:Name="ContraseniaPasswordBox"  Margin="5,0,10,0"  PasswordHelper:PasswordHelper.Attach="True" 
+                             PasswordHelper:PasswordHelper.Password="{Binding Contrasena,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}"/>
 
                 <Label Content="Confirmar Contraseña"/>
                 <PasswordBox x:Name="ConfirmarContraseniaPasswordBox" Margin="5,0,10,10"/>
