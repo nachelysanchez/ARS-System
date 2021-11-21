@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ARS_System.BLL;
+using ARS_System.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,32 @@ namespace ARS_System.UI
     /// </summary>
     public partial class Login : Window
     {
+        Usuarios usuarios = new Usuarios();
+
+        MainWindow Principal = new MainWindow();
         public Login()
         {
             InitializeComponent();
+        }
+        private void IngresarButton_Click(object sender, RoutedEventArgs e)
+        {
+            bool paso = LoginBLL.Validar(NombreUsuarioTextBox.Text, ContrasenaPasswordBox.Password);
+
+            if (paso)
+            {
+                this.Close();
+                Principal.Show();
+            }
+            else
+            {
+                MessageBox.Show("Nombre Usuario o Contraseña incorrecta!", "Error!");
+                ContrasenaPasswordBox.Clear();
+                NombreUsuarioTextBox.Focus();
+            }
+        }
+        private void CancelarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
