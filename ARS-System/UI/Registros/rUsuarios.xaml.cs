@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ARS_System.BLL;
+using ARS_System.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,91 @@ namespace ARS_System.UI.Registros
     /// </summary>
     public partial class rUsuarios : Window
     {
+        private Usuarios usuarios = new Usuarios();
         public rUsuarios()
         {
             InitializeComponent();
+            this.DataContext = usuarios;
+        }
+
+        private void Limpiar()
+        {
+            usuarios = new Usuarios();
+            ContraseniaPasswordBox.Password = string.Empty;
+            ConfirmarContraseniaPasswordBox.Password = string.Empty;
+            this.DataContext = usuarios;
+        }
+
+        private bool Validar()
+        {
+            bool esValido = true;
+
+            if (NombresTextBox.Text.Length == 0 || UsernameTextBox.Text.Length == 0 ||
+                ContraseniaPasswordBox.Password.Length == 0 ||ConfirmarContraseniaPasswordBox.Password.Length == 0 )
+            {
+                esValido = false;
+                GuardarButton.IsEnabled = false;
+                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                GuardarButton.IsEnabled = true;
+            }
+
+            if (ConfirmarContraseniaPasswordBox.Password != ContraseniaPasswordBox.Password)
+            {
+                esValido = false;
+                GuardarButton.IsEnabled = false;
+                MessageBox.Show("Las contraseñas no coiciden", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                ConfirmarContraseniaPasswordBox.Focus();
+                GuardarButton.IsEnabled = true;
+            }
+
+            return esValido;
+        }
+        private void BuscarButton_Click(object sender, RoutedEventArgs e)
+        {
+            var estudiante = UsuariosBLL.Buscar(Utilidades.ToInt(UsuarioIdTextBox.Text));
+
+            if (usuarios != null)
+                this.usuarios = estudiante;
+            else
+                Limpiar();
+
+            this.DataContext = this.usuarios;
+        }
+        private void NuevoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Limpiar();
+        }
+        private void GuardarButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Validar())
+                return;
+
+            var paso = UsuariosBLL.Guardar(usuarios);
+
+            if (paso)
+            {
+                Limpiar();
+                MessageBox.Show("Transaccion exitosa!", "Exito",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+                MessageBox.Show("Transaccion Fallida", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void EliminarButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (UsuariosBLL.Eliminar(Utilidades.ToInt(UsuarioIdTextBox.Text)))
+            {
+                Limpiar();
+                MessageBox.Show("Registro eliminado!", "Exito",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+                MessageBox.Show("No fue posible eliminar", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
