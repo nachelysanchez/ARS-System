@@ -32,10 +32,10 @@
                 <ComboBox x:Name="RolComboBox" SelectedValue="{Binding RolId}" Margin="5,0,10,0"/>
 
                 <Label Content="Contraseña"/>
-                <TextBox x:Name="ContraseniaTextBox" Text="{Binding Contrasena}" Margin="5,0,10,0"/>
+                <PasswordBox x:Name="ContraseniaTextBox" PasswordBox.PasswordChanged ="{Binding Contrasena,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Margin="5,0,10,0"/>
 
                 <Label Content="Confirmar Contraseña"/>
-                <TextBox x:Name="ConfirmarContraseniaTextBox" Margin="5,0,10,10"/>
+                <PasswordBox x:Name="ConfirmarContraseniaTextBox" Margin="5,0,10,10"/>
 
                 <StackPanel Orientation="Vertical">
                     <GroupBox Header="Detalle de Usuarios">
