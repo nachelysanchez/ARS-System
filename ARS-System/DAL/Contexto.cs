@@ -16,6 +16,7 @@ namespace ARS_System.DAL
         public DbSet<Roles> Roles { get; set; }
         public DbSet<Ocupaciones> Ocupaciones { get; set; }
         public DbSet<Permisos> Permisos { get; set; }
+        public DbSet<Usuarios> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
