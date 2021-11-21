@@ -32,7 +32,7 @@
                 <ComboBox x:Name="RolComboBox" SelectedValue="{Binding RolId}" Margin="5,0,10,0"/>
 
                 <Label Content="Contraseña"/>
-                <PasswordBox x:Name="ContraseniaPasswordBox" PasswordBox.PasswordChanged ="{Binding Contrasena,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Margin="5,0,10,0"/>
+                <PasswordBox x:Name="ContraseniaPasswordBox"  Margin="5,0,10,0"/>
 
                 <Label Content="Confirmar Contraseña"/>
                 <PasswordBox x:Name="ConfirmarContraseniaPasswordBox" Margin="5,0,10,10"/>

@@ -22,6 +22,7 @@ namespace ARS_System.UI.Registros
     public partial class rUsuarios : Window
     {
         private Usuarios usuarios = new Usuarios();
+        private UsuariosDetalle UsuariosDetalle = new UsuariosDetalle();
         public rUsuarios()
         {
             InitializeComponent();

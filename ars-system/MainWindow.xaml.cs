@@ -29,7 +29,8 @@ namespace ARS_System
 
         private void rUsuariosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rUsuarios usuarios = new rUsuarios();
+            usuarios.Show();
         }
 
         private void rRolesMenuItem_Click(object sender, RoutedEventArgs e)
