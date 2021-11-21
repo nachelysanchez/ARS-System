@@ -25,13 +25,21 @@ namespace ARS_System.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Roles
+            modelBuilder.Entity<Roles>().HasData(new Roles
+            {
+                RolId = 1,
+                Nombre = "Administrador"
+            });
+
             //Usuarios
             modelBuilder.Entity<Usuarios>().HasData(new Usuarios
             {
                 UsuarioId = 1,
                 Nombres = "Kelvin Peña",
                 Username = "KelvinP",
-                Contrasena = "d7678f190ca1811f2d340c7aa1bf1822e6acaac89ffd8ea5c2f731efd3e10e4a" //Contrasena: 20180193
+                Contrasena = "d7678f190ca1811f2d340c7aa1bf1822e6acaac89ffd8ea5c2f731efd3e10e4a", //Contrasena: 20180193
+                RolId = 1
                
             });
             modelBuilder.Entity<Usuarios>().HasData(new Usuarios
@@ -39,16 +47,18 @@ namespace ARS_System.DAL
                 UsuarioId = 2,
                 Nombres = "Nachely Sanchez",
                 Username = "NachelyS",
-                Contrasena = "c25a957fe06e03fbbc5b8f9635c1addd4e1c62a2a7d6d1286faae96e603e9a15" //Contrasena: 20190734
-              
+                Contrasena = "c25a957fe06e03fbbc5b8f9635c1addd4e1c62a2a7d6d1286faae96e603e9a15", //Contrasena: 20190734
+                RolId = 1
+
             });
             modelBuilder.Entity<Usuarios>().HasData(new Usuarios
             {
                 UsuarioId = 3,
                 Nombres = "Vismar Lora",
                 Username = "VismarL",
-                Contrasena = "613ba1ddd8c16ecb4f619506e8d88e25c94b98d33b4c9a23d67910bcb0161a6d" //Contrasena: 20190425
-               
+                Contrasena = "613ba1ddd8c16ecb4f619506e8d88e25c94b98d33b4c9a23d67910bcb0161a6d", //Contrasena: 20190425
+                RolId = 1
+
             });
 
 
