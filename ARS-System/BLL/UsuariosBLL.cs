@@ -32,6 +32,17 @@ namespace ARS_System.BLL
             }
             return encontrado;
         }
+        public static bool Guardar(Usuarios usuarios)
+        {
+            if (!Existe(usuarios.UsuarioId))
+            {
+                return Insertar(usuarios);
+            }
+            else
+            {
+                return Modificar(usuarios);
+            }
+        }
         public static bool Insertar(Usuarios usuarios)
         {
 
