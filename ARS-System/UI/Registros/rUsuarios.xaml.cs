@@ -26,6 +26,14 @@ namespace ARS_System.UI.Registros
         {
             InitializeComponent();
             this.DataContext = usuarios;
+
+            RolComboBox.ItemsSource = RolesBLL.GetRoles();
+            RolComboBox.SelectedValuePath = "RolId";
+            RolComboBox.DisplayMemberPath = "Nombre";
+
+            PermisoComboBox.ItemsSource = PermisosBLL.GetPermisos();
+            PermisoComboBox.SelectedValuePath = "PermisoId";
+            PermisoComboBox.DisplayMemberPath = "Nombre";
         }
 
         private void Limpiar()
@@ -61,6 +69,28 @@ namespace ARS_System.UI.Registros
             }
 
             return esValido;
+        }
+        private void Actualizar()
+        {
+            this.DataContext = null;
+            this.DataContext = usuarios;
+        }
+
+        private void AgregarButton_Click(object sender, RoutedEventArgs e)
+        {
+            usuarios.DetalleUsuario.Add(new UsuariosDetalle(Utilidades.ToInt(UsuarioIdTextBox.Text), (int)PermisoComboBox.SelectedValue,
+                ObservacionTextBox.Text, (Permisos)PermisoComboBox.SelectedItem));
+
+        
+            Actualizar();
+        }
+        private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
+            {
+                usuarios.DetalleUsuario.RemoveAt(DetalleDataGrid.SelectedIndex);
+                Actualizar();
+            }
         }
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
