@@ -48,7 +48,8 @@ namespace ARS_System
 
         private void rDoctoresMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rDoctores doctores = new rDoctores();
+            doctores.Show();
         }
 
         private void rEspecialidadesMenuItem_Click(object sender, RoutedEventArgs e)
@@ -108,7 +109,8 @@ namespace ARS_System
 
         private void cDoctoresMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cDoctores doctores = new cDoctores();
+            doctores.Show();
         }
 
         private void cEspecialidadesMenuItem_Click(object sender, RoutedEventArgs e)
