@@ -85,18 +85,11 @@ namespace ARS_System.BLL
                      .SingleOrDefault();
 
 
-                foreach (var detalle in usuarioAnterior.DetalleUsuario)
-                {
-                    contexto.Entry(detalle.Permisos).State = EntityState.Modified;
-
-                }
 
                 contexto.Database.ExecuteSqlRaw($"Delete FROM DetalleUsuario Where UsuarioId={usuarios.UsuarioId}");
 
                 foreach (var item in usuarios.DetalleUsuario)
                 {
-                    contexto.Entry(item.Permisos).State = EntityState.Modified;
-
                     contexto.Entry(item).State = EntityState.Added;
                 }
 
