@@ -18,6 +18,7 @@ namespace ARS_System.DAL
         public DbSet<Permisos> Permisos { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Prestadores> Prestadores { get; set; }
+        public DbSet<Diagnosticos> Diagnosticos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -144,6 +145,13 @@ namespace ARS_System.DAL
                 CiudadId = 1,
                 Nombres = "San Francisco de Macoris",
                 ProvinciaId = 1
+            });
+
+            //Diagnosticos
+            modelBuilder.Entity<Diagnosticos>().HasData(new Diagnosticos
+            {
+                DiagnosticoId = 1,
+                Nombres = "Anemia"
             });
         }
     }
