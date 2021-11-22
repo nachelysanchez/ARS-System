@@ -5,8 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         mc:Ignorable="d"
-        Title="rDiagnosticos" Height="450" Width="800">
+        Icon="/Resources/Registros.ico"
+        Title="Registro de Diagnósticos" Height="250" Width="400">
     <Grid>
-        
+        <StackPanel>
+            <StackPanel Margin="10" HorizontalAlignment="Left">
+                <Label Content="Diagnóstico Id"/>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBox x:Name="DiagnosticoIdTextBox" Text="{Binding DiagnosticoId}" Width="100" Margin="5"/>
+                    <Button x:Name="BuscarButton" Height="30">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Buscar"/>
+                            <Image Source="/Resources/icons8-google-web-search-24.png" Width="30"/>
+                        </StackPanel>
+
+                    </Button>
+                </StackPanel>
+
+                <StackPanel>
+                    <Label Content="Nombre del Diagnóstico"/>
+                    <TextBox x:Name="NombreDiagnosticoTextBox" Text="{Binding Nombres}" Margin="5" Width="350"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,15" HorizontalAlignment="Center">
+                <Button x:Name="NuevoButton" Margin="5,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Nuevo" />
+                        <Image Source="/Resources/nuevo.png" Width="30"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="GuardarButton"   Margin="5,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Guardar" />
+                        <Image Source="/Resources/icons8-guardar-48.png" Width="30"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="EliminarButton"  Margin="5,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Eliminar" />
+                        <Image Source="/Resources/icons8-eliminar-16.png" Width="30"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
