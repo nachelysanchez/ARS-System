@@ -16,11 +16,10 @@
                     <MenuItem x:Name="rCiudadesMenuItem" Header="Registro de Ciudades" Click="rCiudadesMenuItem_Click"/>
                     <MenuItem x:Name="rDoctoresMenuItem" Header="Registro de Doctores" Click="rDoctoresMenuItem_Click"/>
                     <MenuItem x:Name="rEspecialidadesMenuItem" Header="Registro de Especialidades" Click="rEspecialidadesMenuItem_Click"/>
-                    <MenuItem x:Name="rAfiliadosMenuItem" Header="Registro de Afiliado" Click="rAfiliadosMenuItem_Click"/>
+                    <MenuItem x:Name="rAfiliadosMenuItem" Header="Registro de Afiliados" Click="rAfiliadosMenuItem_Click"/>
                     <MenuItem x:Name="rPermisosMenuItem" Header="Registro de Permisos" Click="rPermisosMenuItem_Click"/>
                     <MenuItem x:Name="rAseguradorasMenuItem" Header="Registro de Aseguradoras" Click="rAseguradorasMenuItem_Click"/>
                     <MenuItem x:Name="rDiagnosticosMenuItem" Header="Registro de Diagnosticos" Click="rDiagnosticosMenuItem_Click"/>
-                    <MenuItem x:Name="rServiciosMenuItem" Header="Registro de Servicios" Click="rServiciosMenuItem_Click"/>
                     <MenuItem x:Name="rReclamacionesMenuItem" Header="Registro de Reclamaciones" Click="rReclamacionesMenuItem_Click"/>
                 </MenuItem>
                 <MenuItem Header="Consultas">
