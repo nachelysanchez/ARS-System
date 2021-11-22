@@ -135,6 +135,14 @@ namespace ARS_System.DAL
                 RNC = "A1053736146",
                 Direccion = "C/ Salcedo Esq. San Francisco"
             });
+
+            //Ciudades
+            modelBuilder.Entity<Ciudades>().HasData(new Ciudades
+            {
+                CiudadId = 1,
+                Nombres = "San Francisco de Macoris",
+                ProvinciaId = 1
+            });
         }
     }
 }
