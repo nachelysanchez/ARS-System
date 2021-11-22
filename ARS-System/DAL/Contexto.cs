@@ -17,6 +17,7 @@ namespace ARS_System.DAL
         public DbSet<Ocupaciones> Ocupaciones { get; set; }
         public DbSet<Permisos> Permisos { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<Prestadores> Prestadores { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -124,6 +125,15 @@ namespace ARS_System.DAL
             {
                 OcupacionesId = 5,
                 Nombre = "Chofer"
+            });
+
+            //Prestadores
+            modelBuilder.Entity<Prestadores>().HasData(new Prestadores
+            {
+                PrestadorId = 1,
+                Nombres = "Centro Médico Nacional, San Francisco",
+                RNC = "A1053736146",
+                Direccion = "C/ Salcedo Esq. San Francisco"
             });
         }
     }
