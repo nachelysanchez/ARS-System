@@ -95,10 +95,10 @@ namespace ARS_System.UI.Registros
         }
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            var estudiante = UsuariosBLL.Buscar(Utilidades.ToInt(UsuarioIdTextBox.Text));
+            var usuario = UsuariosBLL.Buscar(Utilidades.ToInt(UsuarioIdTextBox.Text));
 
             if (usuarios != null)
-                this.usuarios = estudiante;
+                this.usuarios = usuario;
             else
                 Limpiar();
 
