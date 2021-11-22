@@ -17,7 +17,7 @@ namespace ARS_System.Entidades
         public string Observacion { get; set; }
 
         [ForeignKey("PermisoId")]
-        public virtual Permisos Permisos { get; set; }
+        public Permisos Permisos { get; set; }
 
         public UsuariosDetalle()
         {
