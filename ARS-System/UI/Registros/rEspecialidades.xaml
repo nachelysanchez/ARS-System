@@ -24,7 +24,7 @@
 
                 <StackPanel>
                     <Label Content="Nombre de la Especialidad"/>
-                    <TextBox x:Name="NombreEspecialidadTextBox" Text="{Binding NombreEspecialidad}" Margin="5" Width="350"/>
+                    <TextBox x:Name="NombreEspecialidadTextBox" Text="{Binding Nombres}" Margin="5" Width="350"/>
                 </StackPanel>
 
             </StackPanel>
