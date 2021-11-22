@@ -13,7 +13,7 @@
                 <Label Content="Diagnóstico Id"/>
                 <StackPanel Orientation="Horizontal" >
                     <TextBox x:Name="DiagnosticoIdTextBox" Text="{Binding DiagnosticoId}" Width="100" Margin="5"/>
-                    <Button x:Name="BuscarButton" Height="30">
+                    <Button x:Name="BuscarButton" Height="30" Click="BuscarButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Buscar"/>
                             <Image Source="/Resources/icons8-google-web-search-24.png" Width="30"/>
@@ -30,19 +30,19 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,15" HorizontalAlignment="Center">
-                <Button x:Name="NuevoButton" Margin="5,0">
+                <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Nuevo" />
                         <Image Source="/Resources/nuevo.png" Width="30"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="GuardarButton"   Margin="5,0">
+                <Button x:Name="GuardarButton" Margin="5,0" Click="GuardarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Guardar" />
                         <Image Source="/Resources/icons8-guardar-48.png" Width="30"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="EliminarButton"  Margin="5,0">
+                <Button x:Name="EliminarButton" Margin="5,0" Click="EliminarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Eliminar" />
                         <Image Source="/Resources/icons8-eliminar-16.png" Width="30"/>
