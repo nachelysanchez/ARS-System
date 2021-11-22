@@ -19,7 +19,7 @@ namespace ARS_System.DAL
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Prestadores> Prestadores { get; set; }
         public DbSet<Diagnosticos> Diagnosticos { get; set; }
-
+        public DbSet<Doctores> Doctores { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite(@"Data Source = DATA/ARS-System.db");
@@ -152,6 +152,18 @@ namespace ARS_System.DAL
             {
                 DiagnosticoId = 1,
                 Nombres = "Anemia"
+            });
+
+            //Doctores
+            modelBuilder.Entity<Doctores>().HasData(new Doctores
+            {
+                DoctorId = 1,
+                Nombres = "Frank Felix Ventura",
+                Celular = "829-213-9632",
+                Telefono = "809-555-6589",
+                Direccion = "C/ 27 de Febrero",
+                CiudadId = 1,
+                Exequatur = "123-45"
             });
         }
     }
