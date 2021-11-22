@@ -180,7 +180,7 @@ namespace ARS_System.BLL
 
             try
             {
-                encontrado = contexto.Especialidades.Any(e => e.NombreEspecialidad == nombre);
+                encontrado = contexto.Especialidades.Any(e => e.Nombres == nombre);
             }
             catch (Exception)
             {
