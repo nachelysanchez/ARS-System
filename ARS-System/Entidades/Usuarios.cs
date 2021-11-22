@@ -18,7 +18,7 @@ namespace ARS_System.Entidades
         public int RolId { get; set; }
 
         [ForeignKey("RolId")]
-        public virtual Roles Roles { get; set; }
+        public Roles Roles { get; set; }
 
         [ForeignKey("UsuarioId")]
         public virtual List<UsuariosDetalle> DetalleUsuario { get; set; } = new List<UsuariosDetalle>();
