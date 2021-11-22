@@ -61,11 +61,11 @@ namespace ARS_System.DAL
 
             });
 
-
+            //Especialidad
             modelBuilder.Entity<Especialidades>().HasData(new Especialidades
             {
                 EspecialidadId = 1,
-                NombreEspecialidad = "Pediatría"
+                Nombres = "Pediatría"
             });
 
             //Provincias
