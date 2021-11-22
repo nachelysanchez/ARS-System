@@ -77,15 +77,7 @@ namespace ARS_System.BLL
 
             try
             {
-                var usuarioAnterior = contexto.Usuarios
-                     .Where(x => x.UsuarioId == usuarios.UsuarioId)
-                     .Include(x => x.DetalleUsuario)
-                     .ThenInclude(x => x.Permisos)
-                     .AsNoTracking()
-                     .SingleOrDefault();
-
-
-
+               
                 contexto.Database.ExecuteSqlRaw($"Delete FROM DetalleUsuario Where UsuarioId={usuarios.UsuarioId}");
 
                 foreach (var item in usuarios.DetalleUsuario)
