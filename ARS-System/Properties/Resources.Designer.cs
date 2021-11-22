@@ -149,5 +149,15 @@ namespace ARS_System.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] vcsremoved_93492__1_ {
+            get {
+                object obj = ResourceManager.GetObject("vcsremoved_93492__1_", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

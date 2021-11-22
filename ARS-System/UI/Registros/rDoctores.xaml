@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         mc:Ignorable="d"
-        Title="rDoctores" Height="700" Width="800">
+        Title="Registro de Doctores" Height="700" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
 
