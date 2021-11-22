@@ -61,9 +61,8 @@
 
                             <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding DetalleUsuario}" Height="80" AutoGenerateColumns="False" >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Id" Binding="{Binding GrupoId}" Visibility="Hidden" />
-                                    <DataGridTextColumn Header="Usuario Id" Binding="{Binding UsuarioId}"/>
-                                    <DataGridTextColumn Header="Permisos" Binding="{Binding Permisos.Nombre}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Usuario Id" Binding="{Binding UsuarioId}"  Visibility="Hidden"/>
+                                    <DataGridTextColumn Header="Permisos" Binding="{Binding Permisos.Nombre}" />
                                     <DataGridTextColumn Header="Observacion" Binding="{Binding Observacion}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
