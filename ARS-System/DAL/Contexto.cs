@@ -133,7 +133,9 @@ namespace ARS_System.DAL
                 PrestadorId = 1,
                 Nombres = "Centro Médico Nacional, San Francisco",
                 RNC = "A1053736146",
-                Direccion = "C/ Salcedo Esq. San Francisco"
+                Direccion = "C/ Salcedo Esq. San Francisco",
+                CiudadId = 1,
+                Telefono = "809-588-3414"
             });
 
             //Ciudades
