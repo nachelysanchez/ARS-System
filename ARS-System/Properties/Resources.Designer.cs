@@ -63,6 +63,16 @@ namespace ARS_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] add_icon_icons_com_74429__2_ {
+            get {
+                object obj = ResourceManager.GetObject("add_icon_icons_com_74429__2_", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Consultas {
             get {
                 object obj = ResourceManager.GetObject("Consultas", resourceCulture);

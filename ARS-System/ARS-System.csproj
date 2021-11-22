@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\add_icon-icons.com_74429 %282%29.png" />
     <None Remove="Resources\Consultas.ico" />
     <None Remove="Resources\icons8-eliminar-16.png" />
     <None Remove="Resources\icons8-google-web-search-24.png" />
@@ -16,9 +17,13 @@
     <None Remove="Resources\nuevo.png" />
     <None Remove="Resources\Registros.ico" />
     <None Remove="Resources\seguro-medico icono.ico" />
+    <None Remove="Resources\vcsremoved_93492 %281%29.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources\add_icon-icons.com_74429 (2).png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Consultas.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -42,6 +47,9 @@
     </Content>
     <Content Include="Resources\seguro-medico icono.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\vcsremoved_93492 (1).png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 

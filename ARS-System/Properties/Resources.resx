@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="add_icon_icons_com_74429__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_icon-icons.com_74429 (2).png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Consultas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Consultas.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -141,5 +144,8 @@
   </data>
   <data name="seguro_medico_icono" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\seguro-medico icono.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="vcsremoved_93492__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vcsremoved_93492 (1).png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
