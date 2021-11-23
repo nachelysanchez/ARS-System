@@ -181,23 +181,23 @@ namespace ARS_System.DAL
             });
 
             //Afiliados
-            modelBuilder.Entity<Afiliados>().HasData(new Afiliados
-            {
-                AfiliadoId = 1,
-                Nombres = "Juan Perez",
-                FechaNacimiento = ,
-                Cedula = "056-9150738-2",
-                SexoId = 2,
-                NSS = 256963,
-                Telefono = "809-999-8596",
-                Celular = "809-753-9963",
-                Email = "jperez@gmail.com",
-                Direccion = "C/ Rivas, #5",
-                CiudadId = 1,
-                ValorReclamado = 0,
-                AseguradoraId = 1,
-                OcupacionId = 1
-            });
+            //modelBuilder.Entity<Afiliados>().HasData(new Afiliados
+            //{
+            //    AfiliadoId = 1,
+            //    Nombres = "Juan Perez",
+            //    FechaNacimiento = ,
+            //    Cedula = "056-9150738-2",
+            //    SexoId = 2,
+            //    NSS = 256963,
+            //    Telefono = "809-999-8596",
+            //    Celular = "809-753-9963",
+            //    Email = "jperez@gmail.com",
+            //    Direccion = "C/ Rivas, #5",
+            //    CiudadId = 1,
+            //    ValorReclamado = 0,
+            //    AseguradoraId = 1,
+            //    OcupacionId = 1
+            //});
         }
     }
 }
