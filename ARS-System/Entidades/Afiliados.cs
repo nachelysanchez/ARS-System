@@ -15,7 +15,7 @@ namespace ARS_System.Entidades
         public string Nombres { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string Cedula { get; set; }
-        //public char Sexo { get; set; }
+        public int SexoId { get; set; }
         public int NSS { get; set; }
         public string Telefono { get; set; }
         public string Celular { get; set; }
@@ -31,5 +31,8 @@ namespace ARS_System.Entidades
 
         [ForeignKey("OcupacionId")]
         public Ocupaciones Ocupacion { get; set; }
+
+        [ForeignKey("SexoId")]
+        public Sexos Sexo { get; set; }
     }
 }
