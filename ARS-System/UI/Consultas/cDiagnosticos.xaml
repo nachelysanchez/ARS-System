@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Consultas"
         mc:Ignorable="d"
-        Title="cDiagnosticos" Height="450" Width="800">
+        Title="Consulta de Diagnósticos" Height="350" Width="450">
     <Grid>
-        
+        <StackPanel Orientation="Vertical" Margin="10,5,10,0">
+            <StackPanel Orientation="Horizontal" Height="58">
+                <StackPanel Margin="5,0">
+                    <Label x:Name="FiltroLabel" Content="Filtro:"/>
+                    <ComboBox x:Name="FiltroComboBox" Width="100" Height="25">
+                        <ComboBoxItem x:Name="ListadoComboBoxItem" Content="Listado"/>
+                        <ComboBoxItem x:Name="DiagnosticoIdComboBoxItem" Content="Diagnóstico Id"/>
+                        <ComboBoxItem x:Name="NombreDiagnosticoComboBoxItem" Content="Nombre de Diagnóstico"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <Label Content="Criterio"/>
+                        <TextBox x:Name="CriterioTextBox" Height="20" Width="120" Margin="0,5,10,0"/>
+                    </StackPanel>
+
+                    <Button x:Name="BuscarButton" Height="28" Width="85" Margin="0,20,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Buscar"/>
+                            <Image Source="/Resources/icons8-google-web-search-24.png" Width="30"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Left">
+
+                <DataGrid x:Name="DatosDataGrid" Height="240" Width="400" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Diagnóstico Id" Binding="{Binding DiagnosticoId}"/>
+                        <DataGridTextColumn Header="Nombre del Diagnóstico" Binding="{Binding Nombres}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
