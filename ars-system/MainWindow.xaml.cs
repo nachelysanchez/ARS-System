@@ -76,12 +76,8 @@ namespace ARS_System
 
         private void rDiagnosticosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void rServiciosMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
+            rDiagnosticos rdiagnostico = new rDiagnosticos();
+            rdiagnostico.Show();
         }
 
         private void rReclamacionesMenuItem_Click(object sender, RoutedEventArgs e)
@@ -141,7 +137,8 @@ namespace ARS_System
 
         private void cDiagnosticosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cDiagnosticos cdiagnostico = new cDiagnosticos();
+            cdiagnostico.Show();
         }
 
         private void cServiciosMenuItem_Click(object sender, RoutedEventArgs e)
@@ -156,9 +153,14 @@ namespace ARS_System
 
         private void cProvincias_Click_1(object sender, RoutedEventArgs e)
         {
-
+            cProvincias cProvincias = new cProvincias();
+            cProvincias.Show();
         }
 
-       
+        private void cPrestadoresMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cPrestadores cprestador = new cPrestadores();
+            cprestador.Show();
+        }
     }
 }
