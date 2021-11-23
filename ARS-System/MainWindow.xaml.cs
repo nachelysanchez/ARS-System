@@ -76,7 +76,8 @@ namespace ARS_System
 
         private void rDiagnosticosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rDiagnosticos rdiagnostico = new rDiagnosticos();
+            rdiagnostico.Show();
         }
 
         private void rReclamacionesMenuItem_Click(object sender, RoutedEventArgs e)
