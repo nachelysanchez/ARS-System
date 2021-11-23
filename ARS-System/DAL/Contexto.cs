@@ -22,6 +22,7 @@ namespace ARS_System.DAL
         public DbSet<Doctores> Doctores { get; set; }
         public DbSet<Sexos> Sexos { get; set; }
         public DbSet<Afiliados> Afiliados { get; set; }
+        public DbSet<Servicios> Servicios { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite(@"Data Source = DATA/ARS-System.db");
@@ -200,7 +201,18 @@ namespace ARS_System.DAL
             //});
 
 
-            //
+            //Servicios
+
+            modelBuilder.Entity<Servicios>().HasData(new Servicios
+            {
+                ServicioId = 1,
+                Descripcion = "Consulta"
+            });
+            modelBuilder.Entity<Servicios>().HasData(new Servicios
+            {
+                ServicioId = 2,
+                Descripcion = "Emergencia"
+            });
         }
     }
 }
