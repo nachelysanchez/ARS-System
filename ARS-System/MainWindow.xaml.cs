@@ -79,11 +79,6 @@ namespace ARS_System
 
         }
 
-        private void rServiciosMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void rReclamacionesMenuItem_Click(object sender, RoutedEventArgs e)
         {
 
