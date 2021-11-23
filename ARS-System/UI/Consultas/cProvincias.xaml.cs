@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ARS_System.BLL;
+using ARS_System.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +28,30 @@ namespace ARS_System.UI.Consultas
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
+            var listado = new List<Provincias>();
 
+            if (CriterioTextBox.Text.Trim().Length > 0)
+            {
+                switch (FiltroComboBox.SelectedIndex)
+                {
+                    case 0: //Listado
+                        listado = ProvinciasBLL.GetProvincias();
+                        break;
+                    case 1: //Id
+                        listado = ProvinciasBLL.GetList(e => e.ProvinciaId == Utilidades.ToInt(CriterioTextBox.Text));
+                        break;
+                    case 2: //Nombre
+                        listado = ProvinciasBLL.GetList(e => e.Nombres.Contains(CriterioTextBox.Text.ToLower()));
+                        break;
+                }
+            }
+            else
+            {
+                listado = ProvinciasBLL.GetList(e => true);
+            }
+
+            DatosDataGrid.ItemsSource = null;
+            DatosDataGrid.ItemsSource = listado;
         }
     }
 }
