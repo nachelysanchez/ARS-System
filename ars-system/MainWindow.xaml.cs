@@ -136,7 +136,8 @@ namespace ARS_System
 
         private void cDiagnosticosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cDiagnosticos cdiagnostico = new cDiagnosticos();
+            cdiagnostico.Show();
         }
 
         private void cServiciosMenuItem_Click(object sender, RoutedEventArgs e)
