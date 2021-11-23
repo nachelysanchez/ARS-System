@@ -155,6 +155,10 @@ namespace ARS_System
 
         }
 
-       
+        private void cPrestadoresMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cPrestadores cprestador = new cPrestadores();
+            cprestador.Show();
+        }
     }
 }
