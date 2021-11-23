@@ -153,7 +153,8 @@ namespace ARS_System
 
         private void cProvincias_Click_1(object sender, RoutedEventArgs e)
         {
-
+            cProvincias cProvincias = new cProvincias();
+            cProvincias.Show();
         }
 
         private void cPrestadoresMenuItem_Click(object sender, RoutedEventArgs e)
