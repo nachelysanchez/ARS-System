@@ -20,6 +20,8 @@ namespace ARS_System.DAL
         public DbSet<Prestadores> Prestadores { get; set; }
         public DbSet<Diagnosticos> Diagnosticos { get; set; }
         public DbSet<Doctores> Doctores { get; set; }
+        public DbSet<Sexos> Sexos { get; set; }
+        public DbSet<Afiliados> Afiliados { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite(@"Data Source = DATA/ARS-System.db");
@@ -164,6 +166,37 @@ namespace ARS_System.DAL
                 Direccion = "C/ 27 de Febrero",
                 CiudadId = 1,
                 Exequatur = "123-45"
+            });
+
+            //Sexos
+            modelBuilder.Entity<Sexos>().HasData(new Sexos
+            {
+                SexoId = 1,
+                Nombres = "Femenino"
+            });
+            modelBuilder.Entity<Sexos>().HasData(new Sexos
+            {
+                SexoId = 2,
+                Nombres = "Masculino"
+            });
+
+            //Afiliados
+            modelBuilder.Entity<Afiliados>().HasData(new Afiliados
+            {
+                AfiliadoId = 1,
+                Nombres = "Juan Perez",
+                FechaNacimiento = ,
+                Cedula = "056-9150738-2",
+                SexoId = 2,
+                NSS = 256963,
+                Telefono = "809-999-8596",
+                Celular = "809-753-9963",
+                Email = "jperez@gmail.com",
+                Direccion = "C/ Rivas, #5",
+                CiudadId = 1,
+                ValorReclamado = 0,
+                AseguradoraId = 1,
+                OcupacionId = 1
             });
         }
     }
