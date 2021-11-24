@@ -133,7 +133,8 @@ namespace ARS_System
 
         private void cAseguradorasMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cAseguradoras aseguradoras = new cAseguradoras();
+            aseguradoras.Show();
         }
 
         private void cDiagnosticosMenuItem_Click(object sender, RoutedEventArgs e)
