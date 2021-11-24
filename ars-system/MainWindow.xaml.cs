@@ -143,7 +143,8 @@ namespace ARS_System
 
         private void cServiciosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cServicios cServicios = new cServicios();
+            cServicios.Show();
         }
 
         private void cReclamacionesMenuItem_Click(object sender, RoutedEventArgs e)
