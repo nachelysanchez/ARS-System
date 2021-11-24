@@ -23,6 +23,7 @@ namespace ARS_System.DAL
         public DbSet<Sexos> Sexos { get; set; }
         public DbSet<Afiliados> Afiliados { get; set; }
         public DbSet<Servicios> Servicios { get; set; }
+        public DbSet<Aseguradoras> Aseguradoras { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite(@"Data Source = DATA/ARS-System.db");
@@ -164,7 +165,7 @@ namespace ARS_System.DAL
                 Nombres = "Frank Felix Ventura",
                 Celular = "829-213-9632",
                 Telefono = "809-555-6589",
-                Direccion = "C/ 27 de Febrero",
+                Direccion = "Calle 27 de Febrero",
                 CiudadId = 1,
                 Exequatur = "123-45"
             });
@@ -212,6 +213,18 @@ namespace ARS_System.DAL
             {
                 ServicioId = 2,
                 Descripcion = "Emergencia"
+            });
+
+            //Aseguradoras
+
+            modelBuilder.Entity<Aseguradoras>().HasData(new Aseguradoras
+            {
+                AseguradoraId = 1,
+                Nombres = "Humano",
+                RNC = "101506254",
+                Direccion = "Calle San Francisco",
+                CiudadId = 1,
+                Telefono = "809-555-9632"
             });
         }
     }
