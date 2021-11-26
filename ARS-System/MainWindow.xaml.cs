@@ -88,7 +88,8 @@ namespace ARS_System
 
         private void cUsuariosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cUsuarios usuarios = new cUsuarios();
+            usuarios.Show();
         }
 
         private void cRolesMenuItem_Click(object sender, RoutedEventArgs e)
