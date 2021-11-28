@@ -46,8 +46,8 @@ namespace ARS_System.UI.Registros
             SexoComboBox.DisplayMemberPath = "Nombres";
 
             OcupacionComboBox.ItemsSource = OcupacionesBLL.GetOcupaciones();
-            OcupacionComboBox.SelectedValuePath = "OcupacionId";
-            OcupacionComboBox.DisplayMemberPath = "Nombres";
+            OcupacionComboBox.SelectedValuePath = "OcupacionesId";
+            OcupacionComboBox.DisplayMemberPath = "Nombre";
 
             AseguradoraComboBox.ItemsSource = AseguradorasBLL.GetAseguradoras();
             AseguradoraComboBox.SelectedValuePath = "AseguradoraId";
@@ -68,10 +68,9 @@ namespace ARS_System.UI.Registros
             bool esValido = true;
 
             if (FechaDatePicker.Text.Length == 0 || NombresTextBox.Text.Length == 0 || CedulaTextBox.Text.Length == 0
-                || SexoComboBox.SelectedIndex < 0 || SexoTextBox.Text.Length == 0 || NSSTextBox.Text.Length == 0
+                || SexoComboBox.SelectedIndex < 0  || NSSTextBox.Text.Length == 0
                 || TelefonoTextBox.Text.Length == 0 || CelularTextBox.Text.Length == 0 || EmailTextBox.Text.Length == 0
-                || OcupacionComboBox.SelectedIndex < 0 || OcupacionTextBox.Text.Length == 0 || AseguradoraComboBox.SelectedIndex < 0
-                || AseguradoraTextBox.Text.Length == 0)
+                || OcupacionComboBox.SelectedIndex < 0 || AseguradoraComboBox.SelectedIndex < 0)
             {
                 esValido = false;
                 MessageBox.Show("Ha ocurrido un error, inserte el campo faltante", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -92,38 +91,7 @@ namespace ARS_System.UI.Registros
             }
             this.DataContext = this.afiliado;
         }
-        //SEXO
-        private void AgregarButton_Click(object sender, RoutedEventArgs e)
-        {
-            afiliado.Sexo.Nombres = SexoComboBox.SelectedValuePath;
-            SexoTextBox.Text = afiliado.Sexo.Nombres;
-        }
-        //CIUDAD
-        private void Agregar1Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (CiudadComboBox.SelectedIndex >= 0)
-            {
-                afiliado.Ciudad.Nombres = CiudadComboBox.SelectedValuePath;
-                CiudadTextBox.Text = afiliado.Ciudad.Nombres;
-            }
-            else
-            {
-                MessageBox.Show("Debe de elegir una opción de la lista desplegable de Ciudades");
-            }
-            
-        }
-        //OCUPACION
-        private void Agregar2Button_Click(object sender, RoutedEventArgs e)
-        {
-            afiliado.Ocupacion.Nombre = OcupacionComboBox.SelectedValuePath;
-            OcupacionTextBox.Text = afiliado.Ocupacion.Nombre;
-        }
-        //Aseguradora
-        private void Agregar3Button_Click(object sender, RoutedEventArgs e)
-        {
-            afiliado.Aseguradora.Nombres = AseguradoraComboBox.SelectedValuePath;
-            AseguradoraTextBox.Text = afiliado.Aseguradora.Nombres;
-        }
+        
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();

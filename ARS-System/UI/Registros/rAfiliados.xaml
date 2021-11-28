@@ -35,14 +35,7 @@
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="5">
                     <Label Content="Sexo"/>
-
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,9">
-                        <ComboBox x:Name="SexoComboBox" Width="150" Margin="5" SelectedValue="{Binding SexoId}"/>
-                        <Button x:Name="AgregarButton" Click="AgregarButton_Click">
-                            <Label Content="Agregar"/>
-                        </Button>
-                        <TextBox x:Name="SexoTextBox" Width="200" Margin="5" Text="{Binding Sexo.Nombres}" IsReadOnly="True"/>
-                    </StackPanel>
+                    <ComboBox x:Name="SexoComboBox" Width="350" Margin="5" SelectedValue="{Binding SexoId}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <Label Content="Número de Seguridad Social (NSS)"/>
@@ -52,7 +45,7 @@
                     <Label Content="Teléfono"/>
                     <TextBox x:Name="TelefonoTextBox" Width="170" Text="{Binding Telefono}"/>
                     <Label Content="Celular"/>
-                    <TextBox x:Name="CelularTextBox" Width="170" Text="{Binding Celulat}"/>
+                    <TextBox x:Name="CelularTextBox" Width="170" Text="{Binding Celular}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <Label Content="Email"/>
@@ -66,33 +59,15 @@
 
                 <StackPanel Margin="5" Orientation="Horizontal">
                     <Label Content="Ciudad"/>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,9">
-                        <ComboBox x:Name="CiudadComboBox" Width="150" Margin="5" SelectedValue="{Binding CiudadId}"/>
-                        <Button x:Name="Agregar1Button" Click="Agregar1Button_Click">
-                            <Label Content="Agregar"/>
-                        </Button>
-                        <TextBox x:Name="CiudadTextBox" Width="200" Margin="5" Text="{Binding Ciudad.Nombres}" IsReadOnly="True"/>
-                    </StackPanel>
+                    <ComboBox x:Name="CiudadComboBox" Width="350" Margin="5" SelectedValue="{Binding CiudadId}"/>
                 </StackPanel>
                 <StackPanel Margin="5" Orientation="Horizontal">
                     <Label Content="Ocupación"/>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,9">
-                        <ComboBox x:Name="OcupacionComboBox" Width="130" Margin="5" SelectedValue="{Binding OcupacionId}"/>
-                        <Button x:Name="Agregar2Button" Click="Agregar2Button_Click">
-                            <Label Content="Agregar"/>
-                        </Button>
-                        <TextBox x:Name="OcupacionTextBox" Width="200" Margin="5" Text="{Binding Ocupacion.Nombres}" IsReadOnly="True"/>
-                    </StackPanel>
+                    <ComboBox x:Name="OcupacionComboBox" Width="350" Margin="5" SelectedValue="{Binding OcupacionId}"/>
                 </StackPanel>
                 <StackPanel Margin="5" Orientation="Horizontal">
                     <Label Content="Aseguradora"/>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,9">
-                        <ComboBox x:Name="AseguradoraComboBox" Width="120" Margin="5" SelectedValue="{Binding AseguradoraId}"/>
-                        <Button x:Name="Agregar3Button" Click="Agregar3Button_Click">
-                            <Label Content="Agregar"/>
-                        </Button>
-                        <TextBox x:Name="AseguradoraTextBox" Width="200" Margin="5" Text="{Binding Aseguradora.Nombres}" IsReadOnly="True"/>
-                    </StackPanel>
+                    <ComboBox x:Name="AseguradoraComboBox" Width="350" Margin="5" SelectedValue="{Binding AseguradoraId}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <Label Content="Valor Reclamado"/>
