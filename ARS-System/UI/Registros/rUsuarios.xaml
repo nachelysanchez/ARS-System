@@ -17,6 +17,8 @@
                     <TextBox x:Name="UsuarioIdTextBox" Text="{Binding UsuarioId}" Width="100" Height="20" Margin="5,0,0,0"/>
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="28">
                         <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/icons8-google-web-search-24.png" />
+
                             <Label Content="Buscar"/>
                         </StackPanel>
                     </Button>
@@ -47,13 +49,19 @@
                             <Label Content="Observacion:"/>
                             <TextBox x:Name="ObservacionTextBox" Text="{Binding DetalleUsuario.Observacion}"/>
                             <StackPanel Orientation="Horizontal">
-                                <Button x:Name="AgregarFilaButton" Margin="10" Click="AgregarFilaButton_Click" Width="100">
+                                <Button x:Name="AgregarFilaButton" Margin="10" Click="AgregarFilaButton_Click" >
                                     <StackPanel Orientation="Horizontal">
+                                        <Image Source="/Resources/add_icon-icons.com_74429 (2).png" Height="20"/>
+
                                         <Label Content="Agregar fila"/>
+                                        
                                     </StackPanel>
                                 </Button>
-                                <Button x:Name="RemoverFilaButton" Margin="10" Click="RemoverFilaButton_Click" Width="100">
+                                <Button x:Name="RemoverFilaButton" Margin="10" Click="RemoverFilaButton_Click" >
                                     <StackPanel Orientation="Horizontal">
+                                        <Image Source="/Resources/vcsremoved_93492 (1).png" Height="22"/>
+
+
                                         <Label Content="Eliminar fila"/>
                                     </StackPanel>
                                 </Button>
@@ -77,19 +85,22 @@
             <StackPanel Orientation="Horizontal" Margin="0,5" HorizontalAlignment="Center" >
                 <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        
+                        <Image Source="/Resources/nuevo.png" Height="20"/>
+
                         <Label Content="Nuevo" />
                     </StackPanel>
                 </Button>
                 <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        
+                        <Image Source="/Resources/icons8-guardar-48.png" Height="20"/>
+
                         <Label Content="Guardar" />
                     </StackPanel>
                 </Button>
                 <Button x:Name="EliminarButton"  Margin="5,0" Click="EliminarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        
+                        <Image Source="/Resources/icons8-eliminar-16.png" />
+
                         <Label Content="Eliminar" />
                     </StackPanel>
                 </Button>
