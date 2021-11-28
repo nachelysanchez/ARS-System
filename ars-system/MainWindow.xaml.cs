@@ -120,7 +120,8 @@ namespace ARS_System
 
         private void cAfiliadosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cAfiliados cafiliados = new cAfiliados();
+            cafiliados.Show();
         }
         private void cPermisosMenuItem_Click(object sender, RoutedEventArgs e)
         {
