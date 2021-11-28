@@ -23,17 +23,6 @@ namespace ARS_System.UI.Consultas
         {
             InitializeComponent();
         }
-
-        private void BuscarButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BuscarButton_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void BuscarButton_Click_2(object sender, RoutedEventArgs e)
         {
 
