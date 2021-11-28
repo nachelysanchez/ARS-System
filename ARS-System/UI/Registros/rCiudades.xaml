@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Ciudades" Height="350" Width="400">
+        Title="Registro de Ciudades" Height="300" Width="400">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Vertical" Margin="20,20,20,0">
@@ -13,7 +13,9 @@
                 <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
                     <TextBox x:Name="CiudadIdTextBox" Width="120" Height="20" Text="{Binding CiudadId}"/>
                     <Button  x:Name="BuscarButton"  Margin="5,0,0,0" Height="28" Click="BuscarButton_Click" >
-                        <StackPanel >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/icons8-google-web-search-24.png" />
+
                             <Label Content="Buscar"/>
                         </StackPanel>
                     </Button>
@@ -25,22 +27,25 @@
                 <ComboBox x:Name="ProvinciaComboBox" Margin="5,0,0,0" SelectedValue="{Binding ProvinciaId}"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="20,20" >
+            <StackPanel Orientation="Horizontal" Margin="20,20" HorizontalAlignment="Center" >
                 <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        
+                        <Image Source="/Resources/nuevo.png" Height="24"/>
+
                         <Label Content="Nuevo" />
                     </StackPanel>
                 </Button>
                 <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        
+                        <Image Source="/Resources/icons8-guardar-48.png" Height="24" />
+
                         <Label Content="Guardar" />
                     </StackPanel>
                 </Button>
                 <Button x:Name="EliminarButton"  Margin="5,0" Click="EliminarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                       
+                        <Image Source="/Resources/icons8-eliminar-16.png" Height="24"/>
+
                         <Label Content="Eliminar" />
                     </StackPanel>
                 </Button>
