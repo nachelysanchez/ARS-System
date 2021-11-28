@@ -49,21 +49,21 @@
 
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" >
-                <DataGrid x:Name="DatosDataGrid" Height="240" Width="850" AutoGenerateColumns="False">
+                <DataGrid x:Name="DatosDataGrid"  Height="240" Width="850" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Afiliado Id" Binding="{Binding AfiliadoId}"/>
                         <DataGridTextColumn Header="Nombres" Binding="{Binding Nombres}"/>
                         <DataGridTextColumn Header="Fecha de Nacimiento" Binding="{Binding FechaNacimiento}"/>
                         <DataGridTextColumn Header="Cedula" Binding="{Binding Cedula}"/>
-                        <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo.Nombres}"/>
+                        <DataGridTextColumn Header="Sexo" Binding="{Binding SexoId}"/>
                         <DataGridTextColumn Header="NSS" Binding="{Binding NSS}"/>
                         <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}"/>
                         <DataGridTextColumn Header="Celular" Binding="{Binding Celular}"/>
                         <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
                         <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}"/>
-                        <DataGridTextColumn Header="Ciudad" Binding="{Binding Total}"/>
-                        <DataGridTextColumn Header="Aseguradora" Binding="{Binding Aseguradora.Nombres}"/>
-                        <DataGridTextColumn Header="Ocupación" Binding="{Binding Ocupacion.Nombre}"/>
+                        <DataGridTextColumn Header="Ciudad Id" Binding="{Binding CiudadId}"/>
+                        <DataGridTextColumn Header="Aseguradora Id" Binding="{Binding AseguradoraId}"/>
+                        <DataGridTextColumn Header="Ocupación Id " Binding="{Binding OcupacionId}"/>
                         <DataGridTextColumn Header="Valor Reclamado" Binding="{Binding ValorReclamado}"/>
                     </DataGrid.Columns>
                 </DataGrid>
