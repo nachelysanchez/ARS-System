@@ -16,5 +16,14 @@ namespace ARS_System.BLL
 
             return retorno;
         }
+
+        public static float ToFloat(string valor)
+        {
+            float retorno;
+            
+            float.TryParse(valor, out retorno);
+            
+            return retorno;
+        }
     }
 }
