@@ -1,0 +1,73 @@
+﻿<Window x:Class="ARS_System.UI.Consultas.cAfiliados"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARS_System.UI.Consultas"
+        mc:Ignorable="d"
+        Title="Consulta de Afiliados" Height="400" Width="900">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,5,10,0">
+
+            <StackPanel Orientation="Horizontal" Height="58">
+                <StackPanel>
+                    <Label Content="Fecha de Nacimiento"/>
+                    <DatePicker x:Name="FechaDatePicker"/>
+                </StackPanel>
+
+                <StackPanel Margin="5,0">
+                    <Label Content="Filtro:" />
+                    <ComboBox x:Name="FiltroComboBox" Width="100">
+                        <ComboBoxItem Content="Afiliado Id"/>
+                        <ComboBoxItem Content="Nombre"/>
+                        <ComboBoxItem Content="Cedula"/>
+                        <ComboBoxItem Content="Sexo"/>
+                        <ComboBoxItem Content="NSS"/>
+                        <ComboBoxItem Content="Teléfono"/>
+                        <ComboBoxItem Content="Celular"/>
+                        <ComboBoxItem Content="Email"/>
+                        <ComboBoxItem Content="Dirección"/>
+                        <ComboBoxItem Content="Ciudad"/>
+                        <ComboBoxItem Content="Aseguradora"/>
+                        <ComboBoxItem Content="Ocupación"/>
+                        <ComboBoxItem Content="Valor Reclamado"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Margin="5,0">
+                    <Label Content="Critero:"/>
+                    <TextBox x:Name="CriterioTextBox" Width="100"/>
+
+                </StackPanel>
+
+                <Button x:Name="BuscarButton" Height="34" Width="93" Click="BuscarButton_Click_2">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Resources/icons8-google-web-search-24.png" Width="35"/>
+                        <Label Content="Buscar" />
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" >
+                <DataGrid x:Name="DatosDataGrid" Height="240" Width="850" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Afiliado Id" Binding="{Binding ProyectoId}"/>
+                        <DataGridTextColumn Header="Nombres" Binding="{Binding Nombres}"/>
+                        <DataGridTextColumn Header="Fecha de Nacimiento" Binding="{Binding Fecha}"/>
+                        <DataGridTextColumn Header="Cedula" Binding="{Binding DescripcionProyecto}"/>
+                        <DataGridTextColumn Header="Sexo" Binding="{Binding Total}"/>
+                        <DataGridTextColumn Header="NSS" Binding="{Binding NSS}"/>
+                        <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}"/>
+                        <DataGridTextColumn Header="Celular" Binding="{Binding Celular}"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                        <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}"/>
+                        <DataGridTextColumn Header="Ciudad" Binding="{Binding Total}"/>
+                        <DataGridTextColumn Header="Aseguradora" Binding="{Binding NSS}"/>
+                        <DataGridTextColumn Header="Ocupación" Binding="{Binding Total}"/>
+                        <DataGridTextColumn Header="Valor Reclamado" Binding="{Binding NSS}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
