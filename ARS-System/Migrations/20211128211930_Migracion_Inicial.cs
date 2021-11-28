@@ -194,6 +194,12 @@ namespace ARS_System.Migrations
                 {
                     table.PrimaryKey("PK_Afiliados", x => x.AfiliadoId);
                     table.ForeignKey(
+                        name: "FK_Afiliados_Aseguradoras_AseguradoraId",
+                        column: x => x.AseguradoraId,
+                        principalTable: "Aseguradoras",
+                        principalColumn: "AseguradoraId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Afiliados_Ciudades_CiudadId",
                         column: x => x.CiudadId,
                         principalTable: "Ciudades",
@@ -430,6 +436,11 @@ namespace ARS_System.Migrations
                 values: new object[] { 3, "613ba1ddd8c16ecb4f619506e8d88e25c94b98d33b4c9a23d67910bcb0161a6d", "Vismar Lora", 1, "VismarL" });
 
             migrationBuilder.InsertData(
+                table: "Afiliados",
+                columns: new[] { "AfiliadoId", "AseguradoraId", "Cedula", "Celular", "CiudadId", "Direccion", "Email", "FechaNacimiento", "NSS", "Nombres", "OcupacionId", "SexoId", "Telefono", "ValorReclamado" },
+                values: new object[] { 1, 1, "056-9150738-2", "809-753-9963", 1, "C/ Rivas, #5", "jperez@gmail.com", new DateTime(1995, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 256963, "Juan Perez", 1, 2, "809-999-8596", 0f });
+
+            migrationBuilder.InsertData(
                 table: "Doctores",
                 columns: new[] { "DoctorId", "Celular", "CiudadId", "Direccion", "Exequatur", "Nombres", "Telefono" },
                 values: new object[] { 1, "829-213-9632", 1, "Calle 27 de Febrero", "123-45", "Frank Felix Ventura", "809-555-6589" });
@@ -438,6 +449,11 @@ namespace ARS_System.Migrations
                 table: "Prestadores",
                 columns: new[] { "PrestadorId", "CiudadId", "Direccion", "Nombres", "RNC", "Telefono" },
                 values: new object[] { 1, 1, "C/ Salcedo Esq. San Francisco", "Centro Médico Nacional, San Francisco", "A1053736146", "809-588-3414" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Afiliados_AseguradoraId",
+                table: "Afiliados",
+                column: "AseguradoraId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Afiliados_CiudadId",
@@ -501,9 +517,6 @@ namespace ARS_System.Migrations
                 name: "Afiliados");
 
             migrationBuilder.DropTable(
-                name: "Aseguradoras");
-
-            migrationBuilder.DropTable(
                 name: "Diagnosticos");
 
             migrationBuilder.DropTable(
@@ -517,6 +530,9 @@ namespace ARS_System.Migrations
 
             migrationBuilder.DropTable(
                 name: "UsuariosDetalle");
+
+            migrationBuilder.DropTable(
+                name: "Aseguradoras");
 
             migrationBuilder.DropTable(
                 name: "Ocupaciones");

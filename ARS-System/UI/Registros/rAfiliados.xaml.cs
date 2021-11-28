@@ -40,6 +40,22 @@ namespace ARS_System.UI.Registros
         {
             InitializeComponent();
             this.DataContext = afiliado;
+
+            SexoComboBox.ItemsSource = SexosBLL.GetSexos();
+            SexoComboBox.SelectedValuePath = "SexoId";
+            SexoComboBox.DisplayMemberPath = "Nombres";
+
+            OcupacionComboBox.ItemsSource = OcupacionesBLL.GetOcupaciones();
+            OcupacionComboBox.SelectedValuePath = "OcupacionId";
+            OcupacionComboBox.DisplayMemberPath = "Nombres";
+
+            AseguradoraComboBox.ItemsSource = AseguradorasBLL.GetAseguradoras();
+            AseguradoraComboBox.SelectedValuePath = "AseguradoraId";
+            AseguradoraComboBox.DisplayMemberPath = "Nombres";
+
+            CiudadComboBox.ItemsSource = CiudadesBLL.GetCiudades();
+            CiudadComboBox.SelectedValuePath = "CiudadId";
+            CiudadComboBox.DisplayMemberPath = "Nombres";
         }
         private void Limpiar()
         {

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ARS_System.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211124003700_Migracion_Inicial")]
+    [Migration("20211128211930_Migracion_Inicial")]
     partial class Migracion_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,6 +65,8 @@ namespace ARS_System.Migrations
 
                     b.HasKey("AfiliadoId");
 
+                    b.HasIndex("AseguradoraId");
+
                     b.HasIndex("CiudadId");
 
                     b.HasIndex("OcupacionId");
@@ -72,6 +74,25 @@ namespace ARS_System.Migrations
                     b.HasIndex("SexoId");
 
                     b.ToTable("Afiliados");
+
+                    b.HasData(
+                        new
+                        {
+                            AfiliadoId = 1,
+                            AseguradoraId = 1,
+                            Cedula = "056-9150738-2",
+                            Celular = "809-753-9963",
+                            CiudadId = 1,
+                            Direccion = "C/ Rivas, #5",
+                            Email = "jperez@gmail.com",
+                            FechaNacimiento = new DateTime(1995, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NSS = 256963,
+                            Nombres = "Juan Perez",
+                            OcupacionId = 1,
+                            SexoId = 2,
+                            Telefono = "809-999-8596",
+                            ValorReclamado = 0f
+                        });
                 });
 
             modelBuilder.Entity("ARS_System.Entidades.Aseguradoras", b =>
@@ -537,6 +558,12 @@ namespace ARS_System.Migrations
 
             modelBuilder.Entity("ARS_System.Entidades.Afiliados", b =>
                 {
+                    b.HasOne("ARS_System.Entidades.Aseguradoras", "Aseguradora")
+                        .WithMany()
+                        .HasForeignKey("AseguradoraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ARS_System.Entidades.Ciudades", "Ciudad")
                         .WithMany()
                         .HasForeignKey("CiudadId")
@@ -554,6 +581,8 @@ namespace ARS_System.Migrations
                         .HasForeignKey("SexoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Aseguradora");
 
                     b.Navigation("Ciudad");
 
