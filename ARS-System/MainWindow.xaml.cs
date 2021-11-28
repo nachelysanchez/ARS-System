@@ -166,5 +166,11 @@ namespace ARS_System
             cPrestadores cprestador = new cPrestadores();
             cprestador.Show();
         }
+
+        private void cSexosMenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            cSexos csexos = new cSexos();
+            csexos.Show();
+        }
     }
 }
