@@ -1,0 +1,127 @@
+﻿<Window x:Class="ARS_System.UI.Registros.rAfiliados"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARS_System.UI.Registros"
+        mc:Ignorable="d"
+        Icon="/Resources/Registros.ico"
+        Title="Registros de Afiliados" Height="620" Width="500">
+    <Grid>
+        <StackPanel>
+            <StackPanel Margin="10">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,9">
+                    <Label Content="Afiliado Id"/>
+                    <TextBox x:Name="IdTextBox" Text="{Binding AfiliadoId}" Width="100" Margin="5"/>
+                    <Button x:Name="BuscarButton" Height="30" Click="BuscarButton_Click_1">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/icons8-google-web-search-24.png" />
+                            <Label Content="Buscar"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
+                    <Label Content="Nombre Completo"/>
+                    <TextBox x:Name="NombresTextBox" Text="{Binding Nombres}" Width="340" Margin="20,0,0,0"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="5">
+                    <Label Content="Fecha de Nacimiento"/>
+                    <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding FechaNacimiento}" Width="150" Margin="20,0,0,0"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Margin="5" Orientation="Horizontal">
+                    <Label Content="Cédula"/>
+                    <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula}" Width="250" Margin="20,0,0,0"/>
+                    
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="5">
+                    <Label Content="Sexo"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,9">
+                        <ComboBox x:Name="SexoComboBox" Width="150" Margin="5" SelectedValue="{Binding SexoId}"/>
+                        <Button x:Name="AgregarButton" Click="AgregarButton_Click">
+                            <Label Content="Agregar"/>
+                        </Button>
+                        <TextBox x:Name="SexoTextBox" Width="200" Margin="5" Text="{Binding Sexo.Nombres}" IsReadOnly="True"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="Número de Seguridad Social (NSS)"/>
+                    <TextBox x:Name="NSSTextBox" Text="{Binding NSS}" Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="Teléfono"/>
+                    <TextBox x:Name="TelefonoTextBox" Width="170" Text="{Binding Telefono}"/>
+                    <Label Content="Celular"/>
+                    <TextBox x:Name="CelularTextBox" Width="170" Text="{Binding Celulat}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="Email"/>
+                    <TextBox x:Name="EmailTextBox" Width="430" Text="{Binding Email}"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="Dirección"/>
+                    <TextBox x:Name="DireccionTextBox" Width="395" Text="{Binding Direccion}"/>
+                </StackPanel>
+
+                <StackPanel Margin="5" Orientation="Horizontal">
+                    <Label Content="Ciudad"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,9">
+                        <ComboBox x:Name="CiudadComboBox" Width="150" Margin="5" SelectedValue="{Binding CiudadId}"/>
+                        <Button x:Name="Agregar1Button" Click="Agregar1Button_Click">
+                            <Label Content="Agregar"/>
+                        </Button>
+                        <TextBox x:Name="CiudadTextBox" Width="200" Margin="5" Text="{Binding Ciudad.Nombres}" IsReadOnly="True"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="5" Orientation="Horizontal">
+                    <Label Content="Ocupación"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,9">
+                        <ComboBox x:Name="OcupacionComboBox" Width="130" Margin="5" SelectedValue="{Binding OcupacionId}"/>
+                        <Button x:Name="Agregar2Button" Click="Agregar2Button_Click">
+                            <Label Content="Agregar"/>
+                        </Button>
+                        <TextBox x:Name="OcupacionTextBox" Width="200" Margin="5" Text="{Binding Ocupacion.Nombres}" IsReadOnly="True"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="5" Orientation="Horizontal">
+                    <Label Content="Aseguradora"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,9">
+                        <ComboBox x:Name="AseguradoraComboBox" Width="120" Margin="5" SelectedValue="{Binding AseguradoraId}"/>
+                        <Button x:Name="Agregar3Button">
+                            <Label Content="Agregar"/>
+                        </Button>
+                        <TextBox x:Name="AseguradoraTextBox" Width="200" Margin="5" Text="{Binding Aseguradora.Nombres}" IsReadOnly="True"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="Valor Reclamado"/>
+                    <TextBox x:Name="ValorTextBox" Text="{Binding ValorReclamado}" Width="370" IsReadOnly="True"/>
+                </StackPanel>
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="NuevoButton" Margin="0,0" Click="NuevoButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/nuevo.png" Width="30"/>
+                        <Label Content="Nuevo" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="GuardarButton" Margin="10,0" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-guardar-48.png" Width="35"/>
+                        <Label Content="Guardar" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="EliminarButton" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-eliminar-16.png" Width="35"/>
+                        <Label Content="Eliminar" />
+                    </StackPanel>
+                </Button>
+
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
