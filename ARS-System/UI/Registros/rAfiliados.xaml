@@ -88,7 +88,7 @@
                     <Label Content="Aseguradora"/>
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,9">
                         <ComboBox x:Name="AseguradoraComboBox" Width="120" Margin="5" SelectedValue="{Binding AseguradoraId}"/>
-                        <Button x:Name="Agregar3Button">
+                        <Button x:Name="Agregar3Button" Click="Agregar3Button_Click">
                             <Label Content="Agregar"/>
                         </Button>
                         <TextBox x:Name="AseguradoraTextBox" Width="200" Margin="5" Text="{Binding Aseguradora.Nombres}" IsReadOnly="True"/>

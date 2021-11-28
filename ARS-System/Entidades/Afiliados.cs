@@ -34,5 +34,7 @@ namespace ARS_System.Entidades
 
         [ForeignKey("SexoId")]
         public Sexos Sexo { get; set; }
+        [ForeignKey("AseguradoraId")]
+        public Aseguradoras Aseguradora { get; set; }
     }
 }
