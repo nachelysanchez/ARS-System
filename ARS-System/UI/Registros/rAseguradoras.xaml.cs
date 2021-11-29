@@ -49,19 +49,26 @@ namespace ARS_System.UI.Registros
 
             return esValido;
         }
+
+        private void Actualizar()
+        {
+            this.DataContext = null;
+            this.DataContext = aseguradoras;
+        }
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
             var aseguradora = AseguradorasBLL.Buscar(Utilidades.ToInt(AseguradoraIdTextBox.Text));
 
             if (aseguradora != null)
             {
-                this.aseguradoras = aseguradora;
+                aseguradoras = aseguradora;
+                Actualizar();
             }
             else
             {
-                this.aseguradoras = new Aseguradoras();
+                Limpiar();
+                MessageBox.Show("No existe en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            this.DataContext = this.aseguradoras;
         }
 
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
