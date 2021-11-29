@@ -46,7 +46,7 @@ namespace ARS_System.UI.Registros
             SexoComboBox.DisplayMemberPath = "Nombres";
 
             OcupacionComboBox.ItemsSource = OcupacionesBLL.GetOcupaciones();
-            OcupacionComboBox.SelectedValuePath = "OcupacionesId";
+            OcupacionComboBox.SelectedValuePath = "OcupacionId";
             OcupacionComboBox.DisplayMemberPath = "Nombre";
 
             AseguradoraComboBox.ItemsSource = AseguradorasBLL.GetAseguradoras();
