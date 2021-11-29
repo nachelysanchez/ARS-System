@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Doctores" Height="700" Width="800">
+        Title="Registro de Doctores" Height="750" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
 
@@ -14,7 +14,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="DoctorIdTextBox" Text="{Binding DoctorId}" Width="100" Height="20" Margin="5,0,0,0"/>
-                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="28">
+                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" >
                         <StackPanel Orientation="Horizontal">
 
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
@@ -50,7 +50,7 @@
                             <Label Content="Observacion:"/>
                             <TextBox x:Name="ObservacionTextBox" Text="{Binding Detalle.Observacion}"/>
                             <StackPanel Orientation="Horizontal">
-                                <Button x:Name="AgregarFilaButton" Margin="10" Click="AgregarFilaButton_Click" Width="100">
+                                <Button x:Name="AgregarFilaButton" Margin="10" Click="AgregarFilaButton_Click" >
                                     <StackPanel Orientation="Horizontal">
 
                                         <Image Source="/Resources/add_icon-icons.com_74429 (2).png" Width="25"/>
@@ -58,7 +58,7 @@
                                         <Label Content="Agregar fila"/>
                                     </StackPanel>
                                 </Button>
-                                <Button x:Name="RemoverFilaButton" Margin="10" Click="RemoverFilaButton_Click" Width="100">
+                                <Button x:Name="RemoverFilaButton" Margin="10" Click="RemoverFilaButton_Click" >
                                     <StackPanel Orientation="Horizontal">
 
                                         <Image Source="/Resources/vcsremoved_93492 (1).png" Width="25"/>

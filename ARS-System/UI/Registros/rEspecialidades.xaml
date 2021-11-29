@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         mc:Ignorable="d"
         Icon="/Resources/Registros.ico"
-        Title="Registro de Especialidades" Height="250" Width="400">
+        Title="Registro de Especialidades" Height="280" Width="400">
     <Grid>
         <StackPanel>
             <StackPanel Margin="10" HorizontalAlignment="Left">
                 <Label Content="Especialidad Id"/>
                 <StackPanel Orientation="Horizontal" >
                     <TextBox x:Name="EspecialidadIdTextBox" Text="{Binding EspecialidadId}" Width="100" Margin="5"/>
-                    <Button x:Name="BuscarButton" Click="BuscarButton_Click_1" Height="30">
+                    <Button x:Name="BuscarButton" Click="BuscarButton_Click_1" >
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Buscar"/>
                             <Image Source="/Resources/icons8-google-web-search-24.png" Width="30"/>

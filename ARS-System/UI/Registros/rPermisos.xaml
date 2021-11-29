@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Permisos" Height="250" Width="350">
+        Title="Registro de Permisos" Height="270" Width="410">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Vertical" Margin="20,20,20,0">
                 <Label Content="Permiso Id" Margin="0,0,0,0"/>
                 <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
                     <TextBox x:Name="PermisoIdTextBox" Width="120" Height="20" Text="{Binding PermisoId}"/>
-                    <Button  x:Name="BuscarButton"  Margin="5,0,0,0" Height="28" Click="BuscarButton_Click" >
+                    <Button  x:Name="BuscarButton"  Margin="5,0,0,0"  Click="BuscarButton_Click" >
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png"  />
                             <Label Content="Buscar"/>

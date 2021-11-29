@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         xmlns:PasswordHelper ="clr-namespace:ARS_System.Password"
         mc:Ignorable="d"
-        Title="Registro de Usuarios" Height="650" Width="800">
+        Title="Registro de Usuarios" Height="760" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
 
@@ -15,7 +15,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="UsuarioIdTextBox" Text="{Binding UsuarioId}" Width="100" Height="20" Margin="5,0,0,0"/>
-                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="28">
+                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
 

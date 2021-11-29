@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ARS_System.UI.Consultas"
         mc:Ignorable="d"
         Icon="/Resources/Consultas.ico"
-        Title="Consulta de Reclamaciones" Height="350" Width="700">
+        Title="Consulta de Reclamaciones" Height="330" Width="710">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
 
@@ -40,7 +40,7 @@
 
                 </StackPanel>
 
-                <Button x:Name="BuscarButton" Height="34" Width="93" Click="BuscarButton_Click_3">
+                <Button x:Name="BuscarButton" Click="BuscarButton_Click_3">
                     <StackPanel Orientation="Horizontal" >
                         <Image Source="/Resources/icons8-google-web-search-24.png" Width="35"/>
                         <Label Content="Buscar" />
@@ -49,7 +49,7 @@
 
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" >
-                <DataGrid x:Name="DatosDataGrid"  Height="240" Width="600" AutoGenerateColumns="False">
+                <DataGrid x:Name="DatosDataGrid"  Height="240" Width="680" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Reclamacion Id" Binding="{Binding ReclamacionId}"/>
                         <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha, StringFormat=dd/MM/yyyy}"/>

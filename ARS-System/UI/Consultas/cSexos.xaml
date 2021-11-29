@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ARS_System.UI.Consultas"
         mc:Ignorable="d"
         Icon="/Resources/Consultas.ico"
-        Title="Consulta de Sexos" Height="350" Width="450">
+        Title="Consulta de Sexos" Height="330" Width="390">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
             <StackPanel Orientation="Horizontal" Height="58">
@@ -26,7 +26,7 @@
                         <TextBox x:Name="CriterioTextBox" Height="20" Width="120" Margin="0,5,10,0"/>
                     </StackPanel>
 
-                    <Button x:Name="BuscarButton" Height="28" Width="85" Margin="0,20,0,0" Click="BuscarButton_Click_3">
+                    <Button x:Name="BuscarButton" Margin="0,20,0,0" Click="BuscarButton_Click_3">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" Width="30"/>
                             <Label Content="Buscar"/>
@@ -38,7 +38,7 @@
 
             <StackPanel HorizontalAlignment="Left">
 
-                <DataGrid x:Name="DatosDataGrid" Height="240" Width="400" AutoGenerateColumns="False">
+                <DataGrid x:Name="DatosDataGrid" Height="240" Width="360" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Sexo Id" Binding="{Binding SexoId}"/>
                         <DataGridTextColumn Header="Nombre del Sexo" Binding="{Binding Nombres}"/>

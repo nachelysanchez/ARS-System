@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         mc:Ignorable="d"
         Icon="/Resources/Registros.ico"
-        Title="Registros de Afiliados" Height="620" Width="500">
+        Title="Registros de Afiliados" Height="610" Width="500">
     <Grid>
         <StackPanel>
             <StackPanel Margin="10">
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,9">
                     <Label Content="Afiliado Id"/>
                     <TextBox x:Name="IdTextBox" Text="{Binding AfiliadoId}" Width="100" Margin="5"/>
-                    <Button x:Name="BuscarButton" Height="30" Click="BuscarButton_Click_1">
+                    <Button x:Name="BuscarButton"  Click="BuscarButton_Click_1">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
                             <Label Content="Buscar"/>

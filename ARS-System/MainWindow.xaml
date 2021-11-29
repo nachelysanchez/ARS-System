@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:ARS_System"
         mc:Ignorable="d"
         Icon="Resources/seguro-medico icono.ico"
-        Title="Ventana Principal" Height="350" Width="400">
+        Title="Ventana Principal" Height="350" Width="500">
     <Grid>
         <StackPanel>
-            <Menu Height="20">
+            <Menu >
                 <MenuItem Header="Registros">
                     <MenuItem x:Name="rUsuariosMenuItem" Header="Registro de Usuarios" Click="rUsuariosMenuItem_Click"/>
                     <MenuItem x:Name="rRolesMenuItem" Header="Registro de Roles" Click="rRolesMenuItem_Click"/>

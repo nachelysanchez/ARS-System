@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta de Afiliados" Height="400" Width="900">
+        Title="Consulta de Afiliados" Height="350" Width="960">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
 
@@ -40,7 +40,7 @@
 
                 </StackPanel>
 
-                <Button x:Name="BuscarButton" Height="34" Width="93" Click="BuscarButton_Click_2">
+                <Button x:Name="BuscarButton" Height="34"  Click="BuscarButton_Click_2">
                     <StackPanel Orientation="Horizontal" >
                         <Image Source="/Resources/icons8-google-web-search-24.png" Width="35"/>
                         <Label Content="Buscar" />
@@ -49,7 +49,7 @@
 
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" >
-                <DataGrid x:Name="DatosDataGrid"  Height="240" Width="850" AutoGenerateColumns="False">
+                <DataGrid x:Name="DatosDataGrid"  Height="240" Width="930" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Afiliado Id" Binding="{Binding AfiliadoId}"/>
                         <DataGridTextColumn Header="Nombres" Binding="{Binding Nombres}"/>

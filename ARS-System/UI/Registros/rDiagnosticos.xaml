@@ -13,7 +13,7 @@
                 <Label Content="Diagnóstico Id"/>
                 <StackPanel Orientation="Horizontal" >
                     <TextBox x:Name="DiagnosticoIdTextBox" Text="{Binding DiagnosticoId}" Width="100" Margin="5"/>
-                    <Button x:Name="BuscarButton" Height="30" Click="BuscarButton_Click">
+                    <Button x:Name="BuscarButton"  Click="BuscarButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Buscar"/>
                             <Image Source="/Resources/icons8-google-web-search-24.png" Width="30"/>

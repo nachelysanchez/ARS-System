@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta de Aseguradoras" Height="360" Width="550">
+        Title="Consulta de Aseguradoras" Height="360" Width="580">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
             <StackPanel Orientation="Horizontal" Height="58">
@@ -31,10 +31,10 @@
                         <TextBox x:Name="CriterioTextBox" Height="20" Width="120" Margin="0,5,10,0"/>
                     </StackPanel>
 
-                    <Button x:Name="BuscarButton" Height="28" Width="85" Margin="0,20,0,0" Click="BuscarButton_Click">
+                    <Button x:Name="BuscarButton" Height="32"  Margin="0,20,0,0" Click="BuscarButton_Click">
                         <StackPanel Orientation="Horizontal">
 
-                            <Image Source="/Resources/icons8-google-web-search-24.png" />
+                            <Image Source="/Resources/icons8-google-web-search-24.png" Height="24"/>
 
                             <Label Content="Buscar"/>
 
@@ -46,7 +46,7 @@
 
             <StackPanel HorizontalAlignment="Left">
 
-                <DataGrid x:Name="DatosDataGrid" Height="250" Width="500" AutoGenerateColumns="False">
+                <DataGrid x:Name="DatosDataGrid" Height="250" Width="550" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Aseguradora Id" Binding="{Binding AseguradoraId}"/>
                         <DataGridTextColumn Header="Nombres" Binding="{Binding Nombres}"/>
