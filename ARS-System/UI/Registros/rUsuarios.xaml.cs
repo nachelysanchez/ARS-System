@@ -76,7 +76,11 @@ namespace ARS_System.UI.Registros
             this.DataContext = null;
             this.DataContext = usuarios;
         }
-
+        private bool ExisteenBD()
+        {
+            Doctores esValido = DoctoresBLL.Buscar(usuarios.UsuarioId);
+            return (esValido != null);
+        }
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
             usuarios.DetalleUsuario.Add(new UsuariosDetalle(Utilidades.ToInt(UsuarioIdTextBox.Text), (int)PermisoComboBox.SelectedValue,
@@ -97,12 +101,16 @@ namespace ARS_System.UI.Registros
         {
             var usuario = UsuariosBLL.Buscar(Utilidades.ToInt(UsuarioIdTextBox.Text));
 
-            if (usuarios != null)
-                this.usuarios = usuario;
+            if (usuario != null)
+            {
+                usuarios = usuario;
+                Actualizar();
+            }
             else
+            {
                 Limpiar();
-
-            this.DataContext = this.usuarios;
+                MessageBox.Show("La reclamación no existe en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
@@ -110,20 +118,36 @@ namespace ARS_System.UI.Registros
         }
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
+            bool paso = false;
             if (!Validar())
                 return;
 
-            var paso = UsuariosBLL.Guardar(usuarios);
-
-            if (paso)
+            if (usuarios.UsuarioId == 0)
             {
-                Limpiar();
-                MessageBox.Show("Transaccion exitosa!", "Exito",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
+                paso = UsuariosBLL.Guardar(usuarios);
             }
             else
-                MessageBox.Show("Transaccion Fallida", "Fallo",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+            {
+                if (ExisteenBD())
+                {
+                    paso = UsuariosBLL.Guardar(usuarios);
+
+                }
+                else
+                {
+                    MessageBox.Show("No existe en la base de datos", "Error");
+                }
+
+                if (paso)
+                {
+                    Limpiar();
+                    MessageBox.Show("Transaccion exitosa!", "Exito",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                    MessageBox.Show("Transaccion Fallida", "Fallo",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
