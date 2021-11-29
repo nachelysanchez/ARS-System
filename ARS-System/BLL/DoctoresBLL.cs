@@ -199,6 +199,69 @@ namespace ARS_System.BLL
             return Lista;
         }
 
+        public static List<object> GetList(string criterio, string valor)
+        {
+            List<object> lista;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                var query = (
+                from d in contexto.Doctores
+                join c in contexto.Ciudades on d.CiudadId equals c.CiudadId
+                select new
+                {
+                    d.DoctorId,
+                    d.Nombres,
+                    d.Celular,
+                    d.Telefono,
+                    Ciudad = (c.Nombres),
+                    d.Exequatur
+                }
+                );
+
+                if (criterio.Length != 0)
+                {
+                    switch (criterio)
+                    {
+                        case "DoctorId":
+                            query = query.Where(c => c.DoctorId == Utilidades.ToInt(valor));
+                            break;
+                        case "Nombres":
+                            query = query.Where(c => c.Nombres.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Celulra":
+                            query = query.Where(c => c.Celular.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Telefono":
+                            query = query.Where(c => c.Telefono.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Ciudad":
+                            query = query.Where(c => c.Ciudad.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Exequatur":
+                            query = query.Where(c => c.Exequatur.ToLower().Contains(valor.ToLower()));
+                            break;
+                    }
+                }
+
+
+
+                lista = query.ToList<object>();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+
+
+            return lista;
+        }
         public static List<Doctores> GetDoctores()
         {
             List<Doctores> lista = new List<Doctores>();
