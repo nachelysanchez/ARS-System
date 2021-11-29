@@ -7,7 +7,9 @@ Por ejemplo, puede tener acceso a través de uno de los siguientes usuarios con 
 
 Usuarios:  
 Username: NachelyS    Contraseña: 20190734
+
 Username: KelvinP    Contraseña: 20180193
+
 Username: VismarL   Contraseña: 20190425
 
 Ya luego de esto, el usuario tendrá acceso a los siguientes Registros con sus respectivas Consultas:
