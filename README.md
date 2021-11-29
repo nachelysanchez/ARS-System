@@ -26,3 +26,27 @@ Registro de Usuarios
 
 Dicho Proyecto permite registrar y administrar Afiliados, Aseguradoras, Ciudades, Diagnósticos, Doctores, Especialidades, Permisos, Reclamaciones, Roles y Usuarios. Luego tendrá acceso a las Consultas para confirmar y verificar lo que se registró, y además poder buscar a través de distintos filtros dependiendo sus campos.
 Finalmente, hicimos una demostración aplicando lo que es Material Design en nuestro Proyecto.
+
+A continuación, la muestra de algunas pantallas:
+
+Login
+
+![Main](https://user-images.githubusercontent.com/89814256/143950141-3e34b644-0f98-400b-9a0e-34ab2b290e21.PNG)
+
+Ventana Principal
+
+![![MainW](https://user-images.githubusercontent.com/89814256/143951076-a2712b7a-0483-4ce4-a215-6f934f7a54c0.PNG)
+
+
+Registros
+
+![Registro](https://user-images.githubusercontent.com/89814256/143950340-ec9928c6-314d-4e29-b1cc-9b0988d8c3c3.PNG)
+
+Consultas
+
+![Consulta](https://user-images.githubusercontent.com/89814256/143951389-d6ca2938-6def-4710-a0ab-bab9c1e06cff.PNG)
+
+Registro con Detalle
+
+![Detalle](https://user-images.githubusercontent.com/89814256/143951293-0708780c-92fb-4a92-abd8-a98da36aa484.PNG)
+
