@@ -16,6 +16,7 @@
                         <ComboBoxItem x:Name="ListadoComboBoxItem" Content="Listado"/>
                         <ComboBoxItem x:Name="NombreComboBoxItem" Content="Nombre"/>
                         <ComboBoxItem x:Name="UsernameComboBoxItem" Content="Username"/>
+                        <ComboBoxItem x:Name="RolComboBoxItem" Content="Rol"/>
                     </ComboBox>
                 </StackPanel>
 
@@ -41,7 +42,7 @@
                         <DataGridTextColumn Header="Usuario Id" Binding="{Binding UsuarioId}"/>
                         <DataGridTextColumn Header="Nombre" Binding="{Binding Nombres}"/>
                         <DataGridTextColumn Header="Username" Binding="{Binding Username}"/>
-                        <DataGridTextColumn Header="Rol" Binding="{Binding Roles.Nombre}"/>
+                        <DataGridTextColumn Header="Rol" Binding="{Binding Role}"/>
                         <DataGridTextColumn Header="Contraseña" Binding="{Binding Contrasena}"/>
                     </DataGrid.Columns>
                 </DataGrid>

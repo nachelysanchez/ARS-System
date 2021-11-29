@@ -28,27 +28,34 @@ namespace ARS_System.UI.Consultas
         }
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            var listado = new List<Usuarios>();
+            var listado = new List<object>();
+            string criterio = CriterioTextBox.Text.Trim();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0:
-                        listado = UsuariosBLL.GetList(e => e.UsuarioId == Utilidades.ToInt(CriterioTextBox.Text));
+                        listado = CiudadesBLL.GetList("", "");
                         break;
                     case 1:
-                        listado = UsuariosBLL.GetList(e => e.Nombres.Contains(CriterioTextBox.Text.ToLower()));
+                        listado = CiudadesBLL.GetList("UsuarioId", criterio);
                         break;
                     case 2:
-                        listado = UsuariosBLL.GetList(e => e.Username.Contains(CriterioTextBox.Text.ToLower()));
+                        listado = CiudadesBLL.GetList("Nombres", criterio);
                         break;
-                   
+                    case 3:
+                        listado = CiudadesBLL.GetList("Username", criterio);
+                        break;
+                    case 4:
+                        listado = CiudadesBLL.GetList("Role", criterio);
+                        break;
+
                 }
             }
             else
             {
-                listado = UsuariosBLL.GetList(e => true);
+                listado = CiudadesBLL.GetList("", "");
             }
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
