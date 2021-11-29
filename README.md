@@ -33,10 +33,19 @@ Login
 
 ![Main](https://user-images.githubusercontent.com/89814256/143950141-3e34b644-0f98-400b-9a0e-34ab2b290e21.PNG)
 
+Ventana Principal
+
+![![MainW](https://user-images.githubusercontent.com/89814256/143951076-a2712b7a-0483-4ce4-a215-6f934f7a54c0.PNG)
+
+
 Registros
 
 ![Registro](https://user-images.githubusercontent.com/89814256/143950340-ec9928c6-314d-4e29-b1cc-9b0988d8c3c3.PNG)
 
 Consultas
 
-![Consulta](https://user-images.githubusercontent.com/89814256/143950445-1437986a-cce1-4a14-9836-02bb539d9596.PNG)
+Consulta](https://user-images.githubusercontent.com/89814256/143950445-1437986a-cce1-4a14-9836-02bb539d9596.PNG)
+
+Registro con Detalle
+
+![Detalle](https://user-images.githubusercontent.com/89814256/143951293-0708780c-92fb-4a92-abd8-a98da36aa484.PNG)
