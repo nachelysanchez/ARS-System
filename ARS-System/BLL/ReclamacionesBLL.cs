@@ -56,8 +56,12 @@ namespace ARS_System.BLL
 
                 foreach (var detalle in reclamacion.RDetalle)
                 {
+                    contexto.Entry(detalle).State = EntityState.Added;
                     contexto.Entry(detalle.Servicio).State = EntityState.Modified;
                     contexto.Entry(detalle.Diagnostico).State = EntityState.Modified;
+                    detalle.Servicio.VecesAsignado += 1;
+                    detalle.Diagnostico.VecesAsignado += 1;
+
                     reclamacion.Total += detalle.ValorReclamado;
                 }
                 paso = contexto.SaveChanges() > 0;
@@ -92,7 +96,6 @@ namespace ARS_System.BLL
 
                 foreach (var item in reclamacion.RDetalle)
                 {
-
                     contexto.Entry(item).State = EntityState.Added;
                 }
 

@@ -84,7 +84,8 @@ namespace ARS_System
 
         private void rReclamacionesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rReclamaciones rreclamaciones = new rReclamaciones();
+            rreclamaciones.Show();
         }
 
         private void cUsuariosMenuItem_Click(object sender, RoutedEventArgs e)

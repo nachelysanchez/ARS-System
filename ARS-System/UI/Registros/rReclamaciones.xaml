@@ -6,17 +6,14 @@
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         mc:Ignorable="d"
         Icon="/Resources/Registros.ico"
-        Title="Registro de Reclamaciones" Height="700" Width="600">
+        Title="Registro de Reclamaciones" Height="750" Width="600">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,0,10,0">
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Vertical">
-                    <TextBlock Text="{Binding Prestador.Nombres}" Height="30" FontSize="30"/>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Prestador.RNC}" FontSize="15"/>
-                        <TextBlock Text="{Binding Prestador.Direccion}" FontSize="15" Margin="280,0"/>
-                    </StackPanel>
-                    <TextBlock Text="{Binding Prestador.Telefono}"/>
+                    <Label Content="Prestador"/>
+                    <ComboBox x:Name="PrestadorComboBox" SelectedValue="{Binding PrestadorId}" Height="30" FontSize="30"/>
+                    
 
                 </StackPanel>
                 <Label Content="Reclamación Id:"/>
@@ -58,6 +55,8 @@
 
                             <Label Content="Servicio"/>
                             <ComboBox x:Name="ServicioComboBox" SelectedValue="{Binding ServicioId}"/>
+                            <Label Content="Diagnostico"/>
+                            <ComboBox x:Name="DiagnosticoComboBox" SelectedValue="{Binding DiagnosticoId}"/>
                             <StackPanel Orientation="Horizontal">
                                 <Label Content="Valor Total"/>
                                 <Label Content="No Procede" Margin="60,0"/>
@@ -93,7 +92,8 @@
 
                             <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding RDetalle}" Height="80" AutoGenerateColumns="False" >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Servicio" Binding="{Binding Servicio.Nombres}" />
+                                    <DataGridTextColumn Header="Diagnostico Id" Binding="{Binding DiagnosticoId}"/>
+                                    <DataGridTextColumn Header="Servicio" Binding="{Binding ServicioId}" />
                                     <DataGridTextColumn Header="Valor Total" Binding="{Binding ValorTotal, StringFormat=N2}" />
                                     <DataGridTextColumn Header="No Procede" Binding="{Binding NoProcede, StringFormat=N2}" />
                                     <DataGridTextColumn Header="Valor Reclamado" Binding="{Binding ValorReclamado, StringFormat=N2}" />

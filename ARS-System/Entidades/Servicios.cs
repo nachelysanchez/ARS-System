@@ -12,5 +12,6 @@ namespace ARS_System.Entidades
         [Key]
         public int ServicioId { get; set; }
         public string Descripcion { get; set; }
+        public int VecesAsignado { get; set; }
     }
 }

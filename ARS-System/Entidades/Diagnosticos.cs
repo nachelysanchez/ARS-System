@@ -12,5 +12,6 @@ namespace ARS_System.Entidades
         [Key]
         public int DiagnosticoId { get; set; }
         public string Nombres { get; set; }
+        public int VecesAsignado { get; set; }
     }
 }

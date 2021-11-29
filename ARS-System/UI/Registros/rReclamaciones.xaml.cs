@@ -37,7 +37,15 @@ namespace ARS_System.UI.Registros
 
             ServicioComboBox.ItemsSource = ServiciosBLL.GetServicios();
             ServicioComboBox.SelectedValuePath = "ServicioId";
-            ServicioComboBox.DisplayMemberPath = "Nombres";
+            ServicioComboBox.DisplayMemberPath = "Descripcion";
+
+            DiagnosticoComboBox.ItemsSource = DiagnosticosBLL.GetDiagnosticos();
+            DiagnosticoComboBox.SelectedValuePath = "DiagnosticoId";
+            DiagnosticoComboBox.DisplayMemberPath = "Nombres";
+
+            PrestadorComboBox.ItemsSource = PrestadoresBLL.GetPrestadores();
+            PrestadorComboBox.SelectedValuePath = "PrestadorId";
+            PrestadorComboBox.DisplayMemberPath = "Nombres";
         }
         private void Cargar()
         {
@@ -59,21 +67,20 @@ namespace ARS_System.UI.Registros
         {
             bool esValido = true;
 
-            if (NoAutorizacionTextBox.Text.Length == 0 || ConceptoTextBox.Text.Length == 0
-                || NAFTextBox.Text.Length == 0 || DoctorComboBox.SelectedIndex < 0 || 
+            if (NoAutorizacionTextBox.Text.Length == 0 || NAFTextBox.Text.Length == 0 || DoctorComboBox.SelectedIndex < 0 || 
                 AfiliadoComboBox.SelectedIndex < 0)
             {
                 esValido = false;
                 MessageBox.Show("Complete el campo faltante", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            if (ValorRTextBox.Text.Length == 0 || ValorTextBox.Text.Length == 0
-                || NoProcedeTextBox.Text.Length == 0 || CopagoTextBox.Text.Length == 0)
-            {
-                esValido = false;
-                MessageBox.Show("Complete el campo faltante en el Detalle", "Fallo",
-                    MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+            //if (ValorRTextBox.Text.Length == 0 || ValorTextBox.Text.Length == 0
+            //    || NoProcedeTextBox.Text.Length == 0 || CopagoTextBox.Text.Length == 0)
+            //{
+            //    esValido = false;
+            //    MessageBox.Show("Complete el campo faltante en el Detalle", "Fallo",
+            //        MessageBoxButton.OK, MessageBoxImage.Warning);
+            //}
 
             return esValido;
         }
@@ -95,19 +102,18 @@ namespace ARS_System.UI.Registros
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
             float total = 0;
-            reclamacion.RDetalle.Add(new ReclamacionesDetalle
-            {
-                Id = 0,
-                ReclamacionId = Utilidades.ToInt(IdTextBox.Text),
-                ServicioId = (int)ServicioComboBox.SelectedValue,
-                ValorTotal = Utilidades.ToFloat(ValorTextBox.Text),
-                NoProcede = Utilidades.ToFloat(NoProcedeTextBox.Text),
-                ValorReclamado = Utilidades.ToFloat(ValorRTextBox.Text),
-                Copago = Utilidades.ToFloat(CopagoTextBox.Text)
-            });
+            reclamacion.RDetalle.Add(new ReclamacionesDetalle(Utilidades.ToInt(IdTextBox.Text), (int)ServicioComboBox.SelectedValue, (int)DiagnosticoComboBox.SelectedValue,
+                Utilidades.ToFloat(ValorTextBox.Text), Utilidades.ToFloat(NoProcedeTextBox.Text),
+                Utilidades.ToFloat(ValorRTextBox.Text), Utilidades.ToFloat(CopagoTextBox.Text), (Servicios)ServicioComboBox.SelectedItem,
+                (Diagnosticos)DiagnosticoComboBox.SelectedItem));
 
             total += Utilidades.ToFloat(ValorRTextBox.Text);
             TotalTextBox.Text = total.ToString();
+
+            ValorRTextBox.Text = string.Empty;
+            ValorTextBox.Text = string.Empty;
+            CopagoTextBox.Text = string.Empty;
+            NoProcedeTextBox.Text = string.Empty;
 
             Cargar();
         }

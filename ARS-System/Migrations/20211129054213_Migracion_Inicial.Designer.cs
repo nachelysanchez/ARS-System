@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ARS_System.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211129012921_Migracion_Inicial")]
+    [Migration("20211129054213_Migracion_Inicial")]
     partial class Migracion_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -168,6 +168,9 @@ namespace ARS_System.Migrations
                     b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("VecesAsignado")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("DiagnosticoId");
 
                     b.ToTable("Diagnosticos");
@@ -176,7 +179,8 @@ namespace ARS_System.Migrations
                         new
                         {
                             DiagnosticoId = 1,
-                            Nombres = "Anemia"
+                            Nombres = "Anemia",
+                            VecesAsignado = 0
                         });
                 });
 
@@ -451,7 +455,7 @@ namespace ARS_System.Migrations
                             ReclamacionId = 1,
                             AfiliadoId = 1,
                             DoctorId = 1,
-                            Fecha = new DateTime(2021, 11, 28, 21, 29, 10, 523, DateTimeKind.Local).AddTicks(3561),
+                            Fecha = new DateTime(2021, 11, 29, 1, 42, 8, 347, DateTimeKind.Local).AddTicks(9065),
                             NAF = 845632,
                             NoAutorizacion = 52361,
                             PrestadorId = 1,
@@ -527,6 +531,9 @@ namespace ARS_System.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("VecesAsignado")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("ServicioId");
 
                     b.ToTable("Servicios");
@@ -535,12 +542,14 @@ namespace ARS_System.Migrations
                         new
                         {
                             ServicioId = 1,
-                            Descripcion = "Consulta"
+                            Descripcion = "Consulta",
+                            VecesAsignado = 0
                         },
                         new
                         {
                             ServicioId = 2,
-                            Descripcion = "Emergencia"
+                            Descripcion = "Emergencia",
+                            VecesAsignado = 0
                         });
                 });
 

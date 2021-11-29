@@ -156,7 +156,8 @@ namespace ARS_System.DAL
             modelBuilder.Entity<Diagnosticos>().HasData(new Diagnosticos
             {
                 DiagnosticoId = 1,
-                Nombres = "Anemia"
+                Nombres = "Anemia",
+                VecesAsignado = 0
             });
 
             //Doctores
@@ -208,12 +209,14 @@ namespace ARS_System.DAL
             modelBuilder.Entity<Servicios>().HasData(new Servicios
             {
                 ServicioId = 1,
-                Descripcion = "Consulta"
+                Descripcion = "Consulta",
+                VecesAsignado = 0
             });
             modelBuilder.Entity<Servicios>().HasData(new Servicios
             {
                 ServicioId = 2,
-                Descripcion = "Emergencia"
+                Descripcion = "Emergencia",
+                VecesAsignado = 0
             });
 
             //Aseguradoras
