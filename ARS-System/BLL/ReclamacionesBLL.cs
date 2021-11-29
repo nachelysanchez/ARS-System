@@ -58,6 +58,7 @@ namespace ARS_System.BLL
                 {
                     contexto.Entry(detalle.Servicio).State = EntityState.Modified;
                     contexto.Entry(detalle.Diagnostico).State = EntityState.Modified;
+                    reclamacion.Total += detalle.ValorReclamado;
                 }
                 paso = contexto.SaveChanges() > 0;
             }
