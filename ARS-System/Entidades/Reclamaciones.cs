@@ -12,7 +12,7 @@ namespace ARS_System.Entidades
     {
         [Key]
         public int ReclamacionId { get; set; }
-        public DateTime Fecha { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
         public int NoAutorizacion { get; set; }
         public int NAF { get; set; }
         public int DoctorId { get; set; }

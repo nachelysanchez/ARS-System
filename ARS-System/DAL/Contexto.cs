@@ -24,6 +24,7 @@ namespace ARS_System.DAL
         public DbSet<Afiliados> Afiliados { get; set; }
         public DbSet<Servicios> Servicios { get; set; }
         public DbSet<Aseguradoras> Aseguradoras { get; set; }
+        public DbSet<Reclamaciones> Reclamaciones { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite(@"Data Source = DATA/ARS-System.db");
@@ -225,6 +226,18 @@ namespace ARS_System.DAL
                 Direccion = "Calle San Francisco",
                 CiudadId = 1,
                 Telefono = "809-555-9632"
+            });
+            //Reclamaciones
+            modelBuilder.Entity<Reclamaciones>().HasData(new Reclamaciones
+            {
+                ReclamacionId = 1,
+                Fecha = DateTime.Now,
+                NoAutorizacion = 52361,
+                NAF = 845632,
+                DoctorId = 1,
+                AfiliadoId = 1,
+                PrestadorId = 1,
+                Total = 0
             });
         }
     }
