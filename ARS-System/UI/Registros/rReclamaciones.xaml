@@ -58,11 +58,11 @@
 
 
                 <StackPanel Orientation="Vertical">
-                    <GroupBox Header="Detalles de aporte">
+                    <GroupBox Header="Detalles de Reclamaciones">
                         <StackPanel Margin="10">
 
                             <Label Content="Servicio"/>
-                            <ComboBox x:Name="TipoAporteComboBox" />
+                            <ComboBox x:Name="ServicioComboBox" />
                             <StackPanel Orientation="Horizontal">
                                 <Label Content="Valor Total"/>
                                 <Label Content="No Procede" Margin="60,0"/>
