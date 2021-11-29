@@ -1,4 +1,5 @@
-﻿using ARS_System.UI.Consultas;
+﻿using ARS_System.UI;
+using ARS_System.UI.Consultas;
 using ARS_System.UI.Registros;
 using System;
 using System.Collections.Generic;
@@ -174,6 +175,15 @@ namespace ARS_System
         {
             cSexos csexos = new cSexos();
             csexos.Show();
+        }
+
+        private void CerrarSeccionMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Estás seguro que desea cerrar sesión?", "Ventana principal", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                new Login().Show();
+                this.Close();
+            }
         }
     }
 }
