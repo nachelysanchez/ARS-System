@@ -36,25 +36,20 @@
 
                 <StackPanel Orientation="Horizontal">
                     <Label Content="No Autorización"/>
-                    <Label Content="Concepto" Margin="300,0"/>
+                    <Label Content="NAF" Margin="350,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <TextBox x:Name="NoAutorizacionTextBox" Width="200" Text="{Binding NoAutorizacion}"/>
-                    <TextBox x:Name="ConceptoTextBox" Width="200" Text="{Binding Concepto}" Margin="150,0"/>
+                    <TextBox x:Name="NAFTextBox" Width="200" Text="{Binding NAF}" Margin="150,0"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="NAF"/>
-                    <Label Content="Doctor" Margin="370,0"/>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Doctor"/>
+                    <ComboBox x:Name="DoctorComboBox" SelectedValue="{Binding DoctorId}"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="NAFTextBox" Width="200" Text="{Binding NAF}"/>
-                    <ComboBox x:Name="DoctorComboBox" Width="200" Margin="150,0" SelectedValue="DoctorId"/>
-                </StackPanel>
-                
                 <Label Content="Afiliado"/>
-                <ComboBox x:Name="AfiliadoComboBox" SelectedValue="AfiliadoId"/>
+                <ComboBox x:Name="AfiliadoComboBox" SelectedValue="{Binding AfiliadoId}"/>
 
 
                 <StackPanel Orientation="Vertical">
@@ -62,7 +57,7 @@
                         <StackPanel Margin="10">
 
                             <Label Content="Servicio"/>
-                            <ComboBox x:Name="ServicioComboBox" />
+                            <ComboBox x:Name="ServicioComboBox" SelectedValue="{Binding ServicioId}"/>
                             <StackPanel Orientation="Horizontal">
                                 <Label Content="Valor Total"/>
                                 <Label Content="No Procede" Margin="60,0"/>
