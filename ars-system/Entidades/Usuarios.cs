@@ -30,6 +30,7 @@ namespace ARS_System.Entidades
             Username = "";
             Contrasena = "";
             RolId = 0;
+            TotalAsignado = 0;
         }
         public Usuarios(int usuarioId, string nombres, string username, string contrasena)
         {
