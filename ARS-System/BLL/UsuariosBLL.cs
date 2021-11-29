@@ -59,7 +59,7 @@ namespace ARS_System.BLL
                     contexto.Entry(detalle.Permisos).State = EntityState.Modified;
                     detalle.Permisos.CantidadPermisos += 1;
 
-                    usuarios.TotalAsignado += detalle.Permisos.CantidadPermisos;
+                    //usuarios.TotalAsignado += detalle.Permisos.CantidadPermisos;
                 }
                 paso = contexto.SaveChanges() > 0;
             }
@@ -90,16 +90,17 @@ namespace ARS_System.BLL
 
                 foreach (var detalle in usuarioAnterior.DetalleUsuario)
                 {
-
+                    usuarioAnterior.TotalAsignado -= 1;
                     detalle.Permisos.CantidadPermisos -= 1;
                 }
-                contexto.Database.ExecuteSqlRaw($"Delete FROM DetalleUsuario Where UsuarioId={usuarios.UsuarioId}");
+                contexto.Database.ExecuteSqlRaw($"Delete FROM UsuariosDetalle Where UsuarioId={usuarios.UsuarioId}");
 
                 foreach (var item in usuarios.DetalleUsuario)
                 {
-                    contexto.Entry(item).State = EntityState.Added;
-                    contexto.Entry(item.Permisos).State = EntityState.Modified;
+
+                    usuarioAnterior.TotalAsignado += 1;
                     item.Permisos.CantidadPermisos += 1;
+                    contexto.Entry(item).State = EntityState.Added;
                 }
 
                 contexto.Entry(usuarios).State = EntityState.Modified;
