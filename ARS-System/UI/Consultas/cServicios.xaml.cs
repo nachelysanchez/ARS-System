@@ -35,7 +35,7 @@ namespace ARS_System.UI.Consultas
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0:
-                        listado = ServiciosBLL.GetOcupaciones();
+                        listado = ServiciosBLL.GetServicios();
                         break;
                     case 1:
                         listado = ServiciosBLL.GetList(e => e.ServicioId == Utilidades.ToInt(CriterioTextBox.Text));
