@@ -179,7 +179,57 @@ namespace ARS_System.BLL
             }
             return paso;
         }
+        public static List<object> GetList(string criterio, string valor)
+        {
+            List<object> lista;
+            Contexto contexto = new Contexto();
 
+            try
+            {
+                var query = (
+                    from u in contexto.Usuarios
+                    join r in contexto.Roles on u.RolId equals r.RolId
+                    select new
+                    {
+                        u.UsuarioId,
+                        u.Nombres,
+                        u.Username,
+                        Role = (r.Nombre)
+                    }
+                );
+
+                if (criterio.Length != 0)
+                {
+                    switch (criterio)
+                    {
+                        case "UsuarioId":
+                            query = query.Where(c => c.UsuarioId == Utilidades.ToInt(valor));
+                            break;
+                        case "Nombres":
+                            query = query.Where(c => c.Nombres.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Username":
+                            query = query.Where(c => c.Username.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Role":
+                            query = query.Where(c => c.Role.ToLower().Contains(valor.ToLower()));
+                            break;
+                    }
+                }
+
+                lista = query.ToList<object>();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return lista;
+        }
         public static List<Usuarios> GetList(Expression<Func<Usuarios, bool>> criterio)
         {
             List<Usuarios> Lista = new List<Usuarios>();
