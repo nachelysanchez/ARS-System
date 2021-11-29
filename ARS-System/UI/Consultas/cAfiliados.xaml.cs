@@ -27,179 +27,57 @@ namespace ARS_System.UI.Consultas
         }
         private void BuscarButton_Click_2(object sender, RoutedEventArgs e)
         {
-            var listado = new List<Afiliados>();
-            //< ComboBoxItem Content = "Afiliado Id" />
- 
-            //             < ComboBoxItem Content = "Nombre" />
-  
-            //              < ComboBoxItem Content = "Cedula" />
-   
-            //               < ComboBoxItem Content = "Sexo" />
-    
-            //                < ComboBoxItem Content = "NSS" />
-     
-            //                 < ComboBoxItem Content = "Teléfono" />
-      
-            //                  < ComboBoxItem Content = "Celular" />
-       
-            //                   < ComboBoxItem Content = "Email" />
-        
-            //                    < ComboBoxItem Content = "Dirección" />
-         
-            //                     < ComboBoxItem Content = "Ciudad" />
-          
-            //                      < ComboBoxItem Content = "Aseguradora" />
-           
-            //                       < ComboBoxItem Content = "Ocupación" />
+            var listado = new List<object>();
+            string criterio = CriterioTextBox.Text.Trim();
+
+            DateTime? nacimiento = FechaDatePicker.SelectedDate;
             
-            //                        < ComboBoxItem Content = "Valor Reclamado" />
 
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0: //Id
-                        if (FechaDatePicker.SelectedDate != null)
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.AfiliadoId == Utilidades.ToInt(CriterioTextBox.Text)
-                            && x.FechaNacimiento == FechaDatePicker.SelectedDate);
-                        }
-                        else
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.AfiliadoId == Utilidades.ToInt(CriterioTextBox.Text));
-                        }
+                        listado = AfiliadosBLL.GetList("AfiliadoId", criterio, nacimiento);
                         break;
                     case 1: //Nombres
-                        if (FechaDatePicker.SelectedDate != null)
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Nombres.Contains(CriterioTextBox.Text.ToUpper())
-                            && x.FechaNacimiento == FechaDatePicker.SelectedDate);
-                        }
-                        else
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Nombres.Contains(CriterioTextBox.Text.ToUpper()));
-                        }
+                        listado = AfiliadosBLL.GetList("Nombres", criterio, nacimiento);
                         break;
                     case 2: //Sexo
-                        if (FechaDatePicker.SelectedDate != null)
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Sexo.Nombres.Contains(CriterioTextBox.Text.ToUpper())
-                            && x.FechaNacimiento == FechaDatePicker.SelectedDate);
-                        }
-                        else
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Sexo.Nombres.Contains(CriterioTextBox.Text.ToUpper()));
-                        }
+                        listado = AfiliadosBLL.GetList("Sexo", criterio, nacimiento);
                         break;
                     case 3: //NSS
-                        if (FechaDatePicker.SelectedDate != null)
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.NSS ==  Utilidades.ToInt(CriterioTextBox.Text)
-                            && x.FechaNacimiento == FechaDatePicker.SelectedDate);
-                        }
-                        else
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.NSS == Utilidades.ToInt(CriterioTextBox.Text));
-                        }
+                        listado = AfiliadosBLL.GetList("NSS", criterio, nacimiento);
                         break;
                     case 4: //Telefono
-                        if (FechaDatePicker.SelectedDate != null)
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Telefono.Contains(CriterioTextBox.Text.ToUpper())
-                            && x.FechaNacimiento == FechaDatePicker.SelectedDate);
-                        }
-                        else
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Telefono.Contains(CriterioTextBox.Text.ToUpper()));
-                        }
+                        listado = AfiliadosBLL.GetList("Telefono", criterio, nacimiento);
                         break;
                     case 5: //Celular
-                        if (FechaDatePicker.SelectedDate != null)
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Celular.Contains(CriterioTextBox.Text.ToUpper())
-                            && x.FechaNacimiento == FechaDatePicker.SelectedDate);
-                        }
-                        else
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Celular.Contains(CriterioTextBox.Text.ToUpper()));
-                        }
+                        listado = AfiliadosBLL.GetList("Celular", criterio, nacimiento);
                         break;
                     case 6: //Email
-                        if (FechaDatePicker.SelectedDate != null)
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Email.Contains(CriterioTextBox.Text.ToUpper())
-                            && x.FechaNacimiento == FechaDatePicker.SelectedDate);
-                        }
-                        else
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Email.Contains(CriterioTextBox.Text.ToUpper()));
-                        }
+                        listado = AfiliadosBLL.GetList("Email", criterio, nacimiento);
                         break;
                     case 7: //Direccion
-                        if (FechaDatePicker.SelectedDate != null)
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Direccion.Contains(CriterioTextBox.Text.ToUpper())
-                            && x.FechaNacimiento == FechaDatePicker.SelectedDate);
-                        }
-                        else
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Direccion.Contains(CriterioTextBox.Text.ToUpper()));
-                        }
+                        listado = AfiliadosBLL.GetList("Direccion", criterio, nacimiento);
                         break;
                     case 8: //Ciudad
-                        if (FechaDatePicker.SelectedDate != null)
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Ciudad.Nombres.Contains(CriterioTextBox.Text.ToUpper())
-                            && x.FechaNacimiento == FechaDatePicker.SelectedDate);
-                        }
-                        else
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Ciudad.Nombres.Contains(CriterioTextBox.Text.ToUpper()));
-                        }
+                        listado = AfiliadosBLL.GetList("Ciudad", criterio, nacimiento);
                         break;
                     case 9: //Aseguradora
-                        if (FechaDatePicker.SelectedDate != null)
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Aseguradora.Nombres.Contains(CriterioTextBox.Text.ToUpper())
-                            && x.FechaNacimiento == FechaDatePicker.SelectedDate);
-                        }
-                        else
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Aseguradora.Nombres.Contains(CriterioTextBox.Text.ToUpper()));
-                        }
+                        listado = AfiliadosBLL.GetList("Aseguradora", criterio, nacimiento);
                         break;
                     case 10: //Ocupacion
-                        if (FechaDatePicker.SelectedDate != null)
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Ocupacion.Nombre.Contains(CriterioTextBox.Text.ToUpper())
-                            && x.FechaNacimiento == FechaDatePicker.SelectedDate);
-                        }
-                        else
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.Ocupacion.Nombre.Contains(CriterioTextBox.Text.ToUpper()));
-                        }
+                        listado = AfiliadosBLL.GetList("Ocupacion", criterio, nacimiento);
                         break;
                     case 11: //Valor Reclamado
-                        if (FechaDatePicker.SelectedDate != null)
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.ValorReclamado == Utilidades.ToFloat(CriterioTextBox.Text)
-                            && x.FechaNacimiento == FechaDatePicker.SelectedDate);
-                        }
-                        else
-                        {
-                            listado = AfiliadosBLL.GetList(x => x.ValorReclamado == Utilidades.ToFloat(CriterioTextBox.Text));
-                        }
+                        listado = AfiliadosBLL.GetList("ValorReclamado", criterio, nacimiento);
                         break;
                 }
             }
             else
             {
-                listado = AfiliadosBLL.GetList(e => true);
-            }
-
-            if (FechaDatePicker.SelectedDate != null && FiltroComboBox.SelectedIndex < 0)
-            {
-                listado = AfiliadosBLL.GetList(x => x.FechaNacimiento >= FechaDatePicker.SelectedDate);
+                listado = AfiliadosBLL.GetList("", "", nacimiento);
             }
 
             DatosDataGrid.ItemsSource = null;

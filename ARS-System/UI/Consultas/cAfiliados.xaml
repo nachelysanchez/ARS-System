@@ -53,17 +53,17 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Afiliado Id" Binding="{Binding AfiliadoId}"/>
                         <DataGridTextColumn Header="Nombres" Binding="{Binding Nombres}"/>
-                        <DataGridTextColumn Header="Fecha de Nacimiento" Binding="{Binding FechaNacimiento}"/>
+                        <DataGridTextColumn Header="Fecha de Nacimiento" Binding="{Binding FechaNacimiento, StringFormat=dd/MM/yyyy}"/>
                         <DataGridTextColumn Header="Cedula" Binding="{Binding Cedula}"/>
-                        <DataGridTextColumn Header="Sexo" Binding="{Binding SexoId}"/>
+                        <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}"/>
                         <DataGridTextColumn Header="NSS" Binding="{Binding NSS}"/>
                         <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}"/>
                         <DataGridTextColumn Header="Celular" Binding="{Binding Celular}"/>
                         <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
                         <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}"/>
-                        <DataGridTextColumn Header="Ciudad Id" Binding="{Binding CiudadId}"/>
-                        <DataGridTextColumn Header="Aseguradora Id" Binding="{Binding AseguradoraId}"/>
-                        <DataGridTextColumn Header="Ocupación Id " Binding="{Binding OcupacionId}"/>
+                        <DataGridTextColumn Header="Ciudad Id" Binding="{Binding Ciudad}"/>
+                        <DataGridTextColumn Header="Aseguradora Id" Binding="{Binding Aseguradora}"/>
+                        <DataGridTextColumn Header="Ocupación Id " Binding="{Binding Ocupacion}"/>
                         <DataGridTextColumn Header="Valor Reclamado" Binding="{Binding ValorReclamado}"/>
                     </DataGrid.Columns>
                 </DataGrid>
