@@ -242,6 +242,14 @@ namespace ARS_System.DAL
                 PrestadorId = 1,
                 Total = 0
             });
+
+            //Permisos
+            modelBuilder.Entity<Permisos>().HasData(new Permisos
+            {
+                PermisoId = 1,
+                Nombre = "Administrador",
+                CantidadPermisos = 0
+            }) ;
         }
     }
 }

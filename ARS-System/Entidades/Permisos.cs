@@ -12,5 +12,6 @@ namespace ARS_System.Entidades
         [Key]
         public int PermisoId { get; set; }
         public string Nombre { get; set; }
+        public int CantidadPermisos { get; set; }
     }
 }
