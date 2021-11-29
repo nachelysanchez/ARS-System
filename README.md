@@ -44,8 +44,9 @@ Registros
 
 Consultas
 
-Consulta](https://user-images.githubusercontent.com/89814256/143950445-1437986a-cce1-4a14-9836-02bb539d9596.PNG)
+![Consulta](https://user-images.githubusercontent.com/89814256/143951389-d6ca2938-6def-4710-a0ab-bab9c1e06cff.PNG)
 
 Registro con Detalle
 
 ![Detalle](https://user-images.githubusercontent.com/89814256/143951293-0708780c-92fb-4a92-abd8-a98da36aa484.PNG)
+
