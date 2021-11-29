@@ -152,6 +152,72 @@ namespace ARS_System.BLL
 
             return encontrado;
         }
+
+        public static List<object> GetList(string criterio, string valor)
+        {
+            List<object> lista;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                var query = (
+                from a in contexto.Aseguradoras
+                join c in contexto.Ciudades on a.CiudadId equals c.CiudadId
+                select new
+                {
+                    a.AseguradoraId,
+                    a.Nombres,
+                    a.RNC,
+                    a.Direccion,
+                    a.Telefono,
+                    Ciudad = (c.Nombres)
+                    
+                }
+                );
+
+                if (criterio.Length != 0)
+                {
+                    switch (criterio)
+                    {
+                        case "AseguradoraId":
+                            query = query.Where(c => c.AseguradoraId == Utilidades.ToInt(valor));
+                            break;
+                        case "Nombres":
+                            query = query.Where(c => c.Nombres.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "RNC":
+                            query = query.Where(c => c.RNC.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Direccion":
+                            query = query.Where(c => c.Direccion.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Telefono":
+                            query = query.Where(c => c.Telefono.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Ciudad":
+                            query = query.Where(c => c.Ciudad.ToLower().Contains(valor.ToLower()));
+                            break;
+                        
+                    }
+                }
+
+
+
+                lista = query.ToList<object>();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+
+
+            return lista;
+        }
         public static List<Aseguradoras> GetAseguradoras()
         {
             List<Aseguradoras> lista = new List<Aseguradoras>();

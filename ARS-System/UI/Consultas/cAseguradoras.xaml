@@ -17,8 +17,9 @@
                         <ComboBoxItem x:Name="NombresComboBoxItem" Content="Nombres"/>
                         <ComboBoxItem x:Name="RNCComboBoxItem" Content="RNC"/>
                         <ComboBoxItem x:Name="DireccionComboBoxItem" Content="Direccion"/>
-                        <ComboBoxItem x:Name="CiudadIdComboBoxItem" Content="Ciudad Id"/>
                         <ComboBoxItem x:Name="TelefonoComboBoxItem" Content="Telefono"/>
+                        <ComboBoxItem x:Name="CiudadComboBoxItem" Content="Ciudad"/>
+                        
 
 
                     </ComboBox>
@@ -51,7 +52,7 @@
                         <DataGridTextColumn Header="Nombres" Binding="{Binding Nombres}"/>
                         <DataGridTextColumn Header="RNC" Binding="{Binding RNC}"/>
                         <DataGridTextColumn Header="Direccion" Binding="{Binding Direccion}"/>
-                        <DataGridTextColumn Header="Ciudad Id" Binding="{Binding CiudadId}"/>
+                        <DataGridTextColumn Header="Ciudad" Binding="{Binding Ciudad}"/>
                         <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}"/>
                     </DataGrid.Columns>
                 </DataGrid>

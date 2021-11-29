@@ -28,38 +28,41 @@ namespace ARS_System.UI.Consultas
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            var listado = new List<Aseguradoras>();
+            var listado = new List<object>();
+            string criterio = CriterioTextBox.Text.Trim();
+
+
 
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0:
-                        listado = AseguradorasBLL.GetAseguradoras();
+                        listado = AseguradorasBLL.GetList("", "");
                         break;
                     case 1:
-                        listado = AseguradorasBLL.GetList(e => e.AseguradoraId == Utilidades.ToInt(CriterioTextBox.Text));
+                        listado = AseguradorasBLL.GetList("AseguradoraId", criterio);
                         break;
                     case 2:
-                        listado = AseguradorasBLL.GetList(e => e.Nombres.ToLower().Contains(CriterioTextBox.Text.ToLower()));
+                        listado = AseguradorasBLL.GetList("Nombres", criterio);
                         break;
                     case 3:
-                        listado = AseguradorasBLL.GetList(e => e.RNC.Contains(CriterioTextBox.Text.ToLower()));
+                        listado = AseguradorasBLL.GetList("RNC", criterio);
                         break;
                     case 4:
-                        listado = AseguradorasBLL.GetList(e => e.Direccion.ToLower().Contains(CriterioTextBox.Text.ToLower()));
+                        listado = AseguradorasBLL.GetList("Direccion", criterio);
                         break;
                     case 5:
-                        listado = AseguradorasBLL.GetList(e => e.CiudadId == Utilidades.ToInt(CriterioTextBox.Text));
+                        listado = AseguradorasBLL.GetList("Telefono", criterio);
                         break;
                     case 6:
-                        listado = AseguradorasBLL.GetList(e => e.Telefono.Contains(CriterioTextBox.Text.ToLower()));
+                        listado = DoctoresBLL.GetList("Ciudad", criterio);
                         break;
                 }
             }
             else
             {
-                listado = AseguradorasBLL.GetList(e => true);
+                listado = AseguradorasBLL.GetList("", "");
             }
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
