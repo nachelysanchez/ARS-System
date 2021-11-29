@@ -258,6 +258,9 @@ namespace ARS_System.Migrations
                     b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("VecesAsignado")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("EspecialidadId");
 
                     b.ToTable("Especialidades");
@@ -266,7 +269,8 @@ namespace ARS_System.Migrations
                         new
                         {
                             EspecialidadId = 1,
-                            Nombres = "Pediatría"
+                            Nombres = "Pediatría",
+                            VecesAsignado = 0
                         });
                 });
 
@@ -464,7 +468,7 @@ namespace ARS_System.Migrations
                             ReclamacionId = 1,
                             AfiliadoId = 1,
                             DoctorId = 1,
-                            Fecha = new DateTime(2021, 11, 29, 11, 50, 57, 230, DateTimeKind.Local).AddTicks(6333),
+                            Fecha = new DateTime(2021, 11, 29, 12, 37, 7, 962, DateTimeKind.Local).AddTicks(8756),
                             NAF = 845632,
                             NoAutorizacion = 52361,
                             PrestadorId = 1,

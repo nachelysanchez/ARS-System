@@ -44,7 +44,8 @@ namespace ARS_System.Migrations
                 {
                     EspecialidadId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nombres = table.Column<string>(type: "TEXT", nullable: true)
+                    Nombres = table.Column<string>(type: "TEXT", nullable: true),
+                    VecesAsignado = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -410,8 +411,8 @@ namespace ARS_System.Migrations
 
             migrationBuilder.InsertData(
                 table: "Especialidades",
-                columns: new[] { "EspecialidadId", "Nombres" },
-                values: new object[] { 1, "Pediatría" });
+                columns: new[] { "EspecialidadId", "Nombres", "VecesAsignado" },
+                values: new object[] { 1, "Pediatría", 0 });
 
             migrationBuilder.InsertData(
                 table: "Ocupaciones",
@@ -536,7 +537,7 @@ namespace ARS_System.Migrations
             migrationBuilder.InsertData(
                 table: "Reclamaciones",
                 columns: new[] { "ReclamacionId", "AfiliadoId", "DoctorId", "Fecha", "NAF", "NoAutorizacion", "PrestadorId", "Total" },
-                values: new object[] { 1, 1, 1, new DateTime(2021, 11, 29, 11, 50, 57, 230, DateTimeKind.Local).AddTicks(6333), 845632, 52361, 1, 0f });
+                values: new object[] { 1, 1, 1, new DateTime(2021, 11, 29, 12, 37, 7, 962, DateTimeKind.Local).AddTicks(8756), 845632, 52361, 1, 0f });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Afiliados_AseguradoraId",

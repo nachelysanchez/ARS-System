@@ -36,7 +36,7 @@ namespace ARS_System.UI.Registros
 
             EspecialidadComboBox.ItemsSource = EspecialidadesBLL.GetEspecialidades();
             EspecialidadComboBox.SelectedValuePath = "EspecialidadId";
-            EspecialidadComboBox.DisplayMemberPath = "NombreEspecialidad";
+            EspecialidadComboBox.DisplayMemberPath = "Nombres";
         }
 
         private void Limpiar()
