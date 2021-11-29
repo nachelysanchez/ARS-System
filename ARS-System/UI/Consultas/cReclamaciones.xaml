@@ -1,0 +1,67 @@
+﻿<Window x:Class="ARS_System.UI.Consultas.cReclamaciones"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARS_System.UI.Consultas"
+        mc:Ignorable="d"
+        Icon="/Resources/Consultas.ico"
+        Title="Consulta de Reclamaciones" Height="350" Width="700">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,5,10,0">
+
+            <StackPanel Orientation="Horizontal" Height="58">
+                <StackPanel>
+                    <Label Content="Desde"/>
+                    <DatePicker x:Name="DesdeDatePicker"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <Label Content="Hasta"/>
+                    <DatePicker x:Name="HastaDatePicker"/>
+                </StackPanel>
+
+                <StackPanel Margin="5,0">
+                    <Label Content="Filtro:" />
+                    <ComboBox x:Name="FiltroComboBox" Width="100">
+                        <ComboBoxItem Content="Reclamacion Id"/>
+                        <ComboBoxItem Content="No Autorizacion"/>
+                        <ComboBoxItem Content="NAF"/>
+                        <ComboBoxItem Content="Doctor"/>
+                        <ComboBoxItem Content="Afiliado"/>
+                        <ComboBoxItem Content="Prestador"/>
+                        <ComboBoxItem Content="Total"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Margin="5,0">
+                    <Label Content="Critero:"/>
+                    <TextBox x:Name="CriterioTextBox" Width="100"/>
+
+                </StackPanel>
+
+                <Button x:Name="BuscarButton" Height="34" Width="93" Click="BuscarButton_Click_3">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Resources/icons8-google-web-search-24.png" Width="35"/>
+                        <Label Content="Buscar" />
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" >
+                <DataGrid x:Name="DatosDataGrid"  Height="240" Width="600" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Reclamacion Id" Binding="{Binding ReclamacionId}"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha, StringFormat=dd/MM/yyyy}"/>
+                        <DataGridTextColumn Header="No Autorizacion" Binding="{Binding NoAutorizacion}"/>
+                        <DataGridTextColumn Header="NAF" Binding="{Binding NAF}"/>
+                        <DataGridTextColumn Header="Doctor" Binding="{Binding Doctor}"/>
+                        <DataGridTextColumn Header="Afiliado" Binding="{Binding Afiliado}"/>
+                        <DataGridTextColumn Header="Prestador" Binding="{Binding Prestador}"/>
+                        <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

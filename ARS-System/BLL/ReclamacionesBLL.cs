@@ -194,6 +194,87 @@ namespace ARS_System.BLL
             return Lista;
         }
 
+        public static List<object> GetList(string criterio, string valor, DateTime? desde, DateTime? hasta)
+        {
+            List<object> lista;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                var query = (
+                    from u in contexto.Reclamaciones
+                    join r in contexto.Doctores on u.DoctorId equals r.DoctorId
+                    join a in contexto.Afiliados on u.AfiliadoId equals a.AfiliadoId
+                    join s in contexto.Prestadores on u.PrestadorId equals s.PrestadorId
+                    select new
+                    {
+                        u.ReclamacionId,
+                        u.Fecha,
+                        u.NoAutorizacion,
+                        u.NAF,
+                        Doctor = (r.Nombres),
+                        Afiliado = (a.Nombres),
+                        Prestador = (s.Nombres),
+                        u.Total
+                    }
+                );
+
+                if (criterio.Length != 0)
+                {
+                    switch (criterio)
+                    {
+                        case "ReclamacionId":
+                            query = query.Where(c => c.ReclamacionId == Utilidades.ToInt(valor));
+                            break;
+                        case "NoAutorizacion":
+                            query = query.Where(c => c.NoAutorizacion == Utilidades.ToInt(valor));
+                            break;
+                        case "NAF":
+                            query = query.Where(c => c.NAF == Utilidades.ToInt(valor));
+                            break;
+                        case "Doctor":
+                            query = query.Where(c => c.Doctor.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Afiliado":
+                            query = query.Where(c => c.Afiliado.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Prestador":
+                            query = query.Where(c => c.Prestador.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Total":
+                            query = query.Where(c => c.Total == Utilidades.ToFloat(valor));
+                            break;
+                        
+                    }
+                }
+
+                if (desde != null && hasta != null)
+                {
+                    query = query.Where(c => c.Fecha >= desde && c.Fecha <= hasta);
+                }
+                else if(desde != null)
+                {
+                    query = query.Where(c => c.Fecha >= desde);
+                }
+                else if(hasta != null)
+                {
+                    query = query.Where(c => c.Fecha <= hasta);
+                }
+
+                lista = query.ToList<object>();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return lista;
+        }
+
         public static List<Reclamaciones> GetReclamaciones()
         {
             List<Reclamaciones> lista = new List<Reclamaciones>();
