@@ -41,6 +41,9 @@
                 <Label Content="Confirmar Contraseña"/>
                 <PasswordBox x:Name="ConfirmarContraseniaPasswordBox" Margin="5,0,10,10"/>
 
+                <Label Content="Cantidad de Permisos"/>
+                <TextBox x:Name="TotalAsignadoTextBox" Text="{Binding TotalAsignado}" IsReadOnly="True" Margin="5,0,10,0"/>
+
                 <StackPanel Orientation="Vertical">
                     <GroupBox Header="Detalle de Usuarios">
                         <StackPanel Margin="10">
