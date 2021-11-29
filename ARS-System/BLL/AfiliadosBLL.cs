@@ -180,14 +180,14 @@ namespace ARS_System.BLL
         /// Permite obtener una lista
         /// </summary>
         /// <returns></returns>
-        public static List<Especialidades> GetEspecialidades()
+        public static List<Afiliados> GetAfiliados()
         {
             Contexto contexto = new Contexto();
-            List<Especialidades> lista = new List<Especialidades>();
+            List<Afiliados> lista = new List<Afiliados>();
 
             try
             {
-                lista = contexto.Especialidades.ToList();
+                lista = contexto.Afiliados.ToList();
             }
             catch (Exception)
             {
@@ -212,7 +212,7 @@ namespace ARS_System.BLL
 
             try
             {
-                encontrado = contexto.Especialidades.Any(e => e.Nombres == nombre);
+                encontrado = contexto.Afiliados.Any(e => e.Nombres == nombre);
             }
             catch (Exception)
             {
