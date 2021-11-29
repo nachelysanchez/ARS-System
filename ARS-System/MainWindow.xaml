@@ -39,7 +39,7 @@
                     <MenuItem x:Name="cProvinciasMenuItem" Header="Consulta de Provincias" Click="cProvincias_Click_1"/>
                     <MenuItem x:Name="cPrestadoresMenuItem" Header="Consulta de Prestadores" Click="cPrestadoresMenuItem_Click"/>
                 </MenuItem>
-                <MenuItem x:Name="CerrarSeccionMenuItem" Header="Cerrar Seccion" HorizontalAlignment="Right" Margin="150,0,0,0" Click="CerrarSeccionMenuItem_Click"/>
+                <MenuItem x:Name="CerrarSeccionMenuItem" Header="Cerrar Sesión" HorizontalAlignment="Right" Margin="150,0,0,0" Click="CerrarSeccionMenuItem_Click"/>
             </Menu>
         </StackPanel>
     </Grid>
