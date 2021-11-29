@@ -18,6 +18,7 @@
     <None Remove="Resources\Registros.ico" />
     <None Remove="Resources\seguro-medico icono.ico" />
     <None Remove="Resources\vcsremoved_93492 %281%29.png" />
+    <None Remove="Resources\WhatsApp Image 2021-11-29 at 16.25.27.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,6 +51,9 @@
     </Content>
     <Content Include="Resources\vcsremoved_93492 (1).png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\WhatsApp Image 2021-11-29 at 16.25.27.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 

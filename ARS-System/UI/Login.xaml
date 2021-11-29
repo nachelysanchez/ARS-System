@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ARS_System.UI"
         xmlns:PasswordHelper ="clr-namespace:ARS_System.Password"
         mc:Ignorable="d"
+        Icon="/Resources/Login.ico"
         Title="Login" Height="200" Width="250">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10">
@@ -20,14 +21,16 @@
                     <Button x:Name="IngresarButton" Click="IngresarButton_Click" Margin="10">
                         <StackPanel Orientation="Horizontal">
 
-                           
+                            <Image Source="/Resources/WhatsApp Image 2021-11-29 at 16.25.27.jpeg" Height="24"/>
+
                             <Label Content="Ingresar"/>
 
                         </StackPanel>
                     </Button>
                     <Button x:Name="CancelarButton" Click="CancelarButton_Click" Margin="10">
                         <StackPanel Orientation="Horizontal">
-                            
+                            <Image Source="/Resources/icons8-eliminar-16.png" />
+
                             <Label Content="Cancelar"/>
 
                         </StackPanel>

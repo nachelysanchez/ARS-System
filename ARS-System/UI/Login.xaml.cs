@@ -28,9 +28,23 @@ namespace ARS_System.UI
         {
             InitializeComponent();
         }
+        private bool Validar()
+        {
+            bool esValido = true;
+            if (NombreUsuarioTextBox.Text.Length == 0 || ContrasenaPasswordBox.Password.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("No puede Ddejar campos vacios", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            return esValido;
+        }
         private void IngresarButton_Click(object sender, RoutedEventArgs e)
         {
             bool paso = LoginBLL.Validar(NombreUsuarioTextBox.Text, ContrasenaPasswordBox.Password);
+
+            if (!Validar())
+                return;
 
             if (paso)
             {

@@ -148,4 +148,7 @@
   <data name="vcsremoved_93492__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vcsremoved_93492 (1).png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="WhatsApp_Image_2021_11_29_at_16_25_27" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WhatsApp Image 2021-11-29 at 16.25.27.jpeg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

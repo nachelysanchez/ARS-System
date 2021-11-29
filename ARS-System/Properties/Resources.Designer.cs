@@ -159,5 +159,15 @@ namespace ARS_System.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] WhatsApp_Image_2021_11_29_at_16_25_27 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp_Image_2021_11_29_at_16_25_27", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
