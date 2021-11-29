@@ -156,7 +156,8 @@ namespace ARS_System
 
         private void cReclamacionesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cReclamaciones cReclamacion = new cReclamaciones();
+            cReclamacion.Show();
         }
 
         private void cProvincias_Click_1(object sender, RoutedEventArgs e)
