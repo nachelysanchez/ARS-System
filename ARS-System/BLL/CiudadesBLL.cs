@@ -150,6 +150,54 @@ namespace ARS_System.BLL
             }
             return lista;
         }
+
+        public static List<object> GetList(string criterio, string valor)
+        {
+            List<object> lista;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                var query = (
+                    from c in contexto.Ciudades
+                    join cl in contexto.Provincias on c.ProvinciaId equals cl.ProvinciaId
+                    select new
+                    {
+                        c.CiudadId,
+                        c.Nombres,
+                        Provincia = (cl.Nombres)
+                    }
+                );
+
+                if (criterio.Length != 0)
+                {
+                    switch (criterio)
+                    {
+                        case "CiudadId":
+                            query = query.Where(c => c.CiudadId == Utilidades.ToInt(valor));
+                            break;
+                        case "Nombres":
+                            query = query.Where(c => c.Nombres.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Provincia":
+                            query = query.Where(c => c.Provincia.ToLower().Contains(valor.ToLower()));
+                            break;
+                    }
+                }
+
+                lista = query.ToList<object>();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return lista;
+        }
         public static List<Ciudades> GetCiudades()
         {
             List<Ciudades> lista = new List<Ciudades>();
