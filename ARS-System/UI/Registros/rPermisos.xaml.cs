@@ -33,6 +33,11 @@ namespace ARS_System.UI.Registros
             this.permisos = new Permisos();
             this.DataContext = permisos;
         }
+        private void Actualizar()
+        {
+            this.DataContext = null;
+            this.DataContext = permisos;
+        }
         private bool Validar()
         {
             bool esValido = true;
@@ -51,13 +56,14 @@ namespace ARS_System.UI.Registros
 
             if (permiso != null)
             {
-                this.permisos = permiso;
+                permisos = permiso;
+                Actualizar();
             }
             else
             {
-                this.permisos = new Permisos();
+                Limpiar();
+                MessageBox.Show("No existe en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            this.DataContext = this.permisos;
         }
 
         private void NuevoButton_Click(object sender, RoutedEventArgs e)

@@ -48,19 +48,26 @@ namespace ARS_System.UI.Registros
             return esValido;
         }
 
+        private void Actualizar()
+        {
+            this.DataContext = null;
+            this.DataContext = ciudades;
+        }
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
             var ciudad = CiudadesBLL.Buscar(Utilidades.ToInt(CiudadIdTextBox.Text));
 
-            if(ciudades != null)
+
+            if (ciudad != null)
             {
-                this.ciudades = ciudad;
+                ciudades = ciudad;
+                Actualizar();
             }
             else
             {
-                this.ciudades = new Ciudades();
+                Limpiar();
+                MessageBox.Show("No existe en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            this.DataContext = this.ciudades;
         }
 
         private void NuevoButton_Click(object sender, RoutedEventArgs e)

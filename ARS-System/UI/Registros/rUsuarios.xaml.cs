@@ -109,7 +109,7 @@ namespace ARS_System.UI.Registros
             else
             {
                 Limpiar();
-                MessageBox.Show("La reclamación no existe en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No existe en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
