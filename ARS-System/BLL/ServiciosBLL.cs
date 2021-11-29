@@ -53,7 +53,7 @@ namespace ARS_System.BLL
             return Lista;
         }
 
-        public static List<Servicios> GetOcupaciones()
+        public static List<Servicios> GetServicios()
         {
             List<Servicios> Lista = new List<Servicios>();
 
