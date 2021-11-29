@@ -320,6 +320,80 @@ namespace ARS_System.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Reclamaciones",
+                columns: table => new
+                {
+                    ReclamacionId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    NoAutorizacion = table.Column<int>(type: "INTEGER", nullable: false),
+                    NAF = table.Column<int>(type: "INTEGER", nullable: false),
+                    DoctorId = table.Column<int>(type: "INTEGER", nullable: false),
+                    AfiliadoId = table.Column<int>(type: "INTEGER", nullable: false),
+                    PrestadorId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Total = table.Column<float>(type: "REAL", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reclamaciones", x => x.ReclamacionId);
+                    table.ForeignKey(
+                        name: "FK_Reclamaciones_Afiliados_AfiliadoId",
+                        column: x => x.AfiliadoId,
+                        principalTable: "Afiliados",
+                        principalColumn: "AfiliadoId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Reclamaciones_Doctores_DoctorId",
+                        column: x => x.DoctorId,
+                        principalTable: "Doctores",
+                        principalColumn: "DoctorId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Reclamaciones_Prestadores_PrestadorId",
+                        column: x => x.PrestadorId,
+                        principalTable: "Prestadores",
+                        principalColumn: "PrestadorId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ReclamacionesDetalle",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ReclamacionId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ServicioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    DiagnosticoId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ValorTotal = table.Column<float>(type: "REAL", nullable: false),
+                    NoProcede = table.Column<float>(type: "REAL", nullable: false),
+                    ValorReclamado = table.Column<float>(type: "REAL", nullable: false),
+                    Copago = table.Column<float>(type: "REAL", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ReclamacionesDetalle", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ReclamacionesDetalle_Diagnosticos_DiagnosticoId",
+                        column: x => x.DiagnosticoId,
+                        principalTable: "Diagnosticos",
+                        principalColumn: "DiagnosticoId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ReclamacionesDetalle_Reclamaciones_ReclamacionId",
+                        column: x => x.ReclamacionId,
+                        principalTable: "Reclamaciones",
+                        principalColumn: "ReclamacionId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ReclamacionesDetalle_Servicios_ServicioId",
+                        column: x => x.ServicioId,
+                        principalTable: "Servicios",
+                        principalColumn: "ServicioId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "Aseguradoras",
                 columns: new[] { "AseguradoraId", "CiudadId", "Direccion", "Nombres", "RNC", "Telefono" },
@@ -450,6 +524,11 @@ namespace ARS_System.Migrations
                 columns: new[] { "PrestadorId", "CiudadId", "Direccion", "Nombres", "RNC", "Telefono" },
                 values: new object[] { 1, 1, "C/ Salcedo Esq. San Francisco", "Centro Médico Nacional, San Francisco", "A1053736146", "809-588-3414" });
 
+            migrationBuilder.InsertData(
+                table: "Reclamaciones",
+                columns: new[] { "ReclamacionId", "AfiliadoId", "DoctorId", "Fecha", "NAF", "NoAutorizacion", "PrestadorId", "Total" },
+                values: new object[] { 1, 1, 1, new DateTime(2021, 11, 28, 21, 29, 10, 523, DateTimeKind.Local).AddTicks(3561), 845632, 52361, 1, 0f });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Afiliados_AseguradoraId",
                 table: "Afiliados",
@@ -496,6 +575,36 @@ namespace ARS_System.Migrations
                 column: "CiudadId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Reclamaciones_AfiliadoId",
+                table: "Reclamaciones",
+                column: "AfiliadoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reclamaciones_DoctorId",
+                table: "Reclamaciones",
+                column: "DoctorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reclamaciones_PrestadorId",
+                table: "Reclamaciones",
+                column: "PrestadorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ReclamacionesDetalle_DiagnosticoId",
+                table: "ReclamacionesDetalle",
+                column: "DiagnosticoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ReclamacionesDetalle_ReclamacionId",
+                table: "ReclamacionesDetalle",
+                column: "ReclamacionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ReclamacionesDetalle_ServicioId",
+                table: "ReclamacionesDetalle",
+                column: "ServicioId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Usuarios_RolId",
                 table: "Usuarios",
                 column: "RolId");
@@ -514,22 +623,43 @@ namespace ARS_System.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Afiliados");
+                name: "DoctoresDetalle");
+
+            migrationBuilder.DropTable(
+                name: "ReclamacionesDetalle");
+
+            migrationBuilder.DropTable(
+                name: "UsuariosDetalle");
+
+            migrationBuilder.DropTable(
+                name: "Especialidades");
 
             migrationBuilder.DropTable(
                 name: "Diagnosticos");
 
             migrationBuilder.DropTable(
-                name: "DoctoresDetalle");
-
-            migrationBuilder.DropTable(
-                name: "Prestadores");
+                name: "Reclamaciones");
 
             migrationBuilder.DropTable(
                 name: "Servicios");
 
             migrationBuilder.DropTable(
-                name: "UsuariosDetalle");
+                name: "Permisos");
+
+            migrationBuilder.DropTable(
+                name: "Usuarios");
+
+            migrationBuilder.DropTable(
+                name: "Afiliados");
+
+            migrationBuilder.DropTable(
+                name: "Doctores");
+
+            migrationBuilder.DropTable(
+                name: "Prestadores");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
 
             migrationBuilder.DropTable(
                 name: "Aseguradoras");
@@ -541,22 +671,7 @@ namespace ARS_System.Migrations
                 name: "Sexos");
 
             migrationBuilder.DropTable(
-                name: "Doctores");
-
-            migrationBuilder.DropTable(
-                name: "Especialidades");
-
-            migrationBuilder.DropTable(
-                name: "Permisos");
-
-            migrationBuilder.DropTable(
-                name: "Usuarios");
-
-            migrationBuilder.DropTable(
                 name: "Ciudades");
-
-            migrationBuilder.DropTable(
-                name: "Roles");
 
             migrationBuilder.DropTable(
                 name: "Provincias");

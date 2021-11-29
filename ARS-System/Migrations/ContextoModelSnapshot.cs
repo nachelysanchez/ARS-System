@@ -406,6 +406,95 @@ namespace ARS_System.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ARS_System.Entidades.Reclamaciones", b =>
+                {
+                    b.Property<int>("ReclamacionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AfiliadoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("NAF")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("NoAutorizacion")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PrestadorId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("Total")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("ReclamacionId");
+
+                    b.HasIndex("AfiliadoId");
+
+                    b.HasIndex("DoctorId");
+
+                    b.HasIndex("PrestadorId");
+
+                    b.ToTable("Reclamaciones");
+
+                    b.HasData(
+                        new
+                        {
+                            ReclamacionId = 1,
+                            AfiliadoId = 1,
+                            DoctorId = 1,
+                            Fecha = new DateTime(2021, 11, 28, 21, 29, 10, 523, DateTimeKind.Local).AddTicks(3561),
+                            NAF = 845632,
+                            NoAutorizacion = 52361,
+                            PrestadorId = 1,
+                            Total = 0f
+                        });
+                });
+
+            modelBuilder.Entity("ARS_System.Entidades.ReclamacionesDetalle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("Copago")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("DiagnosticoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("NoProcede")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("ReclamacionId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ServicioId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("ValorReclamado")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("ValorTotal")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DiagnosticoId");
+
+                    b.HasIndex("ReclamacionId");
+
+                    b.HasIndex("ServicioId");
+
+                    b.ToTable("ReclamacionesDetalle");
+                });
+
             modelBuilder.Entity("ARS_System.Entidades.Roles", b =>
                 {
                     b.Property<int>("RolId")
@@ -639,6 +728,58 @@ namespace ARS_System.Migrations
                     b.Navigation("Ciudad");
                 });
 
+            modelBuilder.Entity("ARS_System.Entidades.Reclamaciones", b =>
+                {
+                    b.HasOne("ARS_System.Entidades.Afiliados", "Afiliado")
+                        .WithMany()
+                        .HasForeignKey("AfiliadoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ARS_System.Entidades.Doctores", "Doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ARS_System.Entidades.Prestadores", "Prestador")
+                        .WithMany()
+                        .HasForeignKey("PrestadorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Afiliado");
+
+                    b.Navigation("Doctor");
+
+                    b.Navigation("Prestador");
+                });
+
+            modelBuilder.Entity("ARS_System.Entidades.ReclamacionesDetalle", b =>
+                {
+                    b.HasOne("ARS_System.Entidades.Diagnosticos", "Diagnostico")
+                        .WithMany()
+                        .HasForeignKey("DiagnosticoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ARS_System.Entidades.Reclamaciones", null)
+                        .WithMany("RDetalle")
+                        .HasForeignKey("ReclamacionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ARS_System.Entidades.Servicios", "Servicio")
+                        .WithMany()
+                        .HasForeignKey("ServicioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Diagnostico");
+
+                    b.Navigation("Servicio");
+                });
+
             modelBuilder.Entity("ARS_System.Entidades.Usuarios", b =>
                 {
                     b.HasOne("ARS_System.Entidades.Roles", "Roles")
@@ -670,6 +811,11 @@ namespace ARS_System.Migrations
             modelBuilder.Entity("ARS_System.Entidades.Doctores", b =>
                 {
                     b.Navigation("Detalle");
+                });
+
+            modelBuilder.Entity("ARS_System.Entidades.Reclamaciones", b =>
+                {
+                    b.Navigation("RDetalle");
                 });
 
             modelBuilder.Entity("ARS_System.Entidades.Usuarios", b =>
