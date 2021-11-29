@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ARS_System.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211129054213_Migracion_Inicial")]
+    [Migration("20211129145058_Migracion_Inicial")]
     partial class Migracion_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -274,41 +274,41 @@ namespace ARS_System.Migrations
 
             modelBuilder.Entity("ARS_System.Entidades.Ocupaciones", b =>
                 {
-                    b.Property<int>("OcupacionesId")
+                    b.Property<int>("OcupacionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("OcupacionesId");
+                    b.HasKey("OcupacionId");
 
                     b.ToTable("Ocupaciones");
 
                     b.HasData(
                         new
                         {
-                            OcupacionesId = 1,
+                            OcupacionId = 1,
                             Nombre = "Plomero"
                         },
                         new
                         {
-                            OcupacionesId = 2,
+                            OcupacionId = 2,
                             Nombre = "Electricista"
                         },
                         new
                         {
-                            OcupacionesId = 3,
+                            OcupacionId = 3,
                             Nombre = "Abogado"
                         },
                         new
                         {
-                            OcupacionesId = 4,
+                            OcupacionId = 4,
                             Nombre = "Ingeniero"
                         },
                         new
                         {
-                            OcupacionesId = 5,
+                            OcupacionId = 5,
                             Nombre = "Chofer"
                         });
                 });
@@ -319,12 +319,23 @@ namespace ARS_System.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("CantidadPermisos")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
                     b.HasKey("PermisoId");
 
                     b.ToTable("Permisos");
+
+                    b.HasData(
+                        new
+                        {
+                            PermisoId = 1,
+                            CantidadPermisos = 0,
+                            Nombre = "Viajes"
+                        });
                 });
 
             modelBuilder.Entity("ARS_System.Entidades.Prestadores", b =>
@@ -455,7 +466,7 @@ namespace ARS_System.Migrations
                             ReclamacionId = 1,
                             AfiliadoId = 1,
                             DoctorId = 1,
-                            Fecha = new DateTime(2021, 11, 29, 1, 42, 8, 347, DateTimeKind.Local).AddTicks(9065),
+                            Fecha = new DateTime(2021, 11, 29, 11, 50, 57, 230, DateTimeKind.Local).AddTicks(6333),
                             NAF = 845632,
                             NoAutorizacion = 52361,
                             PrestadorId = 1,
@@ -594,6 +605,9 @@ namespace ARS_System.Migrations
                     b.Property<int>("RolId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("TotalAsignado")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Username")
                         .HasColumnType("TEXT");
 
@@ -610,6 +624,7 @@ namespace ARS_System.Migrations
                             Contrasena = "d7678f190ca1811f2d340c7aa1bf1822e6acaac89ffd8ea5c2f731efd3e10e4a",
                             Nombres = "Kelvin Peña",
                             RolId = 1,
+                            TotalAsignado = 0,
                             Username = "KelvinP"
                         },
                         new
@@ -618,6 +633,7 @@ namespace ARS_System.Migrations
                             Contrasena = "c25a957fe06e03fbbc5b8f9635c1addd4e1c62a2a7d6d1286faae96e603e9a15",
                             Nombres = "Nachely Sanchez",
                             RolId = 1,
+                            TotalAsignado = 0,
                             Username = "NachelyS"
                         },
                         new
@@ -626,6 +642,7 @@ namespace ARS_System.Migrations
                             Contrasena = "613ba1ddd8c16ecb4f619506e8d88e25c94b98d33b4c9a23d67910bcb0161a6d",
                             Nombres = "Vismar Lora",
                             RolId = 1,
+                            TotalAsignado = 0,
                             Username = "VismarL"
                         });
                 });

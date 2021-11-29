@@ -55,13 +55,13 @@ namespace ARS_System.Migrations
                 name: "Ocupaciones",
                 columns: table => new
                 {
-                    OcupacionesId = table.Column<int>(type: "INTEGER", nullable: false)
+                    OcupacionId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nombre = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ocupaciones", x => x.OcupacionesId);
+                    table.PrimaryKey("PK_Ocupaciones", x => x.OcupacionId);
                 });
 
             migrationBuilder.CreateTable(
@@ -70,7 +70,8 @@ namespace ARS_System.Migrations
                 {
                     PermisoId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nombre = table.Column<string>(type: "TEXT", nullable: true)
+                    Nombre = table.Column<string>(type: "TEXT", nullable: true),
+                    CantidadPermisos = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -159,7 +160,8 @@ namespace ARS_System.Migrations
                     Nombres = table.Column<string>(type: "TEXT", nullable: true),
                     Username = table.Column<string>(type: "TEXT", nullable: true),
                     Contrasena = table.Column<string>(type: "TEXT", nullable: true),
-                    RolId = table.Column<int>(type: "INTEGER", nullable: false)
+                    RolId = table.Column<int>(type: "INTEGER", nullable: false),
+                    TotalAsignado = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -211,7 +213,7 @@ namespace ARS_System.Migrations
                         name: "FK_Afiliados_Ocupaciones_OcupacionId",
                         column: x => x.OcupacionId,
                         principalTable: "Ocupaciones",
-                        principalColumn: "OcupacionesId",
+                        principalColumn: "OcupacionId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Afiliados_Sexos_SexoId",
@@ -413,28 +415,33 @@ namespace ARS_System.Migrations
 
             migrationBuilder.InsertData(
                 table: "Ocupaciones",
-                columns: new[] { "OcupacionesId", "Nombre" },
+                columns: new[] { "OcupacionId", "Nombre" },
                 values: new object[] { 1, "Plomero" });
 
             migrationBuilder.InsertData(
                 table: "Ocupaciones",
-                columns: new[] { "OcupacionesId", "Nombre" },
+                columns: new[] { "OcupacionId", "Nombre" },
                 values: new object[] { 2, "Electricista" });
 
             migrationBuilder.InsertData(
                 table: "Ocupaciones",
-                columns: new[] { "OcupacionesId", "Nombre" },
+                columns: new[] { "OcupacionId", "Nombre" },
                 values: new object[] { 3, "Abogado" });
 
             migrationBuilder.InsertData(
                 table: "Ocupaciones",
-                columns: new[] { "OcupacionesId", "Nombre" },
+                columns: new[] { "OcupacionId", "Nombre" },
                 values: new object[] { 4, "Ingeniero" });
 
             migrationBuilder.InsertData(
                 table: "Ocupaciones",
-                columns: new[] { "OcupacionesId", "Nombre" },
+                columns: new[] { "OcupacionId", "Nombre" },
                 values: new object[] { 5, "Chofer" });
+
+            migrationBuilder.InsertData(
+                table: "Permisos",
+                columns: new[] { "PermisoId", "CantidadPermisos", "Nombre" },
+                values: new object[] { 1, 0, "Viajes" });
 
             migrationBuilder.InsertData(
                 table: "Provincias",
@@ -454,12 +461,12 @@ namespace ARS_System.Migrations
             migrationBuilder.InsertData(
                 table: "Provincias",
                 columns: new[] { "ProvinciaId", "Nombres" },
-                values: new object[] { 2, "María Trinidad Sánchez" });
+                values: new object[] { 1, "Duarte" });
 
             migrationBuilder.InsertData(
                 table: "Provincias",
                 columns: new[] { "ProvinciaId", "Nombres" },
-                values: new object[] { 1, "Duarte" });
+                values: new object[] { 2, "María Trinidad Sánchez" });
 
             migrationBuilder.InsertData(
                 table: "Provincias",
@@ -498,18 +505,18 @@ namespace ARS_System.Migrations
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
-                columns: new[] { "UsuarioId", "Contrasena", "Nombres", "RolId", "Username" },
-                values: new object[] { 1, "d7678f190ca1811f2d340c7aa1bf1822e6acaac89ffd8ea5c2f731efd3e10e4a", "Kelvin Peña", 1, "KelvinP" });
+                columns: new[] { "UsuarioId", "Contrasena", "Nombres", "RolId", "TotalAsignado", "Username" },
+                values: new object[] { 1, "d7678f190ca1811f2d340c7aa1bf1822e6acaac89ffd8ea5c2f731efd3e10e4a", "Kelvin Peña", 1, 0, "KelvinP" });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
-                columns: new[] { "UsuarioId", "Contrasena", "Nombres", "RolId", "Username" },
-                values: new object[] { 2, "c25a957fe06e03fbbc5b8f9635c1addd4e1c62a2a7d6d1286faae96e603e9a15", "Nachely Sanchez", 1, "NachelyS" });
+                columns: new[] { "UsuarioId", "Contrasena", "Nombres", "RolId", "TotalAsignado", "Username" },
+                values: new object[] { 2, "c25a957fe06e03fbbc5b8f9635c1addd4e1c62a2a7d6d1286faae96e603e9a15", "Nachely Sanchez", 1, 0, "NachelyS" });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
-                columns: new[] { "UsuarioId", "Contrasena", "Nombres", "RolId", "Username" },
-                values: new object[] { 3, "613ba1ddd8c16ecb4f619506e8d88e25c94b98d33b4c9a23d67910bcb0161a6d", "Vismar Lora", 1, "VismarL" });
+                columns: new[] { "UsuarioId", "Contrasena", "Nombres", "RolId", "TotalAsignado", "Username" },
+                values: new object[] { 3, "613ba1ddd8c16ecb4f619506e8d88e25c94b98d33b4c9a23d67910bcb0161a6d", "Vismar Lora", 1, 0, "VismarL" });
 
             migrationBuilder.InsertData(
                 table: "Afiliados",
@@ -529,7 +536,7 @@ namespace ARS_System.Migrations
             migrationBuilder.InsertData(
                 table: "Reclamaciones",
                 columns: new[] { "ReclamacionId", "AfiliadoId", "DoctorId", "Fecha", "NAF", "NoAutorizacion", "PrestadorId", "Total" },
-                values: new object[] { 1, 1, 1, new DateTime(2021, 11, 29, 1, 42, 8, 347, DateTimeKind.Local).AddTicks(9065), 845632, 52361, 1, 0f });
+                values: new object[] { 1, 1, 1, new DateTime(2021, 11, 29, 11, 50, 57, 230, DateTimeKind.Local).AddTicks(6333), 845632, 52361, 1, 0f });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Afiliados_AseguradoraId",
