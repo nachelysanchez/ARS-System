@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Permisos" Height="220" Width="350">
+        Title="Registro de Permisos" Height="250" Width="350">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Vertical" Margin="20,20,20,0">
@@ -22,8 +22,10 @@
                 <Label Content="Descripcion del Permiso "/>
                 <TextBox x:Name="NombrePermisoTextBox" Margin="5,0,0,0" Text="{Binding Nombre}"/>
 
-                
-                
+                <Label Content="Usuarios"/>
+                <TextBox x:Name="UsuariosTextBox" Text="{Binding CantidadPermisos}" IsReadOnly="True" Margin="5,0,0,0"/>
+
+
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="20,20" >
