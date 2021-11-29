@@ -14,7 +14,8 @@
                     <Label Content="Filtro:" />
                     <ComboBox x:Name="FiltroComboBox" Width="100">
                         <ComboBoxItem x:Name="ListadoComboBoxItem" Content="Listado"/>
-                        <ComboBoxItem x:Name="NombreComboBoxItem" Content="Nombre"/>
+                        <ComboBoxItem x:Name="UsuarioIdComboBoxItem" Content="Usuario Id"/>
+                        <ComboBoxItem x:Name="NombresComboBoxItem" Content="Nombres"/>
                         <ComboBoxItem x:Name="UsernameComboBoxItem" Content="Username"/>
                         <ComboBoxItem x:Name="RolComboBoxItem" Content="Rol"/>
                     </ComboBox>

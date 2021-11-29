@@ -36,26 +36,26 @@ namespace ARS_System.UI.Consultas
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0:
-                        listado = CiudadesBLL.GetList("", "");
+                        listado = UsuariosBLL.GetList("", "");
                         break;
                     case 1:
-                        listado = CiudadesBLL.GetList("UsuarioId", criterio);
+                        listado = UsuariosBLL.GetList("UsuarioId", criterio);
                         break;
                     case 2:
-                        listado = CiudadesBLL.GetList("Nombres", criterio);
+                        listado = UsuariosBLL.GetList("Nombres", criterio);
                         break;
                     case 3:
-                        listado = CiudadesBLL.GetList("Username", criterio);
+                        listado = UsuariosBLL.GetList("Username", criterio);
                         break;
                     case 4:
-                        listado = CiudadesBLL.GetList("Role", criterio);
+                        listado = UsuariosBLL.GetList("Role", criterio);
                         break;
 
                 }
             }
             else
             {
-                listado = CiudadesBLL.GetList("", "");
+                listado = UsuariosBLL.GetList("", "");
             }
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;

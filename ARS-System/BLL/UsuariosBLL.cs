@@ -194,6 +194,7 @@ namespace ARS_System.BLL
                         u.UsuarioId,
                         u.Nombres,
                         u.Username,
+                        u.Contrasena,
                         Role = (r.Nombre)
                     }
                 );
@@ -211,9 +212,13 @@ namespace ARS_System.BLL
                         case "Username":
                             query = query.Where(c => c.Username.ToLower().Contains(valor.ToLower()));
                             break;
+                        case "Contrasena":
+                            query = query.Where(c => c.Contrasena.ToLower().Contains(valor.ToLower()));
+                            break;
                         case "Role":
                             query = query.Where(c => c.Role.ToLower().Contains(valor.ToLower()));
                             break;
+                       
                     }
                 }
 
