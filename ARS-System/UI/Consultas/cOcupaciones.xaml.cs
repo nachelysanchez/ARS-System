@@ -37,7 +37,7 @@ namespace ARS_System.UI.Consultas
                         listado = OcupacionesBLL.GetOcupaciones();
                         break;
                     case 1:
-                        listado = OcupacionesBLL.GetList(e => e.OcupacionesId == Utilidades.ToInt(CriterioTextBox.Text));
+                        listado = OcupacionesBLL.GetList(e => e.OcupacionId == Utilidades.ToInt(CriterioTextBox.Text));
                         break;
                     case 2:
                         listado = OcupacionesBLL.GetList(e => e.Nombre.Contains(CriterioTextBox.Text.ToLower()));

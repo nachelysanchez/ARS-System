@@ -10,7 +10,7 @@ namespace ARS_System.Entidades
     public class Ocupaciones
     {
         [Key]
-        public int OcupacionesId { get; set; }
+        public int OcupacionId { get; set; }
         public string Nombre { get; set; }
     }
 }

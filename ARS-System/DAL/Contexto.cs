@@ -112,27 +112,27 @@ namespace ARS_System.DAL
 
             //Ocupaciones
             modelBuilder.Entity<Ocupaciones>().HasData(new Ocupaciones{
-                OcupacionesId = 1,
+                OcupacionId = 1,
                 Nombre = "Plomero"
             });
             modelBuilder.Entity<Ocupaciones>().HasData(new Ocupaciones
             {
-                OcupacionesId = 2,
+                OcupacionId = 2,
                 Nombre = "Electricista"
             });
             modelBuilder.Entity<Ocupaciones>().HasData(new Ocupaciones
             {
-                OcupacionesId = 3,
+                OcupacionId = 3,
                 Nombre = "Abogado"
             });
             modelBuilder.Entity<Ocupaciones>().HasData(new Ocupaciones
             {
-                OcupacionesId = 4,
+                OcupacionId = 4,
                 Nombre = "Ingeniero"
             });
             modelBuilder.Entity<Ocupaciones>().HasData(new Ocupaciones
             {
-                OcupacionesId = 5,
+                OcupacionId = 5,
                 Nombre = "Chofer"
             });
 
