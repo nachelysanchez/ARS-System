@@ -215,6 +215,7 @@ namespace ARS_System.BLL
                     d.Nombres,
                     d.Celular,
                     d.Telefono,
+                    d.Direccion,
                     Ciudad = (c.Nombres),
                     d.Exequatur
                 }
@@ -230,11 +231,14 @@ namespace ARS_System.BLL
                         case "Nombres":
                             query = query.Where(c => c.Nombres.ToLower().Contains(valor.ToLower()));
                             break;
-                        case "Celulra":
+                        case "Celular":
                             query = query.Where(c => c.Celular.ToLower().Contains(valor.ToLower()));
                             break;
                         case "Telefono":
                             query = query.Where(c => c.Telefono.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Direccion":
+                            query = query.Where(c => c.Direccion.ToLower().Contains(valor.ToLower()));
                             break;
                         case "Ciudad":
                             query = query.Where(c => c.Ciudad.ToLower().Contains(valor.ToLower()));

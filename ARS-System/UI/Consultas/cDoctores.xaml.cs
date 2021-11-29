@@ -28,39 +28,44 @@ namespace ARS_System.UI.Consultas
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            var listado = new List<Doctores>();
+            var listado = new List<object>();
+            string criterio = CriterioTextBox.Text.Trim();
+
+
 
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0:
-                        listado = DoctoresBLL.GetDoctores();
+                        listado = DoctoresBLL.GetList("", "");
                         break;
                     case 1:
-                        listado = DoctoresBLL.GetList(e => e.DoctorId == Utilidades.ToInt(CriterioTextBox.Text));
+                        listado = DoctoresBLL.GetList("DoctorId", criterio);
                         break;
                     case 2:
-
-                        listado = DoctoresBLL.GetList(e => e.Nombres.Contains(CriterioTextBox.Text.ToLower()));
+                        listado = DoctoresBLL.GetList("Nombres", criterio);
                         break;
                     case 3:
-                        listado = DoctoresBLL.GetList(e => e.Celular.Contains(CriterioTextBox.Text.ToLower()));
+                        listado = DoctoresBLL.GetList("Celular", criterio);
                         break;
                     case 4:
-                        listado = DoctoresBLL.GetList(e => e.Telefono.Contains(CriterioTextBox.Text.ToLower()));
+                        listado = DoctoresBLL.GetList("Telefono", criterio);
                         break;
                     case 5:
-                        listado = DoctoresBLL.GetList(e => e.CiudadId == Utilidades.ToInt(CriterioTextBox.Text));
+                        listado = DoctoresBLL.GetList("Direccion", criterio);
                         break;
                     case 6:
-                        listado = DoctoresBLL.GetList(e => e.Exequatur.Contains(CriterioTextBox.Text.ToLower()));
+                        listado = DoctoresBLL.GetList("Ciudad", criterio);
+                        break;
+                    case 7:
+                        listado = DoctoresBLL.GetList("Exequatur", criterio);
                         break;
                 }
             }
             else
             {
-                listado = DoctoresBLL.GetList(e => true);
+                listado = DoctoresBLL.GetList("", "");
             }
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;

@@ -18,7 +18,7 @@
                         <ComboBoxItem x:Name="CelularComboBoxItem" Content="Celular"/>
                         <ComboBoxItem x:Name="TelefonoComboBoxItem" Content="Telefono"/>
                         <ComboBoxItem x:Name="DireccionComboBoxItem" Content="Direccion"/>
-                        <ComboBoxItem x:Name="CiudadIdComboBoxItem" Content="Ciudad Id"/>
+                        <ComboBoxItem x:Name="CiudadComboBoxItem" Content="Ciudad"/>
                         <ComboBoxItem x:Name="ExequaturComboBoxItem" Content="Exequatur"/>
 
                     </ComboBox>
@@ -52,7 +52,7 @@
                         <DataGridTextColumn Header="Celular" Binding="{Binding Celular}"/>
                         <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}"/>
                         <DataGridTextColumn Header="Direccion" Binding="{Binding Direccion}"/>
-                        <DataGridTextColumn Header="Ciudad " Binding="{Binding Ciudad.Nombre}"/>
+                        <DataGridTextColumn Header="Ciudad " Binding="{Binding Ciudad}"/>
                         <DataGridTextColumn Header="Exequatur" Binding="{Binding Exequatur}"/>
                     </DataGrid.Columns>
                 </DataGrid>
