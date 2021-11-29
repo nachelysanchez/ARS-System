@@ -16,6 +16,7 @@ namespace ARS_System.Entidades
         public string Username { get; set; }
         public string Contrasena { get; set; }
         public int RolId { get; set; }
+        public int TotalAsignado { get; set; }
 
         [ForeignKey("RolId")]
         public Roles Roles { get; set; }
