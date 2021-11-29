@@ -72,7 +72,7 @@
                                 <DataGrid.Columns>
 
                                     <DataGridTextColumn Header="Doctor Id" Binding="{Binding DoctorId}" Visibility="Hidden"/>
-                                    <DataGridTextColumn Header="Especialidades" Binding="{Binding Especialidades.NombreEspecialidad}"/>
+                                    <DataGridTextColumn Header="Especialidades" Binding="{Binding Especialidades.Nombres}"/>
                                     <DataGridTextColumn Header="Observacion" Binding="{Binding Observacion}"/>
                                 </DataGrid.Columns>
                             </DataGrid>

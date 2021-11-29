@@ -45,6 +45,11 @@ namespace ARS_System.UI.Registros
             this.DataContext = doctores;
         }
 
+        private bool ExisteenBD()
+        {
+            Doctores esValido = DoctoresBLL.Buscar(doctores.DoctorId);
+            return (esValido != null);
+        }
         private bool Validar()
         {
             bool esValido = true;
@@ -70,12 +75,20 @@ namespace ARS_System.UI.Registros
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            var doctor = DoctoresBLL.Buscar(Utilidades.ToInt(DoctorIdTextBox.Text));
+            var doctor = DoctoresBLL.Buscar(doctores.DoctorId);
 
-            if (doctores != null)
-                this.doctores = doctor;
+            if (doctor != null)
+            {
+                doctores = doctor;
+                Actualizar();
+            }
+                
             else
+            {
                 Limpiar();
+                MessageBox.Show("No existe en la base de datos", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
 
             this.DataContext = this.doctores;
         }
@@ -84,7 +97,6 @@ namespace ARS_System.UI.Registros
         {
             doctores.Detalle.Add(new DoctoresDetalle(Utilidades.ToInt(DoctorIdTextBox.Text), (int)EspecialidadComboBox.SelectedValue,
                 ObservacionTextBox.Text, (Especialidades)EspecialidadComboBox.SelectedItem));
-
 
             Actualizar();
         }
@@ -103,12 +115,29 @@ namespace ARS_System.UI.Registros
             Limpiar();
         }
 
+
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
+            bool paso = false;
             if (!Validar())
                 return;
 
-            var paso = DoctoresBLL.Guardar(doctores);
+            if(doctores.DoctorId == 0)
+            {
+                paso = DoctoresBLL.Guardar(doctores);
+            }
+            else
+            {
+                if(ExisteenBD())
+                {
+                    paso = DoctoresBLL.Guardar(doctores);
+
+                }
+                else
+                {
+                    MessageBox.Show("No existe en la base de datos", "Error");
+                }
+            }
 
             if (paso)
             {

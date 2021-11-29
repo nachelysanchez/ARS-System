@@ -91,7 +91,7 @@ namespace ARS_System.BLL
                 foreach (var detalle in doctorAnterior.Detalle)
                 {
                     detalle.Especialidades.VecesAsignado -= 1;
-                    contexto.Entry(detalle.Especialidades).State = EntityState.Modified;
+                    //contexto.Entry(detalle.Especialidades).State = EntityState.Modified;
                 }
                 contexto.Database.ExecuteSqlRaw($"Delete FROM DoctoresDetalle Where DoctorId={doctores.DoctorId}");
 
