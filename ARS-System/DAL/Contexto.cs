@@ -75,7 +75,9 @@ namespace ARS_System.DAL
             modelBuilder.Entity<Especialidades>().HasData(new Especialidades
             {
                 EspecialidadId = 1,
-                Nombres = "Pediatría"
+                Nombres = "Pediatría",
+                VecesAsignado = 0
+
             });
 
             //Provincias
