@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ARS_System.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,24 +25,48 @@ namespace ARS_System.UI.Consultas
             InitializeComponent();
         }
 
-        private void BuscarButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BuscarButton_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BuscarButton_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void BuscarButton_Click_3(object sender, RoutedEventArgs e)
         {
+            var listado = new List<object>();
+            string criterio = CriterioTextBox.Text.Trim();
 
+            DateTime? desde = DesdeDatePicker.SelectedDate;
+            DateTime? hasta = HastaDatePicker.SelectedDate;
+
+            if (CriterioTextBox.Text.Trim().Length > 0)
+            {
+                switch (FiltroComboBox.SelectedIndex)
+                {
+                    case 0: //Id
+                        listado = ReclamacionesBLL.GetList("ReclamacionId", criterio, desde, hasta);
+                        break;
+                    case 1: //NoAutorizacion
+                        listado = ReclamacionesBLL.GetList("NoAutorizacion", criterio, desde, hasta);
+                        break;
+                    case 2: //NAF
+                        listado = ReclamacionesBLL.GetList("NAF", criterio, desde, hasta);
+                        break;
+                    case 3: //Doctor
+                        listado = ReclamacionesBLL.GetList("Doctor", criterio, desde, hasta);
+                        break;
+                    case 4: //Afiliado
+                        listado = ReclamacionesBLL.GetList("Afiliado", criterio, desde, hasta);
+                        break;
+                    case 5: //Prestador
+                        listado = ReclamacionesBLL.GetList("Prestador", criterio, desde, hasta);
+                        break;
+                    case 6: //Total
+                        listado = ReclamacionesBLL.GetList("Total", criterio, desde, hasta);
+                        break;
+                }
+            }
+            else
+            {
+                listado = ReclamacionesBLL.GetList("", "", desde, hasta);
+            }
+
+            DatosDataGrid.ItemsSource = null;
+            DatosDataGrid.ItemsSource = listado;
         }
     }
 }
