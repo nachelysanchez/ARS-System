@@ -214,12 +214,14 @@ namespace ARS_System.DAL
             modelBuilder.Entity<Servicios>().HasData(new Servicios
             {
                 ServicioId = 1,
+                Fecha = DateTime.Now,
                 Descripcion = "Consulta",
                 VecesAsignado = 0
             });
             modelBuilder.Entity<Servicios>().HasData(new Servicios
             {
                 ServicioId = 2,
+                Fecha = DateTime.Now,
                 Descripcion = "Emergencia",
                 VecesAsignado = 0
             });
