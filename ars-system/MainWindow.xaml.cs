@@ -65,6 +65,12 @@ namespace ARS_System
             rAfiliados.Show();
         }
 
+        private void rServiciosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rServicios rServicios = new rServicios();
+            rServicios.Show();
+        }
+
         private void rPermisosMenuItem_Click(object sender, RoutedEventArgs e)
         {
             rPermisos permisos = new rPermisos();
