@@ -1,5 +1,6 @@
 ﻿using ARS_System.DAL;
 using ARS_System.Entidades;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +12,89 @@ namespace ARS_System.BLL
 {
     public class ServiciosBLL
     {
-        public static Servicios Buscar(int id)
+        public static bool Existe(int id)
         {
-            Servicios servicios;
-
             Contexto contexto = new Contexto();
+
+            bool encontrado = false;
 
             try
             {
-                servicios = contexto.Servicios.Find(id);
+                encontrado = contexto.Servicios.Any(e => e.ServicioId == id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
+        public static bool Guardar(Servicios servicio)
+        {
+            if (!Existe(servicio.ServicioId))
+            {
+                return Insertar(servicio);
+            }
+            else
+            {
+                return Modificar(servicio);
+            }
+        }
+
+
+        private static bool Insertar(Servicios servicio)
+        {
+            bool paso = false;
+
+            Contexto contexto = new Contexto();
+            try
+            {
+                contexto.Servicios.Add(servicio);
+                paso = contexto.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return paso;
+        }
+
+        public static bool Modificar(Servicios servicio)
+        {
+            Contexto contexto = new Contexto();
+            bool paso = false;
+
+            try
+            {
+                contexto.Entry(servicio).State = EntityState.Modified;
+                paso = contexto.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return paso;
+        }
+
+        public static Servicios Buscar(int id)
+        {
+            Contexto contexto = new Contexto();
+            Servicios servicio;
+
+            try
+            {
+                servicio = contexto.Servicios.Find(id);
             }
             catch (Exception)
             {
@@ -30,12 +105,38 @@ namespace ARS_System.BLL
             {
                 contexto.Dispose();
             }
-            return servicios;
+            return servicio;
         }
 
+        public static bool Eliminar(int id)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+            try
+            {
+                var servicio = contexto.Servicios.Find(id);
+
+                if (servicio != null)
+                {
+                    contexto.Servicios.Remove(servicio);
+                    paso = contexto.SaveChanges() > 0;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return paso;
+        }
         public static List<Servicios> GetList(Expression<Func<Servicios, bool>> criterio)
         {
             List<Servicios> Lista = new List<Servicios>();
+
             Contexto contexto = new Contexto();
 
             try
@@ -53,15 +154,75 @@ namespace ARS_System.BLL
             return Lista;
         }
 
+        public static List<object> GetList(string criterio, string valor, DateTime? desde, DateTime? hasta)
+        {
+            List<object> lista;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                var query = (
+                    from s in contexto.Servicios
+                    select new
+                    {
+                        s.ServicioId,
+                        s.Fecha,
+                        s.Descripcion
+
+                    }
+                );
+
+                if (criterio.Length != 0)
+                {
+                    switch (criterio)
+                    {
+                        case "ServicioId":
+                            query = query.Where(c => c.ServicioId == Utilidades.ToInt(valor));
+                            break;
+
+                        case "Descripcion":
+                            query = query.Where(c => c.Descripcion.ToLower().Contains(valor.ToLower()));
+                            break;
+
+                    }
+                }
+
+                if (desde != null && hasta != null)
+                {
+                    query = query.Where(c => c.Fecha >= desde && c.Fecha <= hasta);
+                }
+                else if (desde != null)
+                {
+                    query = query.Where(c => c.Fecha >= desde);
+                }
+                else if (hasta != null)
+                {
+                    query = query.Where(c => c.Fecha <= hasta);
+                }
+
+                lista = query.ToList<object>();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return lista;
+        }
+
         public static List<Servicios> GetServicios()
         {
-            List<Servicios> Lista = new List<Servicios>();
+            List<Servicios> lista = new List<Servicios>();
 
             Contexto contexto = new Contexto();
 
             try
             {
-                Lista = contexto.Servicios.ToList();
+                lista = contexto.Servicios.ToList();
             }
             catch (Exception)
             {
@@ -71,7 +232,7 @@ namespace ARS_System.BLL
             {
                 contexto.Dispose();
             }
-            return Lista;
+            return lista;
         }
     }
 }
