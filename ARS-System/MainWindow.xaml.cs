@@ -186,5 +186,10 @@ namespace ARS_System
                 this.Close();
             }
         }
+
+        private void rServiciosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
