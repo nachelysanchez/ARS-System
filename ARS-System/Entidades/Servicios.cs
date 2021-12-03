@@ -11,6 +11,7 @@ namespace ARS_System.Entidades
     {
         [Key]
         public int ServicioId { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
         public string Descripcion { get; set; }
         public int VecesAsignado { get; set; }
     }
