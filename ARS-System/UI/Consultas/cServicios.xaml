@@ -5,45 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta de Servicios" Height="330" Width="380">
+        Title="Consulta de Servicios" Height="330" Width="450">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
-            <StackPanel Orientation="Horizontal" Height="58">
-                <StackPanel Margin="5,0">
-                    <Label x:Name="FiltroLabel" Content="Filtro:"/>
-                    <ComboBox x:Name="FiltroComboBox" Width="100" Height="25">
-                        <ComboBoxItem x:Name="ListadoComboBoxItem" Content="Listado"/>
-                        <ComboBoxItem x:Name="ServicioIdComboBoxItem" Content="Servicio Id"/>
-                        <ComboBoxItem x:Name="DescripcionComboBoxItem" Content="Descripcion"/>
 
+            <StackPanel Orientation="Horizontal" Height="58">
+                <StackPanel>
+                    <Label Content="Desde"/>
+                    <DatePicker x:Name="DesdeDatePicker"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <Label Content="Hasta"/>
+                    <DatePicker x:Name="HastaDatePicker"/>
+                </StackPanel>
+
+                <StackPanel Margin="5,0">
+                    <Label Content="Filtro:" />
+                    <ComboBox x:Name="FiltroComboBox" Width="100">
+                        <ComboBoxItem Content="Servicio Id"/>
+                        <ComboBoxItem Content="Descripcion"/>
                     </ComboBox>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel>
-                        <Label Content="Criterio"/>
-                        <TextBox x:Name="CriterioTextBox" Height="20" Width="120" Margin="0,5,10,0"/>
-                    </StackPanel>
+                <StackPanel Margin="5,0">
+                    <Label Content="Critero:"/>
+                    <TextBox x:Name="CriterioTextBox" Width="100"/>
 
-                    <Button x:Name="BuscarButton"  Margin="0,20,0,0" Click="BuscarButton_Click">
-                        <StackPanel Orientation="Horizontal">
-
-                            <Image Source="/Resources/icons8-google-web-search-24.png" />
-
-                            <Label Content="Buscar"/>
-
-                        </StackPanel>
-                    </Button>
                 </StackPanel>
 
+                <Button x:Name="BuscarButton" Click="BuscarButton_Click">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Resources/icons8-google-web-search-24.png" Width="35"/>
+                        <Label Content="Buscar" />
+                    </StackPanel>
+                </Button>
+
             </StackPanel>
-
-            <StackPanel HorizontalAlignment="Left">
-
-                <DataGrid x:Name="DatosDataGrid" Height="240" Width="360" AutoGenerateColumns="False">
+            <StackPanel HorizontalAlignment="Left" >
+                <DataGrid x:Name="DatosDataGrid"  Height="240" Width="680" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Servicio Id" Binding="{Binding ServicioId}"/>
-                        <DataGridTextColumn Header="Descripcion Servicio" Binding="{Binding Descripcion}"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha, StringFormat=dd/MM/yyyy}"/>
+                        <DataGridTextColumn Header="Descripcion" Binding="{Binding Descripcion}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
