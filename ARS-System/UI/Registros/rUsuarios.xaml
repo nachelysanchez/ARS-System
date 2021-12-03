@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         xmlns:PasswordHelper ="clr-namespace:ARS_System.Password"
         mc:Ignorable="d"
+        Icon="/Resources/Registros.ico"
         Title="Registro de Usuarios" Height="760" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">

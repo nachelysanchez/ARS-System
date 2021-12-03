@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Consultas"
         mc:Ignorable="d"
+        Icon="/Resources/Consultas.ico"
         Title="Consulta de Permisos" Height="330" Width="430">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,10,5">

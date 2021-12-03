@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         mc:Ignorable="d"
+        Icon="/Resources/Registros.ico"
         Title="Registro de Ciudades" Height="300" Width="400">
     <Grid>
         <StackPanel>
