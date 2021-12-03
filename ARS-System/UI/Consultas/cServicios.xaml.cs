@@ -28,27 +28,29 @@ namespace ARS_System.UI.Consultas
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            var listado = new List<Servicios>();
+            var listado = new List<object>();
+            string criterio = CriterioTextBox.Text.Trim();
+
+            DateTime? desde = DesdeDatePicker.SelectedDate;
+            DateTime? hasta = HastaDatePicker.SelectedDate;
 
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0:
-                        listado = ServiciosBLL.GetServicios();
+                        listado = ServiciosBLL.GetList("ServicioId", criterio, desde, hasta);
                         break;
                     case 1:
-                        listado = ServiciosBLL.GetList(e => e.ServicioId == Utilidades.ToInt(CriterioTextBox.Text));
-                        break;
-                    case 2:
-                        listado = ServiciosBLL.GetList(e => e.Descripcion.Contains(CriterioTextBox.Text.ToLower()));
+                        listado = ServiciosBLL.GetList("Descripcion", criterio, desde, hasta);
                         break;
                 }
             }
             else
             {
-                listado = ServiciosBLL.GetList(e => true);
+                listado = ServiciosBLL.GetList("", "", desde, hasta);
             }
+
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
         }
