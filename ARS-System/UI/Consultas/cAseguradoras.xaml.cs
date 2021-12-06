@@ -38,24 +38,21 @@ namespace ARS_System.UI.Consultas
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0:
-                        listado = AseguradorasBLL.GetList("", "");
-                        break;
-                    case 1:
                         listado = AseguradorasBLL.GetList("AseguradoraId", criterio);
                         break;
-                    case 2:
+                    case 1:
                         listado = AseguradorasBLL.GetList("Nombres", criterio);
                         break;
-                    case 3:
+                    case 2:
                         listado = AseguradorasBLL.GetList("RNC", criterio);
                         break;
-                    case 4:
+                    case 3:
                         listado = AseguradorasBLL.GetList("Direccion", criterio);
                         break;
-                    case 5:
+                    case 4:
                         listado = AseguradorasBLL.GetList("Telefono", criterio);
                         break;
-                    case 6:
+                    case 5:
                         listado = DoctoresBLL.GetList("Ciudad", criterio);
                         break;
                 }
