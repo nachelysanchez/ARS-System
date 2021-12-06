@@ -13,7 +13,6 @@
                 <StackPanel Margin="5,0">
                     <Label x:Name="FiltroLabel" Content="Filtro:"/>
                     <ComboBox x:Name="FiltroComboBox" Width="115" Height="25">
-                        <!--<ComboBoxItem x:Name="ListadoComboBoxItem" Content="Listado"/>-->
                         <ComboBoxItem x:Name="AseguradoraIdComboBoxItem" Content="Aseguradora Id"/>
                         <ComboBoxItem x:Name="NombresComboBoxItem" Content="Nombres"/>
                         <ComboBoxItem x:Name="RNCComboBoxItem" Content="RNC"/>
