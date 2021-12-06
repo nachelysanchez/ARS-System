@@ -30,24 +30,73 @@ namespace ARS_System.UI.Consultas
         {
             var listado = new List<Provincias>();
 
+
+
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
                 switch (FiltroComboBox.SelectedIndex)
                 {
-                    case 0: //Listado
-                        listado = ProvinciasBLL.GetProvincias();
+                    case 0:
+                        if (DesdeDatePicker.SelectedDate != null && HastaDatePicker.SelectedDate != null)
+                        {
+                            listado = ProvinciasBLL.GetList(e => e.ProvinciaId == Utilidades.ToInt(CriterioTextBox.Text)
+                            && e.Fecha.Date <= HastaDatePicker.SelectedDate && e.Fecha.Date >= DesdeDatePicker.SelectedDate);
+
+
+                        }
+                        else if (HastaDatePicker.SelectedDate != null)
+                        {
+                            listado = ProvinciasBLL.GetList(e => e.ProvinciaId == Utilidades.ToInt(CriterioTextBox.Text)
+                           && e.Fecha.Date <= HastaDatePicker.SelectedDate);
+                        }
+                        else if (DesdeDatePicker.SelectedDate != null)
+                        {
+                            listado = ProvinciasBLL.GetList(e => e.ProvinciaId == Utilidades.ToInt(CriterioTextBox.Text)
+                           && e.Fecha.Date >= DesdeDatePicker.SelectedDate);
+                        }
+                        else
+                        {
+                            listado = ProvinciasBLL.GetList(e => e.ProvinciaId == Utilidades.ToInt(CriterioTextBox.Text));
+                        }
                         break;
-                    case 1: //Id
-                        listado = ProvinciasBLL.GetList(e => e.ProvinciaId == Utilidades.ToInt(CriterioTextBox.Text));
-                        break;
-                    case 2: //Nombre
-                        listado = ProvinciasBLL.GetList(e => e.Nombres.Contains(CriterioTextBox.Text.ToLower()));
+                    case 1:
+                        if (DesdeDatePicker.SelectedDate != null && HastaDatePicker.SelectedDate != null)
+                        {
+                            listado = ProvinciasBLL.GetList(e => e.Nombres.ToLower().Contains(CriterioTextBox.Text.ToLower())
+                            && e.Fecha.Date <= HastaDatePicker.SelectedDate && e.Fecha.Date >= DesdeDatePicker.SelectedDate);
+                        }
+                        else if (HastaDatePicker.SelectedDate != null)
+                        {
+                            listado = ProvinciasBLL.GetList(e => e.Nombres.ToLower().Contains(CriterioTextBox.Text.ToLower())
+                             && e.Fecha.Date <= HastaDatePicker.SelectedDate);
+                        }
+                        else if (DesdeDatePicker.SelectedDate != null)
+                        {
+                            listado = ProvinciasBLL.GetList(e => e.Nombres.ToLower().Contains(CriterioTextBox.Text.ToLower())
+                            && e.Fecha.Date >= DesdeDatePicker.SelectedDate);
+                        }
+                        else
+                        {
+                            listado = ProvinciasBLL.GetList(e => e.Nombres.ToLower().Contains(CriterioTextBox.Text.ToLower()));
+                        }
                         break;
                 }
             }
             else
             {
                 listado = ProvinciasBLL.GetList(e => true);
+            }
+            if (DesdeDatePicker.SelectedDate != null && FiltroComboBox.SelectedIndex < 0)
+            {
+                listado = ProvinciasBLL.GetList(e => e.Fecha.Date >= DesdeDatePicker.SelectedDate);
+            }
+            if (HastaDatePicker.SelectedDate != null && FiltroComboBox.SelectedIndex < 0)
+            {
+                listado = ProvinciasBLL.GetList(e => e.Fecha.Date <= HastaDatePicker.SelectedDate);
+            }
+            if ((DesdeDatePicker.SelectedDate != null && HastaDatePicker.SelectedDate != null && FiltroComboBox.SelectedIndex < 0))
+            {
+                listado = ProvinciasBLL.GetList(e => e.Fecha.Date >= DesdeDatePicker.SelectedDate && e.Fecha.Date <= HastaDatePicker.SelectedDate);
             }
 
             DatosDataGrid.ItemsSource = null;
