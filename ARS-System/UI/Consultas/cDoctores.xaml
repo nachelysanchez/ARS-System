@@ -13,7 +13,6 @@
                 <StackPanel Margin="5,0">
                     <Label x:Name="FiltroLabel" Content="Filtro:"/>
                     <ComboBox x:Name="FiltroComboBox" Width="100" Height="25">
-                        <ComboBoxItem x:Name="ListadoComboBoxItem" Content="Listado"/>
                         <ComboBoxItem x:Name="DoctorIdComboBoxItem" Content="Doctor Id"/>
                         <ComboBoxItem x:Name="NombresComboBoxItem" Content="Nombres"/>
                         <ComboBoxItem x:Name="CelularComboBoxItem" Content="Celular"/>
@@ -46,7 +45,7 @@
 
             <StackPanel HorizontalAlignment="Left">
 
-                <DataGrid x:Name="DatosDataGrid" Height="250" Width="500" AutoGenerateColumns="False">
+                <DataGrid x:Name="DatosDataGrid" Height="250" Width="500" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Doctor Id" Binding="{Binding DoctorId}"/>
                         <DataGridTextColumn Header="Nombre" Binding="{Binding Nombres}"/>
