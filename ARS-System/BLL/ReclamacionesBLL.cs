@@ -58,10 +58,9 @@ namespace ARS_System.BLL
                 {
                     contexto.Entry(detalle).State = EntityState.Added;
                     contexto.Entry(detalle.Servicio).State = EntityState.Modified;
-                    contexto.Entry(detalle.Diagnostico).State = EntityState.Modified;
+                    contexto.Entry(detalle.Afiliado).State = EntityState.Modified;
                     detalle.Servicio.VecesAsignado += 1;
-                    detalle.Diagnostico.VecesAsignado += 1;
-
+                    detalle.Afiliado.ValorReclamado += detalle.ValorReclamado;
                     reclamacion.Total += detalle.ValorReclamado;
                 }
                 paso = contexto.SaveChanges() > 0;
@@ -92,11 +91,21 @@ namespace ARS_System.BLL
                      .AsNoTracking()
                      .SingleOrDefault();
 
-                contexto.Database.ExecuteSqlRaw($"Delete FROM Reclamaciones Where ReclamacionId={reclamacion.ReclamacionId}");
+                foreach (var detalle in reclamacionAnterior.RDetalle)
+                {
+                    detalle.Servicio.VecesAsignado -= 1;
+                    reclamacion.Total -= detalle.ValorReclamado;
+                    detalle.Afiliado.ValorReclamado -= detalle.ValorReclamado;
+                }
+
+                contexto.Database.ExecuteSqlRaw($"Delete FROM ReclamacionesDetalle Where ReclamacionId={reclamacion.ReclamacionId}");
 
                 foreach (var item in reclamacion.RDetalle)
                 {
                     contexto.Entry(item).State = EntityState.Added;
+                    item.Servicio.VecesAsignado += 1;
+                    reclamacion.Total += item.ValorReclamado;
+                    item.Afiliado.ValorReclamado += item.ValorReclamado;
                 }
 
                 contexto.Entry(reclamacion).State = EntityState.Modified;
@@ -154,7 +163,10 @@ namespace ARS_System.BLL
                     foreach (var detalle in reclamacion.RDetalle)
                     {
                         contexto.Entry(detalle.Servicio).State = EntityState.Modified;
-
+                        contexto.Entry(detalle.Afiliado).State = EntityState.Modified;
+                        detalle.Servicio.VecesAsignado -= 1;
+                        reclamacion.Total -= detalle.ValorReclamado;
+                        detalle.Afiliado.ValorReclamado -= detalle.ValorReclamado;
                     }
 
                     contexto.Reclamaciones.Remove(reclamacion);
