@@ -12,6 +12,26 @@ namespace ARS_System.BLL
 {
     public class UsuariosBLL
     {
+        public static bool ExisteUsername(string username)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+
+            try
+            {
+                encontrado = contexto.Usuarios.Any(e => e.Username == username);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
         public static bool Existe(int id)
         {
             Contexto contexto = new Contexto();
