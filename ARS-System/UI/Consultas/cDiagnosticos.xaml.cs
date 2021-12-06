@@ -41,7 +41,7 @@ namespace ARS_System.UI.Consultas
                         listado = DiagnosticosBLL.GetList(e => e.DiagnosticoId == Utilidades.ToInt(CriterioTextBox.Text));
                         break;
                     case 2: //Nombre
-                        listado = DiagnosticosBLL.GetList(e => e.Nombres.Contains(CriterioTextBox.Text.ToLower()));
+                        listado = DiagnosticosBLL.GetList(e => e.Nombres.ToLower().Contains(CriterioTextBox.Text.ToLower()));
                         break;
                 }
             }
