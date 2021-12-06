@@ -89,6 +89,9 @@ namespace ARS_System.BLL
                      .Include(x => x.RDetalle)
                      .ThenInclude(x => x.Servicio)
                      .AsNoTracking()
+                     .Include(x => x.RDetalle)
+                     .ThenInclude(x=> x.Afiliado)
+                     .AsNoTracking()
                      .SingleOrDefault();
 
                 foreach (var detalle in reclamacionAnterior.RDetalle)
@@ -134,6 +137,7 @@ namespace ARS_System.BLL
                    .Where(x => x.ReclamacionId == id)
                    .Include(x => x.RDetalle)
                    .ThenInclude(x => x.Servicio)
+                   .Include(x => x.RDetalle)
                    .SingleOrDefault();
             }
             catch (Exception)
