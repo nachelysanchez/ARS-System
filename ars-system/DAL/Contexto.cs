@@ -86,31 +86,6 @@ namespace ARS_System.DAL
                 ProvinciaId = 1,
                 Nombres = "Duarte"
             });
-            modelBuilder.Entity<Provincias>().HasData(new Provincias
-            {
-                ProvinciaId = 2,
-                Nombres = "María Trinidad Sánchez"
-            });
-            modelBuilder.Entity<Provincias>().HasData(new Provincias
-            {
-                ProvinciaId = 3,
-                Nombres = "Sánchez Ramirez"
-            });
-            modelBuilder.Entity<Provincias>().HasData(new Provincias
-            {
-                ProvinciaId = 4,
-                Nombres = "Hermanas Mirabal"
-            });
-            modelBuilder.Entity<Provincias>().HasData(new Provincias
-            {
-                ProvinciaId = 5,
-                Nombres = "La Vega"
-            });
-            modelBuilder.Entity<Provincias>().HasData(new Provincias
-            {
-                ProvinciaId = 6,
-                Nombres = "Samaná"
-            });
 
             //Ocupaciones
             modelBuilder.Entity<Ocupaciones>().HasData(new Ocupaciones{
