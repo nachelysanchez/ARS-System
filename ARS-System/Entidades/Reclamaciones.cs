@@ -17,7 +17,7 @@ namespace ARS_System.Entidades
         public int NAF { get; set; }
         public int DoctorId { get; set; }
         public int AfiliadoId { get; set; }
-        public int PrestadorId { get; set; }
+        public int PrestadorId { get; set; } = 1;
         public float Total { get; set; }
 
         [ForeignKey("ReclamacionId")]
