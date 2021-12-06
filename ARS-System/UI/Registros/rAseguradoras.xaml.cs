@@ -40,11 +40,60 @@ namespace ARS_System.UI.Registros
         private bool Validar()
         {
             bool esValido = true;
-            if (AseguradoraIdTextBox.Text.Length == 0 || NombresTextBox.Text.Length == 0 || RNCTextBox.Text.Length == 0 || DireccionTextBox.Text.Length == 0 || TelefonoTextBox.Text.Length == 0)
+
+            if (AseguradoraIdTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Ingrese El campo faltante", "Fallo",
+                MessageBox.Show("Completa el campo que está vacio", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
+                AseguradoraIdTextBox.Focus();
+                return esValido;
+            }
+
+            if (NombresTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                NombresTextBox.Focus();
+                return esValido;
+            }
+
+            if (RNCTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                RNCTextBox.Focus();
+                return esValido;
+
+            }
+
+            if (DireccionTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                DireccionTextBox.Focus();
+                return esValido;
+            }
+
+            if (CiudadComboBox.SelectedValue == null)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione una ciudad", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                CiudadComboBox.Focus();
+                return esValido;
+            }
+
+            if (TelefonoTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                TelefonoTextBox.Focus();
+                return esValido;
             }
 
             return esValido;
