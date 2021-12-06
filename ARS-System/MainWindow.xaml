@@ -22,6 +22,7 @@
                     <MenuItem x:Name="rAseguradorasMenuItem" Header="Registro de Aseguradoras" Click="rAseguradorasMenuItem_Click"/>
                     <MenuItem x:Name="rDiagnosticosMenuItem" Header="Registro de Diagnosticos" Click="rDiagnosticosMenuItem_Click"/>
                     <MenuItem x:Name="rReclamacionesMenuItem" Header="Registro de Reclamaciones" Click="rReclamacionesMenuItem_Click"/>
+                    <MenuItem x:Name="rProvinciasMenuItem" Header="Registro de Provincias" Click="rProvinciasMenuItem_Click"/>
                 </MenuItem>
                 <MenuItem Header="Consultas">
                     <MenuItem x:Name="cUsuariosMenuItem" Header="Consulta de Usuarios" Click="cUsuariosMenuItem_Click"/>
