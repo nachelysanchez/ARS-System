@@ -57,69 +57,61 @@ namespace ARS_System.UI.Registros
             if (DoctorIdTextBox.Text.Length == 0)
             {
                 esValido = false;
-                //GuardarButton.IsEnabled = false;
                 MessageBox.Show("Completa el campo que está vacio", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 DoctorIdTextBox.Focus();
                 return esValido;
-                // GuardarButton.IsEnabled = true;
             }
+
             if (NombreTextBox.Text.Length == 0)
             {
                 esValido = false;
-                // GuardarButton.IsEnabled = false;
                 MessageBox.Show("Completa el campo que está vacio", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 NombreTextBox.Focus();
                 return esValido;
-                // GuardarButton.IsEnabled = true;
             }
+
             if (CelularTextBox.Text.Length == 0)
             {
                 esValido = false;
-                //GuardarButton.IsEnabled = false;
                 MessageBox.Show("Completa el campo que está vacio", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 CelularTextBox.Focus();
                 return esValido;
-                // GuardarButton.IsEnabled = true;
             }
-
 
             if (TelefonoTextBox.Text.Length == 0)
             {
                 esValido = false;
-                //GuardarButton.IsEnabled = false;
                 MessageBox.Show("Completa el campo que está vacio", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 TelefonoTextBox.Focus();
                 return esValido;
-                // GuardarButton.IsEnabled = true;
             }
+
             if (DireccionTextBox.Text.Length == 0)
             {
                 esValido = false;
-                //  GuardarButton.IsEnabled = false;
                 MessageBox.Show("Completa el campo que está vacio", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 DireccionTextBox.Focus();
                 return esValido;
-                //GuardarButton.IsEnabled = true;
             }
+
             if (CiudadComboBox.SelectedValue == null)
             {
                 esValido = false;
-                // GuardarButton.IsEnabled = false;
                 MessageBox.Show("Seleccione una ciudad", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 CiudadComboBox.Focus();
                 return esValido;
 
             }
+
             if (ExequaturTextBox.Text.Length == 0)
             {
                 esValido = false;
-                // GuardarButton.IsEnabled = false;
                 MessageBox.Show("Completa el campo que está vacio", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 ExequaturTextBox.Focus();
