@@ -87,6 +87,26 @@ namespace ARS_System.BLL
             return encontrado;
         }
 
+        public static bool ExisteNombre(string nombre)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+
+            try
+            {
+                encontrado = contexto.Ciudades.Any(e => e.Nombres == nombre);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
         public static Ciudades Buscar(int id)
         {
             Contexto contexto = new Contexto();

@@ -86,7 +86,25 @@ namespace ARS_System.BLL
             }
             return encontrado;
         }
+        public static bool ExisteNombre(string nombre)
+        {
+            bool encontrado = false;
+            Contexto contexto = new Contexto();
 
+            try
+            {
+                encontrado = contexto.Permisos.Any(e => e.Nombre == nombre);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
         public static Permisos Buscar(int id)
         {
             Contexto contexto = new Contexto();

@@ -12,5 +12,6 @@ namespace ARS_System.Entidades
         [Key]
         public int ProvinciaId { get; set; }
         public string Nombres { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
     }
 }
