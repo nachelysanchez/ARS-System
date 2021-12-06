@@ -1,5 +1,6 @@
 ﻿using ARS_System.DAL;
 using ARS_System.Entidades;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,124 @@ namespace ARS_System.BLL
                 contexto.Dispose();
             }
             return provincia;
+        }
+        public static bool Guardar(Provincias provincias)
+        {
+            if (!Existe(provincias.ProvinciaId))
+            {
+                return Insertar(provincias);
+            }
+            else
+            {
+                return Modificar(provincias);
+            }
+        }
+
+        private static bool Insertar(Provincias provincias)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+
+                contexto.Provincias.Add(provincias);
+                paso = contexto.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return paso;
+        }
+        public static bool Modificar(Provincias provincias)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                contexto.Entry(provincias).State = EntityState.Modified;
+                paso = contexto.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return paso;
+        }
+
+        public static bool Existe(int id)
+        {
+            bool encontrado = false;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                encontrado = contexto.Provincias.Any(e => e.ProvinciaId == id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
+        public static bool ExisteNombre(string nombre)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+
+            try
+            {
+                encontrado = contexto.Provincias.Any(e => e.Nombres == nombre);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
+        public static bool Eliminar(int id)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                var provincia = contexto.Provincias.Find(id);
+                if (provincia != null)
+                {
+                    contexto.Provincias.Remove(provincia);
+                    paso = contexto.SaveChanges() > 0;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return paso;
         }
 
         public static List<Provincias> GetList(Expression<Func<Provincias, bool>> criterio)
