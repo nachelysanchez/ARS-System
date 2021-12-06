@@ -54,13 +54,77 @@ namespace ARS_System.UI.Registros
         {
             bool esValido = true;
 
-            if (NombreTextBox.Focus() || CelularTextBox.Focus() || TelefonoTextBox.Focus() || DireccionTextBox.Focus() || ExequaturTextBox.Focus())
+            if (DoctorIdTextBox.Text.Length == 0)
             {
                 esValido = false;
-                GuardarButton.IsEnabled = false;
+                //GuardarButton.IsEnabled = false;
                 MessageBox.Show("Completa el campo que está vacio", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
-                GuardarButton.IsEnabled = true;
+                DoctorIdTextBox.Focus();
+                return esValido;
+                // GuardarButton.IsEnabled = true;
+            }
+            if (NombreTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                // GuardarButton.IsEnabled = false;
+                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                NombreTextBox.Focus();
+                return esValido;
+                // GuardarButton.IsEnabled = true;
+            }
+            if (CelularTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                //GuardarButton.IsEnabled = false;
+                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                CelularTextBox.Focus();
+                return esValido;
+                // GuardarButton.IsEnabled = true;
+            }
+
+
+            if (TelefonoTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                //GuardarButton.IsEnabled = false;
+                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                TelefonoTextBox.Focus();
+                return esValido;
+                // GuardarButton.IsEnabled = true;
+            }
+            if (DireccionTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                //  GuardarButton.IsEnabled = false;
+                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                DireccionTextBox.Focus();
+                return esValido;
+                //GuardarButton.IsEnabled = true;
+            }
+            if (CiudadComboBox.SelectedValue == null)
+            {
+                esValido = false;
+                // GuardarButton.IsEnabled = false;
+                MessageBox.Show("Seleccione una ciudad", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                CiudadComboBox.Focus();
+                return esValido;
+
+            }
+            if (ExequaturTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                // GuardarButton.IsEnabled = false;
+                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                ExequaturTextBox.Focus();
+                return esValido;
+
             }
 
             return esValido;
@@ -74,6 +138,12 @@ namespace ARS_System.UI.Registros
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
+            if (DoctorIdTextBox.Text.Length == 0 || Utilidades.ToInt(DoctorIdTextBox.Text) == 0)
+            {
+                MessageBox.Show("Transaccion fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             var doctor = DoctoresBLL.Buscar(doctores.DoctorId);
 
             if (doctor != null)

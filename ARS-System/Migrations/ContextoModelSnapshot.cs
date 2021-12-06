@@ -385,6 +385,9 @@ namespace ARS_System.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
@@ -396,32 +399,8 @@ namespace ARS_System.Migrations
                         new
                         {
                             ProvinciaId = 1,
+                            Fecha = new DateTime(2021, 12, 6, 13, 23, 28, 904, DateTimeKind.Local).AddTicks(6316),
                             Nombres = "Duarte"
-                        },
-                        new
-                        {
-                            ProvinciaId = 2,
-                            Nombres = "María Trinidad Sánchez"
-                        },
-                        new
-                        {
-                            ProvinciaId = 3,
-                            Nombres = "Sánchez Ramirez"
-                        },
-                        new
-                        {
-                            ProvinciaId = 4,
-                            Nombres = "Hermanas Mirabal"
-                        },
-                        new
-                        {
-                            ProvinciaId = 5,
-                            Nombres = "La Vega"
-                        },
-                        new
-                        {
-                            ProvinciaId = 6,
-                            Nombres = "Samaná"
                         });
                 });
 
@@ -468,7 +447,7 @@ namespace ARS_System.Migrations
                             ReclamacionId = 1,
                             AfiliadoId = 1,
                             DoctorId = 1,
-                            Fecha = new DateTime(2021, 12, 2, 22, 20, 43, 423, DateTimeKind.Local).AddTicks(6080),
+                            Fecha = new DateTime(2021, 12, 6, 13, 23, 28, 907, DateTimeKind.Local).AddTicks(1552),
                             NAF = 845632,
                             NoAutorizacion = 52361,
                             PrestadorId = 1,
@@ -559,14 +538,14 @@ namespace ARS_System.Migrations
                         {
                             ServicioId = 1,
                             Descripcion = "Consulta",
-                            Fecha = new DateTime(2021, 12, 2, 22, 20, 43, 422, DateTimeKind.Local).AddTicks(3013),
+                            Fecha = new DateTime(2021, 12, 6, 13, 23, 28, 906, DateTimeKind.Local).AddTicks(7257),
                             VecesAsignado = 0
                         },
                         new
                         {
                             ServicioId = 2,
                             Descripcion = "Emergencia",
-                            Fecha = new DateTime(2021, 12, 2, 22, 20, 43, 422, DateTimeKind.Local).AddTicks(6881),
+                            Fecha = new DateTime(2021, 12, 6, 13, 23, 28, 906, DateTimeKind.Local).AddTicks(7987),
                             VecesAsignado = 0
                         });
                 });
