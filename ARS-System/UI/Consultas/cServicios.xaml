@@ -44,7 +44,7 @@
 
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" >
-                <DataGrid x:Name="DatosDataGrid"  Height="240" Width="680" AutoGenerateColumns="False">
+                <DataGrid x:Name="DatosDataGrid"  Height="240" Width="430" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Servicio Id" Binding="{Binding ServicioId}"/>
                         <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha, StringFormat=dd/MM/yyyy}"/>
