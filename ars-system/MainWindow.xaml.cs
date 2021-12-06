@@ -192,5 +192,11 @@ namespace ARS_System
                 this.Close();
             }
         }
+
+        private void rProvinciasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rProvincias provincias = new rProvincias();
+            provincias.Show();
+        }
     }
 }
