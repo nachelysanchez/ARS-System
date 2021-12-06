@@ -108,7 +108,7 @@ namespace ARS_System.BLL
                     contexto.Entry(item).State = EntityState.Added;
                     item.Servicio.VecesAsignado += 1;
                     reclamacion.Total += item.ValorReclamado;
-                    item.Afiliado.ValorReclamado += item.ValorReclamado;
+                    //item.Afiliado.ValorReclamado += item.ValorReclamado;
                 }
 
                 contexto.Entry(reclamacion).State = EntityState.Modified;
@@ -138,6 +138,7 @@ namespace ARS_System.BLL
                    .Include(x => x.RDetalle)
                    .ThenInclude(x => x.Servicio)
                    .Include(x => x.RDetalle)
+                   .ThenInclude(x => x.Afiliado)
                    .SingleOrDefault();
             }
             catch (Exception)
