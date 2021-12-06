@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ARS_System.UI.Consultas"
         mc:Ignorable="d"
         Icon="/Resources/Consultas.ico"
-        Title="Consulta de Usuarios" Height="350" Width="530">
+        Title="Consulta de Usuarios" Height="350" Width="420">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
 
@@ -14,7 +14,7 @@
                 <StackPanel Margin="5,0" Orientation="Vertical">
                     <Label Content="Filtro:" />
                     <ComboBox x:Name="FiltroComboBox" Width="100">
-                        <ComboBoxItem x:Name="ListadoComboBoxItem" Content="Listado"/>
+                        <ComboBoxItem x:Name="ListadoComboBoxItem" Content="Todos"/>
                         <ComboBoxItem x:Name="UsuarioIdComboBoxItem" Content="Usuario Id"/>
                         <ComboBoxItem x:Name="NombresComboBoxItem" Content="Nombres"/>
                         <ComboBoxItem x:Name="UsernameComboBoxItem" Content="Username"/>
@@ -24,7 +24,7 @@
 
                 <StackPanel>
                     <Label Content="Criterio"/>
-                    <TextBox x:Name="CriterioTextBox" Height="20" Width="120" Margin="0,5,10,0"/>
+                    <TextBox x:Name="CriterioTextBox" Height="25" Width="120" Margin="0,0,10,0"/>
                 </StackPanel>
 
 
@@ -39,13 +39,13 @@
 
             <StackPanel HorizontalAlignment="Left">
 
-                <DataGrid x:Name="DatosDataGrid" Height="240" Width="500" AutoGenerateColumns="False" Margin="0,10,0,0">
+                <DataGrid x:Name="DatosDataGrid" AutoGenerateColumns="False" Margin="0,10,0,0" Width="346" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Usuario Id" Binding="{Binding UsuarioId}"/>
                         <DataGridTextColumn Header="Nombre" Binding="{Binding Nombres}"/>
                         <DataGridTextColumn Header="Username" Binding="{Binding Username}"/>
                         <DataGridTextColumn Header="Rol" Binding="{Binding Role}"/>
-                        <DataGridTextColumn Header="Contraseña" Binding="{Binding Contrasena}"/>
+                       
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
