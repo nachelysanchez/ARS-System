@@ -21,6 +21,7 @@ namespace ARS_System.UI.Registros
     /// </summary>
     public partial class rCiudades : Window
     {
+        private static bool Mpaso = true;
         private Ciudades ciudades = new Ciudades();
         public rCiudades()
         {
@@ -39,11 +40,22 @@ namespace ARS_System.UI.Registros
         private bool Validar()
         {
             bool esValido = true;
-            if(CiudadIdTextBox.Text.Length == 0 || NombreCiudadTextBox.Text.Length == 0 )
+            if (NombreCiudadTextBox.Text.Length == 0 || ProvinciaComboBox.SelectedIndex < 0)
             {
                 esValido = false;
-                MessageBox.Show("Ingrese El campo faltante", "Fallo",
+                if (NombreCiudadTextBox.Text.Length == 0)
+                {
+                    MessageBox.Show("Ingrese un nombre de ciudad", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
+                    NombreCiudadTextBox.Focus();
+                }
+                else if (ProvinciaComboBox.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Seleccione una provincia", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                    ProvinciaComboBox.Focus();
+                }
+
             }
             return esValido;
         }
@@ -61,6 +73,7 @@ namespace ARS_System.UI.Registros
             if (ciudad != null)
             {
                 ciudades = ciudad;
+                Mpaso = false;
                 Actualizar();
             }
             else
@@ -73,12 +86,24 @@ namespace ARS_System.UI.Registros
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
+            Mpaso = true;
         }
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
             if (!Validar())
                 return;
+
+            if (Mpaso)
+            {
+                if (CiudadesBLL.ExisteNombre(NombreCiudadTextBox.Text))
+                {
+                    MessageBox.Show("Esta Ciudad ya Existe", "Error",
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                Mpaso = true;
+            }
 
             var paso = CiudadesBLL.Guardar(ciudades);
 
@@ -91,6 +116,7 @@ namespace ARS_System.UI.Registros
             else
                 MessageBox.Show("Guardado Fallida", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Error);
+            Mpaso = true;
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
@@ -104,6 +130,7 @@ namespace ARS_System.UI.Registros
             else
                 MessageBox.Show("No fue posible eliminar", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Error);
+            Mpaso = true;
         }
     }
 }
