@@ -54,8 +54,7 @@ namespace ARS_System.UI.Registros
         {
             bool esValido = true;
 
-            if (NombreTextBox.Text.Length == 0 || CelularTextBox.Text.Length == 0 ||
-                TelefonoTextBox.Text.Length == 0 || DireccionTextBox.Text.Length == 0 || ExequaturTextBox.Text.Length == 0)
+            if (NombreTextBox.Focus() || CelularTextBox.Focus() || TelefonoTextBox.Focus() || DireccionTextBox.Focus() || ExequaturTextBox.Focus())
             {
                 esValido = false;
                 GuardarButton.IsEnabled = false;
@@ -82,13 +81,13 @@ namespace ARS_System.UI.Registros
                 doctores = doctor;
                 Actualizar();
             }
-                
+
             else
             {
                 Limpiar();
                 MessageBox.Show("No existe en la base de datos", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            
+
 
             this.DataContext = this.doctores;
         }
@@ -122,13 +121,13 @@ namespace ARS_System.UI.Registros
             if (!Validar())
                 return;
 
-            if(doctores.DoctorId == 0)
+            if (doctores.DoctorId == 0)
             {
                 paso = DoctoresBLL.Guardar(doctores);
             }
             else
             {
-                if(ExisteenBD())
+                if (ExisteenBD())
                 {
                     paso = DoctoresBLL.Guardar(doctores);
 
