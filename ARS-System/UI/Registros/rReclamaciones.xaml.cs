@@ -60,20 +60,34 @@ namespace ARS_System.UI.Registros
         {
             bool esValido = true;
 
-            if (NoAutorizacionTextBox.Text.Length == 0 || NAFTextBox.Text.Length == 0 || DoctorComboBox.SelectedIndex < 0 || 
-                AfiliadoComboBox.SelectedIndex < 0)
+            if (NoAutorizacionTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Complete el campo faltante", "Fallo",
+                MessageBox.Show("Complete el numero de autorización", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
+                NoAutorizacionTextBox.Focus();
             }
-            //if (ValorRTextBox.Text.Length == 0 || ValorTextBox.Text.Length == 0
-            //    || NoProcedeTextBox.Text.Length == 0 || CopagoTextBox.Text.Length == 0)
-            //{
-            //    esValido = false;
-            //    MessageBox.Show("Complete el campo faltante en el Detalle", "Fallo",
-            //        MessageBoxButton.OK, MessageBoxImage.Warning);
-            //}
+            else if (NAFTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Complete el NAF", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                NAFTextBox.Focus();
+            }
+            else if (DoctorComboBox.SelectedIndex < 0)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione un doctor", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                DoctorComboBox.Focus();
+            }
+            else if (AfiliadoComboBox.SelectedIndex < 0)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione un afiliado", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                NoAutorizacionTextBox.Focus();
+            }
 
             return esValido;
         }
