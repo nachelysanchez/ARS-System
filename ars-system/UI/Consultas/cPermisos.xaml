@@ -13,7 +13,7 @@
                 <StackPanel Margin="5,0">
                     <Label x:Name="FiltroLabel" Content="Filtro:"/>
                     <ComboBox x:Name="FiltroComboBox" Width="100" Height="25">
-                        <ComboBoxItem x:Name="ListadoComboBoxItem" Content="Listado"/>
+                        <ComboBoxItem x:Name="ListadoComboBoxItem" Content="Todos"/>
                         <ComboBoxItem x:Name="PermisosIdComboBoxItem" Content="Permisos Id"/>
                         <ComboBoxItem x:Name="NombreComboBoxItem" Content="Descripcion del Permiso"/>
 
@@ -23,7 +23,7 @@
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
                         <Label Content="Criterio"/>
-                        <TextBox x:Name="CriterioTextBox" Height="20" Width="120" Margin="0,5,5,0"/>
+                        <TextBox x:Name="CriterioTextBox" Height="25" Width="120" Margin="0,0,10,0"/>
                     </StackPanel>
 
                     <Button x:Name="BuscarButton" Margin="0,15,0,0" Click="BuscarButton_Click">
@@ -40,7 +40,7 @@
 
             <StackPanel HorizontalAlignment="Left">
 
-                <DataGrid x:Name="DatosDataGrid" Height="240" Width="400" AutoGenerateColumns="False">
+                <DataGrid x:Name="DatosDataGrid"  AutoGenerateColumns="False" IsReadOnly="True" Width="347">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Permisos Id" Binding="{Binding PermisoId}"/>
                         <DataGridTextColumn Header="Descripcion del Permiso" Binding="{Binding Nombre}"/>
