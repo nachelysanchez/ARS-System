@@ -34,13 +34,11 @@ namespace ARS_System.UI.Consultas
             {
                 switch (FiltroComboBox.SelectedIndex)
                 {
-                    case 0: //Listado
-                        listado = RolesBLL.GetRoles();
-                        break;
-                    case 1: //Id
+                    
+                    case 0:
                         listado = RolesBLL.GetList(e => e.RolId == Utilidades.ToInt(CriterioTextBox.Text));
                         break;
-                    case 2:
+                    case 1:
                         listado = RolesBLL.GetList(e => e.Nombre.Contains(CriterioTextBox.Text.ToLower()));
                         break;
                 }
