@@ -49,7 +49,7 @@ namespace ARS_System.UI.Registros
 
             }
 
-            if (NombreTextBox.Text.Length == 0)
+            if (NombreTextBox.Focus())
             {
                 esValido = false;
 
