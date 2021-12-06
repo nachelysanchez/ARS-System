@@ -23,6 +23,7 @@ namespace ARS_System.UI.Registros
     {
         private Usuarios usuarios = new Usuarios();
         private UsuariosDetalle UsuariosDetalle = new UsuariosDetalle();
+        private static bool MPaso = true;
         public rUsuarios()
         {
             InitializeComponent();
@@ -50,12 +51,35 @@ namespace ARS_System.UI.Registros
             bool esValido = true;
 
             if (NombresTextBox.Text.Length == 0 || UsernameTextBox.Text.Length == 0 ||
-                ContraseniaPasswordBox.Password.Length == 0 ||ConfirmarContraseniaPasswordBox.Password.Length == 0 )
+                ContraseniaPasswordBox.Password.Length == 0 || ConfirmarContraseniaPasswordBox.Password.Length == 0)
             {
                 esValido = false;
+
                 GuardarButton.IsEnabled = false;
-                MessageBox.Show("Completa el campo que está vacio", "Fallo",
-                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                if (NombresTextBox.Text.Length == 0)
+                {
+                    MessageBox.Show("Ingrese su nombre", "Fallo",
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    NombresTextBox.Focus();
+                }
+                else if (UsernameTextBox.Text.Length == 0)
+                {
+                    MessageBox.Show("Ingrese un username", "Fallo",
+                       MessageBoxButton.OK, MessageBoxImage.Warning);
+                    UsernameTextBox.Focus();
+                }
+                else if (ContraseniaPasswordBox.Password.Length == 0)
+                {
+                    MessageBox.Show("Ingrese Una contraseña", "Fallo",
+                       MessageBoxButton.OK, MessageBoxImage.Warning);
+                    ContraseniaPasswordBox.Focus();
+                }
+                else if (RolComboBox.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Seleccione un Rol", "Fallo",
+                     MessageBoxButton.OK, MessageBoxImage.Warning);
+                    RolComboBox.Focus();
+                }
                 GuardarButton.IsEnabled = true;
             }
 
@@ -71,6 +95,21 @@ namespace ARS_System.UI.Registros
 
             return esValido;
         }
+        private bool ValidarDetalle()
+        {
+            bool esValido = true;
+
+            if (ObservacionTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                GuardarButton.IsEnabled = false;
+                MessageBox.Show("Ingrese Una observacion", "Fallo",
+                      MessageBoxButton.OK, MessageBoxImage.Warning);
+                GuardarButton.IsEnabled = true;
+            }
+
+            return esValido;
+        }
         private void Actualizar()
         {
             this.DataContext = null;
@@ -78,11 +117,13 @@ namespace ARS_System.UI.Registros
         }
         private bool ExisteenBD()
         {
-            Doctores esValido = DoctoresBLL.Buscar(usuarios.UsuarioId);
+            Usuarios esValido = UsuariosBLL.Buscar(usuarios.UsuarioId);
             return (esValido != null);
         }
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!ValidarDetalle())
+                return;
             usuarios.DetalleUsuario.Add(new UsuariosDetalle(Utilidades.ToInt(UsuarioIdTextBox.Text), (int)PermisoComboBox.SelectedValue,
                 ObservacionTextBox.Text, (Permisos)PermisoComboBox.SelectedItem));
 
@@ -91,6 +132,8 @@ namespace ARS_System.UI.Registros
         }
         private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!ValidarDetalle())
+                return;
             if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
             {
                 usuarios.DetalleUsuario.RemoveAt(DetalleDataGrid.SelectedIndex);
@@ -104,24 +147,36 @@ namespace ARS_System.UI.Registros
             if (usuario != null)
             {
                 usuarios = usuario;
+                MPaso = false;
                 Actualizar();
             }
             else
             {
                 Limpiar();
-                MessageBox.Show("No existe en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No existe en la base de datos", "Error", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
+            MPaso = true;
         }
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
             bool paso = false;
             if (!Validar())
                 return;
-
+            if (MPaso)
+            {
+                if (UsuariosBLL.ExisteUsername(UsernameTextBox.Text))
+                {
+                    MessageBox.Show("Este Username ya Existe", "Error",
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                MPaso = true;
+            }
             if (usuarios.UsuarioId == 0)
             {
                 paso = UsuariosBLL.Guardar(usuarios);
@@ -138,16 +193,22 @@ namespace ARS_System.UI.Registros
                     MessageBox.Show("No existe en la base de datos", "Error");
                 }
 
-                if (paso)
-                {
-                    Limpiar();
-                    MessageBox.Show("Transaccion exitosa!", "Exito",
-                        MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                    MessageBox.Show("Transaccion Fallida", "Fallo",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                
             }
+            if (paso)
+            {
+                
+                MessageBox.Show("Transaccion exitosa!", "Exito",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Transaccion Fallida", "Fallo",
+                   MessageBoxButton.OK, MessageBoxImage.Error);
+                Limpiar();
+            }
+            MPaso = true;
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
@@ -161,6 +222,7 @@ namespace ARS_System.UI.Registros
             else
                 MessageBox.Show("No fue posible eliminar", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Error);
+            MPaso = true;
         }
     }
 }
