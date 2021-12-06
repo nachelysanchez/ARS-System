@@ -43,34 +43,37 @@ namespace ARS_System.UI.Consultas
                     case 1: //Nombres
                         listado = AfiliadosBLL.GetList("Nombres", criterio, nacimiento);
                         break;
-                    case 2: //Sexo
+                    case 2: //Cedula
+                        listado = AfiliadosBLL.GetList("Cedula", criterio, nacimiento);
+                        break;
+                    case 3: //Sexo
                         listado = AfiliadosBLL.GetList("Sexo", criterio, nacimiento);
                         break;
-                    case 3: //NSS
+                    case 4: //NSS
                         listado = AfiliadosBLL.GetList("NSS", criterio, nacimiento);
                         break;
-                    case 4: //Telefono
+                    case 5: //Telefono
                         listado = AfiliadosBLL.GetList("Telefono", criterio, nacimiento);
                         break;
-                    case 5: //Celular
+                    case 6: //Celular
                         listado = AfiliadosBLL.GetList("Celular", criterio, nacimiento);
                         break;
-                    case 6: //Email
+                    case 7: //Email
                         listado = AfiliadosBLL.GetList("Email", criterio, nacimiento);
                         break;
-                    case 7: //Direccion
+                    case 8: //Direccion
                         listado = AfiliadosBLL.GetList("Direccion", criterio, nacimiento);
                         break;
-                    case 8: //Ciudad
+                    case 9: //Ciudad
                         listado = AfiliadosBLL.GetList("Ciudad", criterio, nacimiento);
                         break;
-                    case 9: //Aseguradora
+                    case 10: //Aseguradora
                         listado = AfiliadosBLL.GetList("Aseguradora", criterio, nacimiento);
                         break;
-                    case 10: //Ocupacion
+                    case 11: //Ocupacion
                         listado = AfiliadosBLL.GetList("Ocupacion", criterio, nacimiento);
                         break;
-                    case 11: //Valor Reclamado
+                    case 12: //Valor Reclamado
                         listado = AfiliadosBLL.GetList("ValorReclamado", criterio, nacimiento);
                         break;
                 }
