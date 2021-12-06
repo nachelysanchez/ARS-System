@@ -6,14 +6,24 @@
         xmlns:local="clr-namespace:ARS_System.UI.Consultas"
         mc:Ignorable="d"
         Icon="/Resources/Consultas.ico"
-        Title="Consulta de Provincias" Height="330" Width="430">
+        Title="Consulta de Provincias" Height="350" Width="500">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
             <StackPanel Orientation="Horizontal" Height="58">
+
+                <StackPanel>
+                    <Label Content="Desde:"/>
+                    <DatePicker x:Name="DesdeDatePicker"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="5,0">
+                    <Label Content="Hasta:" />
+                    <DatePicker x:Name="HastaDatePicker"/>
+                </StackPanel>
+                
                 <StackPanel Margin="5,0">
                     <Label x:Name="FiltroLabel" Content="Filtro:"/>
                     <ComboBox x:Name="FiltroComboBox" Width="100" Height="25">
-                        <ComboBoxItem x:Name="ListadoComboBoxItem" Content="Listado"/>
                         <ComboBoxItem x:Name="ProvinciasIdComboBoxItem" Content="Provincias Id"/>
                         <ComboBoxItem x:Name="NombresComboBoxItem" Content="Nombre"/>
                     </ComboBox>
@@ -22,7 +32,7 @@
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
                         <Label Content="Criterio"/>
-                        <TextBox x:Name="CriterioTextBox" Height="20" Width="120" Margin="0,5,10,0"/>
+                        <TextBox x:Name="CriterioTextBox" Height="25" Width="120" Margin="0,0,10,0"/>
                     </StackPanel>
 
                     <Button x:Name="BuscarButton"  Margin="0,20,0,0" Click="BuscarButton_Click">
@@ -37,10 +47,11 @@
 
             <StackPanel HorizontalAlignment="Left">
 
-                <DataGrid x:Name="DatosDataGrid" Height="240" Width="400" AutoGenerateColumns="False">
+                <DataGrid x:Name="DatosDataGrid"  AutoGenerateColumns="False" IsReadOnly="True" Width="445">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Provincia Id" Binding="{Binding ProvinciaId}"/>
                         <DataGridTextColumn Header="Nombre de la Provincia" Binding="{Binding Nombres}"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha, StringFormat=dd/mm/yyyy}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
