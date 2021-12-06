@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         mc:Ignorable="d"
         Icon="/Resources/Registros.ico"
-        Title="Registros de Afiliados" Height="610" Width="500">
+        Title="Registros de Afiliados" Height="800" Width="500">
     <Grid>
         <StackPanel>
             <StackPanel Margin="10">
@@ -20,59 +20,44 @@
                         </StackPanel>
                     </Button>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
-                    <Label Content="Nombre Completo"/>
-                    <TextBox x:Name="NombresTextBox" Text="{Binding Nombres}" Width="340" Margin="20,0,0,0"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="5">
-                    <Label Content="Fecha de Nacimiento"/>
-                    <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding FechaNacimiento}" Width="150" Margin="20,0,0,0"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Left" Margin="5" Orientation="Horizontal">
-                    <Label Content="Cédula"/>
-                    <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula}" Width="250" Margin="20,0,0,0"/>
-                    
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="5">
-                    <Label Content="Sexo"/>
-                    <ComboBox x:Name="SexoComboBox" Width="350" Margin="5" SelectedValue="{Binding SexoId}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <Label Content="Número de Seguridad Social (NSS)"/>
-                    <TextBox x:Name="NSSTextBox" Text="{Binding NSS}" Width="200"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <Label Content="Teléfono"/>
-                    <TextBox x:Name="TelefonoTextBox" Width="170" Text="{Binding Telefono}"/>
-                    <Label Content="Celular"/>
-                    <TextBox x:Name="CelularTextBox" Width="170" Text="{Binding Celular}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <Label Content="Email"/>
-                    <TextBox x:Name="EmailTextBox" Width="430" Text="{Binding Email}"/>
-                </StackPanel>
-                
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <Label Content="Dirección"/>
-                    <TextBox x:Name="DireccionTextBox" Width="395" Text="{Binding Direccion}"/>
-                </StackPanel>
+                <Label Content="Nombre Completo"/>
+                <TextBox x:Name="NombresTextBox" Text="{Binding Nombres}"/>
 
-                <StackPanel Margin="5" Orientation="Horizontal">
-                    <Label Content="Ciudad"/>
-                    <ComboBox x:Name="CiudadComboBox" Width="350" Margin="5" SelectedValue="{Binding CiudadId}"/>
-                </StackPanel>
-                <StackPanel Margin="5" Orientation="Horizontal">
-                    <Label Content="Ocupación"/>
-                    <ComboBox x:Name="OcupacionComboBox" Width="350" Margin="5" SelectedValue="{Binding OcupacionId}"/>
-                </StackPanel>
-                <StackPanel Margin="5" Orientation="Horizontal">
-                    <Label Content="Aseguradora"/>
-                    <ComboBox x:Name="AseguradoraComboBox" Width="350" Margin="5" SelectedValue="{Binding AseguradoraId}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <Label Content="Valor Reclamado"/>
-                    <TextBox x:Name="ValorTextBox" Text="{Binding ValorReclamado}" Width="370" IsReadOnly="True"/>
-                </StackPanel>
+                <Label Content="Fecha de Nacimiento"/>
+                <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding FechaNacimiento}"/>
+
+                <Label Content="Cédula"/>
+                <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula}" />
+
+                <Label Content="Sexo"/>
+                <ComboBox x:Name="SexoComboBox" SelectedValue="{Binding SexoId}"/>
+
+                <Label Content="Número de Seguridad Social (NSS)"/>
+                <TextBox x:Name="NSSTextBox" Text="{Binding NSS}"/>
+
+                <Label Content="Teléfono"/>
+                <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono}"/>
+                <Label Content="Celular"/>
+                <TextBox x:Name="CelularTextBox" Text="{Binding Celular}"/>
+
+                <Label Content="Email"/>
+                <TextBox x:Name="EmailTextBox" Text="{Binding Email}"/>
+
+                <Label Content="Dirección"/>
+                <TextBox x:Name="DireccionTextBox" Text="{Binding Direccion}"/>
+
+                <Label Content="Ciudad"/>
+                <ComboBox x:Name="CiudadComboBox" SelectedValue="{Binding CiudadId}"/>
+
+                <Label Content="Ocupación"/>
+                <ComboBox x:Name="OcupacionComboBox"  SelectedValue="{Binding OcupacionId}"/>
+
+                <Label Content="Aseguradora"/>
+                <ComboBox x:Name="AseguradoraComboBox"  SelectedValue="{Binding AseguradoraId}"/>
+
+                <Label Content="Valor Reclamado"/>
+                <TextBox x:Name="ValorTextBox" Text="{Binding ValorReclamado}"  IsReadOnly="True"/>
+                
                 
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
