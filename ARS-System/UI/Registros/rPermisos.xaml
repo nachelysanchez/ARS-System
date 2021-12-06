@@ -12,7 +12,7 @@
             <StackPanel Orientation="Vertical" Margin="20,20,20,0">
                 <Label Content="Permiso Id" Margin="0,0,0,0"/>
                 <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
-                    <TextBox x:Name="PermisoIdTextBox" Width="120" Height="20" Text="{Binding PermisoId}"/>
+                    <TextBox x:Name="PermisoIdTextBox" Width="120" Height="25" Text="{Binding PermisoId}"/>
                     <Button  x:Name="BuscarButton"  Margin="5,0,0,0"  Click="BuscarButton_Click" >
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png"  />

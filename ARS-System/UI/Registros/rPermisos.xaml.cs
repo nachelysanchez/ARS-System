@@ -22,6 +22,7 @@ namespace ARS_System.UI.Registros
     public partial class rPermisos : Window
     {
         private Permisos permisos = new Permisos();
+        private static bool Mpaso = true;
         public rPermisos()
         {
             InitializeComponent();
@@ -41,10 +42,10 @@ namespace ARS_System.UI.Registros
         private bool Validar()
         {
             bool esValido = true;
-            if (PermisoIdTextBox.Text.Length == 0 || NombrePermisoTextBox.Text.Length == 0)
+            if (NombrePermisoTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Ingrese El campo faltante", "Fallo",
+                MessageBox.Show("Ingrese un nombre ", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             return esValido;
@@ -57,6 +58,7 @@ namespace ARS_System.UI.Registros
             if (permiso != null)
             {
                 permisos = permiso;
+                Mpaso = false;
                 Actualizar();
             }
             else
@@ -69,6 +71,7 @@ namespace ARS_System.UI.Registros
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
+            Mpaso = true;
         }
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
@@ -76,6 +79,16 @@ namespace ARS_System.UI.Registros
             if (!Validar())
                 return;
 
+            if (Mpaso)
+            {
+                if (PermisosBLL.ExisteNombre(NombrePermisoTextBox.Text))
+                {
+                    MessageBox.Show("Este Permiso ya Existe", "Error",
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                Mpaso = true;
+            }
             var paso = PermisosBLL.Guardar(permisos);
 
             if (paso)
@@ -87,6 +100,7 @@ namespace ARS_System.UI.Registros
             else
                 MessageBox.Show("Guardado Fallida", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Error);
+            Mpaso = true;
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
@@ -100,6 +114,7 @@ namespace ARS_System.UI.Registros
             else
                 MessageBox.Show("No fue posible eliminar", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Error);
+            Mpaso = true;
         }
     }
 }
