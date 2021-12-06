@@ -6,16 +6,10 @@
         xmlns:local="clr-namespace:ARS_System.UI.Registros"
         mc:Ignorable="d"
         Icon="/Resources/Registros.ico"
-        Title="Registro de Reclamaciones" Height="800" Width="700">
+        Title="Registro de Reclamaciones" Height="700" Width="700">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,0,10,0">
             <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Prestador"/>
-                    <ComboBox x:Name="PrestadorComboBox" SelectedValue="{Binding PrestadorId}" Height="30" FontSize="30"/>
-                    
-
-                </StackPanel>
                 <Label Content="Reclamación Id:"/>
 
                 <StackPanel Orientation="Horizontal">
@@ -55,16 +49,14 @@
 
                             <Label Content="Servicio"/>
                             <ComboBox x:Name="ServicioComboBox" SelectedValue="{Binding ServicioId}"/>
-                            <Label Content="Diagnostico"/>
-                            <ComboBox x:Name="DiagnosticoComboBox" SelectedValue="{Binding DiagnosticoId}"/>
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <Label Content="Valor Total"/>
                                 <Label Content="No Procede" Margin="60,0"/>
                                 <Label Content="Valor Reclamado" Margin="9,0"/>
                                 <Label Content="Copago" Margin="60,0"/>
                             </StackPanel>
 
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <TextBox x:Name="ValorTextBox" Width="90"/>
 
                                 <TextBox x:Name="NoProcedeTextBox" Width="90" Margin="30,0"/>
@@ -92,7 +84,6 @@
 
                             <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding RDetalle}" Height="80" AutoGenerateColumns="False" >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Diagnostico Id" Binding="{Binding DiagnosticoId}"/>
                                     <DataGridTextColumn Header="Servicio" Binding="{Binding ServicioId}" />
                                     <DataGridTextColumn Header="Valor Total" Binding="{Binding ValorTotal, StringFormat=N2}" />
                                     <DataGridTextColumn Header="No Procede" Binding="{Binding NoProcede, StringFormat=N2}" />

@@ -39,13 +39,6 @@ namespace ARS_System.UI.Registros
             ServicioComboBox.SelectedValuePath = "ServicioId";
             ServicioComboBox.DisplayMemberPath = "Descripcion";
 
-            DiagnosticoComboBox.ItemsSource = DiagnosticosBLL.GetDiagnosticos();
-            DiagnosticoComboBox.SelectedValuePath = "DiagnosticoId";
-            DiagnosticoComboBox.DisplayMemberPath = "Nombres";
-
-            PrestadorComboBox.ItemsSource = PrestadoresBLL.GetPrestadores();
-            PrestadorComboBox.SelectedValuePath = "PrestadorId";
-            PrestadorComboBox.DisplayMemberPath = "Nombres";
         }
         private void Cargar()
         {
