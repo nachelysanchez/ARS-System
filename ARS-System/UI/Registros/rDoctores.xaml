@@ -69,7 +69,7 @@
                                 </Button>
                             </StackPanel>
 
-                            <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding Detalle}" Height="80" AutoGenerateColumns="False" >
+                            <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding Detalle}" Height="80" AutoGenerateColumns="False" IsReadOnly="True" >
                                 <DataGrid.Columns>
 
                                     <DataGridTextColumn Header="Doctor Id" Binding="{Binding DoctorId}" Visibility="Hidden"/>
