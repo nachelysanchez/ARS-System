@@ -84,11 +84,11 @@
 
                             <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding RDetalle}" Height="80" AutoGenerateColumns="False" >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Servicio" Binding="{Binding ServicioId}" />
-                                    <DataGridTextColumn Header="Valor Total" Binding="{Binding ValorTotal, StringFormat=N2}" />
-                                    <DataGridTextColumn Header="No Procede" Binding="{Binding NoProcede, StringFormat=N2}" />
-                                    <DataGridTextColumn Header="Valor Reclamado" Binding="{Binding ValorReclamado, StringFormat=N2}" />
-                                    <DataGridTextColumn Header="Copago" Binding="{Binding Copago, StringFormat=N2}" />
+                                    <DataGridTextColumn Header="Servicio" Binding="{Binding ServicioId}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Valor Total" Binding="{Binding ValorTotal, StringFormat=N2}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="No Procede" Binding="{Binding NoProcede, StringFormat=N2}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Valor Reclamado" Binding="{Binding ValorReclamado, StringFormat=N2}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Copago" Binding="{Binding Copago, StringFormat=N2}" IsReadOnly="True"/>
                                 </DataGrid.Columns>
 
                             </DataGrid>
