@@ -132,8 +132,13 @@ namespace ARS_System.UI.Registros
         }
         private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!ValidarDetalle())
+            if (DetalleDataGrid.SelectedIndex < 0)
+            {
+                MessageBox.Show("Debe seleccionar una fila en el DataGrid para eliminar", "Fallo",
+                      MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
+            }
+               
             if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
             {
                 usuarios.DetalleUsuario.RemoveAt(DetalleDataGrid.SelectedIndex);
