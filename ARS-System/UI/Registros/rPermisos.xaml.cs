@@ -64,7 +64,9 @@ namespace ARS_System.UI.Registros
             else
             {
                 Limpiar();
-                MessageBox.Show("No existe en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No existe en la base de datos", "Error", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                Mpaso = true;
             }
         }
 
