@@ -71,7 +71,7 @@
                                 </Button>
                             </StackPanel>
 
-                            <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding DetalleUsuario}" Height="80" AutoGenerateColumns="False"  IsReadOnly="True">
+                            <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding DetalleUsuario}" Height="120" AutoGenerateColumns="False"  IsReadOnly="True">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Usuario Id" Binding="{Binding UsuarioId}"  Visibility="Hidden"/>
                                     <DataGridTextColumn Header="Permisos" Binding="{Binding Permisos.Nombre}" />
