@@ -54,6 +54,8 @@ namespace ARS_System.UI.Registros
         {
             bool esValido = true;
 
+
+
             if (DoctorIdTextBox.Text.Length == 0)
             {
                 esValido = false;
@@ -122,6 +124,34 @@ namespace ARS_System.UI.Registros
             return esValido;
         }
 
+        private bool ValidarDetalle()
+        {
+            bool esValido = true;
+
+            if (EspecialidadComboBox.SelectedValue == null)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione una Especialidad", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                EspecialidadComboBox.Focus();
+                return esValido;
+
+            }
+
+            if (ObservacionTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                GuardarButton.IsEnabled = false;
+                MessageBox.Show("Ingrese Una observacion", "Fallo",
+                      MessageBoxButton.OK, MessageBoxImage.Warning);
+                GuardarButton.IsEnabled = true;
+                ObservacionTextBox.Focus();
+                return esValido;
+            }
+
+            return esValido;
+        }
+
         private void Actualizar()
         {
             this.DataContext = null;
@@ -147,7 +177,7 @@ namespace ARS_System.UI.Registros
 
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!Validar())
+            if (!ValidarDetalle())
                 return;
             doctores.Detalle.Add(new DoctoresDetalle(Utilidades.ToInt(DoctorIdTextBox.Text), (int)EspecialidadComboBox.SelectedValue,
                 ObservacionTextBox.Text, (Especialidades)EspecialidadComboBox.SelectedItem));
