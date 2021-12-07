@@ -24,7 +24,6 @@ namespace ARS_System.UI.Registros
         private Doctores doctores = new Doctores();
 
         private DoctoresDetalle DoctoresDetalle = new DoctoresDetalle();
-        private static bool SPaso = true;
         public rDoctores()
         {
             InitializeComponent();
@@ -136,7 +135,6 @@ namespace ARS_System.UI.Registros
             if (doctor != null)
             {
                 doctores = doctor;
-                SPaso = false;
                 Actualizar();
             }
             else
@@ -144,7 +142,6 @@ namespace ARS_System.UI.Registros
                 Limpiar();
                 MessageBox.Show("No existe en la base de datos", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                SPaso = true;
             }
         }
 
@@ -176,7 +173,6 @@ namespace ARS_System.UI.Registros
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
-            SPaso = true;
         }
 
 
