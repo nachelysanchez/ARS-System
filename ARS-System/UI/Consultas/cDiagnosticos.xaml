@@ -39,8 +39,8 @@
 
                 <DataGrid x:Name="DatosDataGrid" Height="240" Width="400" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Diagnóstico Id" Binding="{Binding DiagnosticoId}"/>
-                        <DataGridTextColumn Header="Nombre del Diagnóstico" Binding="{Binding Nombres}"/>
+                        <DataGridTextColumn Header="Diagnóstico Id" Binding="{Binding DiagnosticoId}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Nombre del Diagnóstico" Binding="{Binding Nombres}" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

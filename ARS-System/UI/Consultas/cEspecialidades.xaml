@@ -14,7 +14,7 @@
                     <Label x:Name="FiltroLabel" Content="Filtro:"/>
                     <ComboBox x:Name="FiltroComboBox" Width="100" Height="25">
                         <ComboBoxItem x:Name="ListadoComboBoxItem" Content="Listado"/>
-                        <ComboBoxItem x:Name="EspecialidadIdComboBoxItem" Content="Especialidad Id"/>
+                        <ComboBoxItem x:Name="EspecialidadIdComboBoxItem" Content="Especialidad Id" />
                         <ComboBoxItem x:Name="NombreEspecialidadComboBoxItem" Content="Nombre de Especialidad"/>
                     </ComboBox>
                 </StackPanel>
@@ -39,8 +39,8 @@
 
                 <DataGrid x:Name="DatosDataGrid" Height="240" Width="400" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Especialidad Id" Binding="{Binding EspecialidadId}"/>
-                        <DataGridTextColumn Header="Nombre de la Especialidad" Binding="{Binding Nombres}"/>
+                        <DataGridTextColumn Header="Especialidad Id" Binding="{Binding EspecialidadId}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Nombre de la Especialidad" Binding="{Binding Nombres}" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

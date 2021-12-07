@@ -51,14 +51,14 @@
             <StackPanel HorizontalAlignment="Left" >
                 <DataGrid x:Name="DatosDataGrid"  Height="240" Width="680" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Reclamacion Id" Binding="{Binding ReclamacionId}"/>
-                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha, StringFormat=dd/MM/yyyy}"/>
-                        <DataGridTextColumn Header="No Autorizacion" Binding="{Binding NoAutorizacion}"/>
-                        <DataGridTextColumn Header="NAF" Binding="{Binding NAF}"/>
-                        <DataGridTextColumn Header="Doctor" Binding="{Binding Doctor}"/>
-                        <DataGridTextColumn Header="Afiliado" Binding="{Binding Afiliado}"/>
-                        <DataGridTextColumn Header="Prestador" Binding="{Binding Prestador}"/>
-                        <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
+                        <DataGridTextColumn Header="Reclamacion Id" Binding="{Binding ReclamacionId}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha, StringFormat=dd/MM/yyyy}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="No Autorizacion" Binding="{Binding NoAutorizacion}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="NAF" Binding="{Binding NAF}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Doctor" Binding="{Binding Doctor}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Afiliado" Binding="{Binding Afiliado}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Prestador" Binding="{Binding Prestador}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Total" Binding="{Binding Total}" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

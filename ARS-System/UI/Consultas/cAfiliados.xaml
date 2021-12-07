@@ -52,20 +52,20 @@
             <StackPanel HorizontalAlignment="Left" >
                 <DataGrid x:Name="DatosDataGrid"  Height="240" Width="930" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Afiliado Id" Binding="{Binding AfiliadoId}"/>
+                        <DataGridTextColumn Header="Afiliado Id" Binding="{Binding AfiliadoId}" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Nombres" Binding="{Binding Nombres}"/>
-                        <DataGridTextColumn Header="Fecha de Nacimiento" Binding="{Binding FechaNacimiento, StringFormat=dd/MM/yyyy}"/>
-                        <DataGridTextColumn Header="Cedula" Binding="{Binding Cedula}"/>
-                        <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}"/>
-                        <DataGridTextColumn Header="NSS" Binding="{Binding NSS}"/>
-                        <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}"/>
-                        <DataGridTextColumn Header="Celular" Binding="{Binding Celular}"/>
-                        <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
-                        <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}"/>
-                        <DataGridTextColumn Header="Ciudad Id" Binding="{Binding Ciudad}"/>
-                        <DataGridTextColumn Header="Aseguradora Id" Binding="{Binding Aseguradora}"/>
-                        <DataGridTextColumn Header="Ocupación Id " Binding="{Binding Ocupacion}"/>
-                        <DataGridTextColumn Header="Valor Reclamado" Binding="{Binding ValorReclamado}"/>
+                        <DataGridTextColumn Header="Fecha de Nacimiento" Binding="{Binding FechaNacimiento, StringFormat=dd/MM/yyyy}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Cedula" Binding="{Binding Cedula}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="NSS" Binding="{Binding NSS}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Celular" Binding="{Binding Celular}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Email}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Ciudad Id" Binding="{Binding Ciudad}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Aseguradora Id" Binding="{Binding Aseguradora}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Ocupación Id " Binding="{Binding Ocupacion}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Valor Reclamado" Binding="{Binding ValorReclamado}" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
