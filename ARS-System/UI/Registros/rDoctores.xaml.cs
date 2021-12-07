@@ -24,6 +24,7 @@ namespace ARS_System.UI.Registros
         private Doctores doctores = new Doctores();
 
         private DoctoresDetalle DoctoresDetalle = new DoctoresDetalle();
+        private static bool SPaso = true;
         public rDoctores()
         {
             InitializeComponent();
@@ -130,28 +131,21 @@ namespace ARS_System.UI.Registros
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DoctorIdTextBox.Text.Length == 0 || Utilidades.ToInt(DoctorIdTextBox.Text) == 0)
-            {
-                MessageBox.Show("Transaccion fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            var doctor = DoctoresBLL.Buscar(doctores.DoctorId);
+            var doctor = DoctoresBLL.Buscar(Utilidades.ToInt(DoctorIdTextBox.Text));
 
             if (doctor != null)
             {
                 doctores = doctor;
+                SPaso = false;
                 Actualizar();
             }
-
             else
             {
                 Limpiar();
-                MessageBox.Show("No existe en la base de datos", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No existe en la base de datos", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                SPaso = true;
             }
-
-
-            this.DataContext = this.doctores;
         }
 
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
@@ -182,6 +176,7 @@ namespace ARS_System.UI.Registros
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
+            SPaso = true;
         }
 
 
