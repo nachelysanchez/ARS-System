@@ -156,14 +156,16 @@ namespace ARS_System.UI.Registros
 
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!Validar())
+                return;
             doctores.Detalle.Add(new DoctoresDetalle(Utilidades.ToInt(DoctorIdTextBox.Text), (int)EspecialidadComboBox.SelectedValue,
                 ObservacionTextBox.Text, (Especialidades)EspecialidadComboBox.SelectedItem));
-
-            Actualizar();
         }
 
         private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!Validar())
+                return;
             if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
             {
                 doctores.Detalle.RemoveAt(DetalleDataGrid.SelectedIndex);
