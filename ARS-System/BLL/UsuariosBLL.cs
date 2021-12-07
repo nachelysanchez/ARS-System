@@ -79,7 +79,7 @@ namespace ARS_System.BLL
                     contexto.Entry(detalle.Permisos).State = EntityState.Modified;
                     detalle.Permisos.CantidadPermisos += 1;
 
-                    //usuarios.TotalAsignado += detalle.Permisos.CantidadPermisos;
+                    usuarios.TotalAsignado += detalle.Permisos.CantidadPermisos;
                 }
                 paso = contexto.SaveChanges() > 0;
             }
