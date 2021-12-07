@@ -102,22 +102,25 @@ namespace ARS_System.BLL
                 var usuarioAnterior = contexto.Usuarios
                      .Where(x => x.UsuarioId == usuarios.UsuarioId)
                      .Include(x => x.DetalleUsuario)
-                     .ThenInclude(x => x.Permisos)
                      .AsNoTracking()
                      .SingleOrDefault();
 
+                Permisos permiso;
+
                 foreach (var detalle in usuarioAnterior.DetalleUsuario)
                 {
-                    //contexto.Entry(detalle.Permisos).State = EntityState.Modified;
-                    detalle.Permisos.CantidadPermisos -= 1;
+                    permiso = contexto.Permisos.Find(detalle.PermisoId);
+                    permiso.CantidadPermisos += 1;
                 }
                 contexto.Database.ExecuteSqlRaw($"Delete FROM UsuariosDetalle Where UsuarioId={usuarios.UsuarioId}");
 
                 foreach (var item in usuarios.DetalleUsuario)
                 {
+                    permiso = contexto.Permisos.Find(item.PermisoId);
+                    permiso.CantidadPermisos -= 1;
+                    contexto.Entry(item.Permisos).State = EntityState.Modified;
                     contexto.Entry(item).State = EntityState.Added;
-                    usuarioAnterior.TotalAsignado += 1;
-                    //contexto.Entry(item.Permisos).State = EntityState.Modified;
+                    
                     
                 }
 
