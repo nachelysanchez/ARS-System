@@ -449,7 +449,7 @@ namespace ARS_System.Migrations
             migrationBuilder.InsertData(
                 table: "Provincias",
                 columns: new[] { "ProvinciaId", "Fecha", "Nombres" },
-                values: new object[] { 1, new DateTime(2021, 12, 6, 18, 27, 53, 682, DateTimeKind.Local).AddTicks(6323), "Duarte" });
+                values: new object[] { 1, new DateTime(2021, 12, 7, 13, 3, 5, 975, DateTimeKind.Local).AddTicks(2404), "Duarte" });
 
             migrationBuilder.InsertData(
                 table: "Roles",
@@ -459,12 +459,12 @@ namespace ARS_System.Migrations
             migrationBuilder.InsertData(
                 table: "Servicios",
                 columns: new[] { "ServicioId", "Descripcion", "Fecha", "VecesAsignado" },
-                values: new object[] { 1, "Consulta", new DateTime(2021, 12, 6, 18, 27, 53, 684, DateTimeKind.Local).AddTicks(5599), 0 });
+                values: new object[] { 1, "Consulta", new DateTime(2021, 12, 7, 13, 3, 5, 980, DateTimeKind.Local).AddTicks(2118), 0 });
 
             migrationBuilder.InsertData(
                 table: "Servicios",
                 columns: new[] { "ServicioId", "Descripcion", "Fecha", "VecesAsignado" },
-                values: new object[] { 2, "Emergencia", new DateTime(2021, 12, 6, 18, 27, 53, 684, DateTimeKind.Local).AddTicks(6320), 0 });
+                values: new object[] { 2, "Emergencia", new DateTime(2021, 12, 7, 13, 3, 5, 980, DateTimeKind.Local).AddTicks(4233), 0 });
 
             migrationBuilder.InsertData(
                 table: "Sexos",
@@ -514,7 +514,7 @@ namespace ARS_System.Migrations
             migrationBuilder.InsertData(
                 table: "Reclamaciones",
                 columns: new[] { "ReclamacionId", "AfiliadoId", "DoctorId", "Fecha", "NAF", "NoAutorizacion", "PrestadorId", "Total" },
-                values: new object[] { 1, 1, 1, new DateTime(2021, 12, 6, 18, 27, 53, 684, DateTimeKind.Local).AddTicks(8647), 845632, 52361, 1, 0f });
+                values: new object[] { 1, 1, 1, new DateTime(2021, 12, 7, 13, 3, 5, 981, DateTimeKind.Local).AddTicks(3618), 845632, 52361, 1, 0f });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Afiliados_AseguradoraId",

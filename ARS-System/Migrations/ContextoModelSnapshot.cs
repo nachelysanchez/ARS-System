@@ -399,7 +399,7 @@ namespace ARS_System.Migrations
                         new
                         {
                             ProvinciaId = 1,
-                            Fecha = new DateTime(2021, 12, 6, 18, 27, 53, 682, DateTimeKind.Local).AddTicks(6323),
+                            Fecha = new DateTime(2021, 12, 7, 13, 3, 5, 975, DateTimeKind.Local).AddTicks(2404),
                             Nombres = "Duarte"
                         });
                 });
@@ -447,7 +447,7 @@ namespace ARS_System.Migrations
                             ReclamacionId = 1,
                             AfiliadoId = 1,
                             DoctorId = 1,
-                            Fecha = new DateTime(2021, 12, 6, 18, 27, 53, 684, DateTimeKind.Local).AddTicks(8647),
+                            Fecha = new DateTime(2021, 12, 7, 13, 3, 5, 981, DateTimeKind.Local).AddTicks(3618),
                             NAF = 845632,
                             NoAutorizacion = 52361,
                             PrestadorId = 1,
@@ -538,14 +538,14 @@ namespace ARS_System.Migrations
                         {
                             ServicioId = 1,
                             Descripcion = "Consulta",
-                            Fecha = new DateTime(2021, 12, 6, 18, 27, 53, 684, DateTimeKind.Local).AddTicks(5599),
+                            Fecha = new DateTime(2021, 12, 7, 13, 3, 5, 980, DateTimeKind.Local).AddTicks(2118),
                             VecesAsignado = 0
                         },
                         new
                         {
                             ServicioId = 2,
                             Descripcion = "Emergencia",
-                            Fecha = new DateTime(2021, 12, 6, 18, 27, 53, 684, DateTimeKind.Local).AddTicks(6320),
+                            Fecha = new DateTime(2021, 12, 7, 13, 3, 5, 980, DateTimeKind.Local).AddTicks(4233),
                             VecesAsignado = 0
                         });
                 });
