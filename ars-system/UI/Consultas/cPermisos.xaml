@@ -44,6 +44,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Permisos Id" Binding="{Binding PermisoId}"/>
                         <DataGridTextColumn Header="Descripcion del Permiso" Binding="{Binding Nombre}"/>
+                        <DataGridTextColumn Header="Permisos" Binding="{Binding CantidadPermisos}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
