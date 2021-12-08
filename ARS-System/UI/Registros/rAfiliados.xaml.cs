@@ -131,6 +131,7 @@ namespace ARS_System.UI.Registros
                 esValido = false;
                 MessageBox.Show("Ingrese el celular", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 CelularTextBox.Focus();
+
             }else if(DireccionTextBox.Text.Length == 0)
             {
                 esValido = false;
@@ -155,7 +156,27 @@ namespace ARS_System.UI.Registros
                 MessageBox.Show("Seleccione la Aseguradora", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 AseguradoraComboBox.Focus();
             }
-
+            if(CelularTextBox.Text.Length  < 10)
+            {
+                esValido = false;
+                MessageBox.Show("Numero de celular incompleto. Recuerde que debe tener 10 digitos numericos", "Error"
+                    , MessageBoxButton.OK, MessageBoxImage.Warning);
+                CelularTextBox.Focus();
+            }
+            if (TelefonoTextBox.Text.Length < 10)
+            {
+                esValido = false;
+                MessageBox.Show("Numero de telefono incompleto. Recuerde que debe tener 10 digitos numericos", "Error"
+                    , MessageBoxButton.OK, MessageBoxImage.Warning);
+                TelefonoTextBox.Focus();
+            }
+            if(CedulaTextBox.Text.Length < 12)
+            {
+                esValido = false;
+                MessageBox.Show("Numero de cedula incompleto. Recuerde que debe tener 12 digitos numericos", "Error"
+                    , MessageBoxButton.OK, MessageBoxImage.Warning);
+                CedulaTextBox.Focus();
+            }
             if (!(VerificarEmail(EmailTextBox.Text)))
             {
                 esValido = false;
