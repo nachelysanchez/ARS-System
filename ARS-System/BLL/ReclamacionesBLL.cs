@@ -87,28 +87,34 @@ namespace ARS_System.BLL
                 var reclamacionAnterior = contexto.Reclamaciones
                      .Where(x => x.ReclamacionId == reclamacion.ReclamacionId)
                      .Include(x => x.RDetalle)
-                     .ThenInclude(x => x.Servicio)
-                     .AsNoTracking()
-                     .Include(x => x.RDetalle)
-                     .ThenInclude(x=> x.Afiliado)
                      .AsNoTracking()
                      .SingleOrDefault();
 
+                Servicios servicio;
+                Afiliados afiliado;
+
                 foreach (var detalle in reclamacionAnterior.RDetalle)
                 {
-                    detalle.Servicio.VecesAsignado -= 1;
+                    afiliado = contexto.Afiliados.Find(detalle.AfiliadoId);
+                    servicio = contexto.Servicios.Find(detalle.ServicioId);
+                    servicio.VecesAsignado -= 1;
+                    afiliado.ValorReclamado -= detalle.ValorReclamado;
                     reclamacion.Total -= detalle.ValorReclamado;
-                    detalle.Afiliado.ValorReclamado -= detalle.ValorReclamado;
                 }
 
                 contexto.Database.ExecuteSqlRaw($"Delete FROM ReclamacionesDetalle Where ReclamacionId={reclamacion.ReclamacionId}");
 
                 foreach (var item in reclamacion.RDetalle)
                 {
-                    contexto.Entry(item).State = EntityState.Added;
-                    item.Servicio.VecesAsignado += 1;
+                    afiliado = contexto.Afiliados.Find(item.AfiliadoId);
+                    servicio = contexto.Servicios.Find(item.ServicioId);
+                    servicio.VecesAsignado += 1;
+                    afiliado.ValorReclamado += item.ValorReclamado;
                     reclamacion.Total += item.ValorReclamado;
-                    //item.Afiliado.ValorReclamado += item.ValorReclamado;
+
+                    contexto.Entry(servicio).State = EntityState.Modified;
+                    contexto.Entry(afiliado).State = EntityState.Modified;
+                    contexto.Entry(item).State = EntityState.Added;
                 }
 
                 contexto.Entry(reclamacion).State = EntityState.Modified;
