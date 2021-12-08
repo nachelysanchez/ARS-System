@@ -41,19 +41,10 @@ namespace ARS_System.UI.Registros
         {
             bool esValido = true;
 
-            if (AseguradoraIdTextBox.Text.Length == 0)
-            {
-                esValido = false;
-                MessageBox.Show("Completa el campo que está vacio", "Fallo",
-                    MessageBoxButton.OK, MessageBoxImage.Warning);
-                AseguradoraIdTextBox.Focus();
-                return esValido;
-            }
-
             if (NombresTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                MessageBox.Show("Completa el campo que está vacio!", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 NombresTextBox.Focus();
                 return esValido;
@@ -62,17 +53,26 @@ namespace ARS_System.UI.Registros
             if (RNCTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                MessageBox.Show("Completa el campo que está vacio!", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 RNCTextBox.Focus();
                 return esValido;
 
             }
 
+            if (RNCTextBox.Text.Length < 9)
+            {
+                esValido = false;
+                MessageBox.Show("Número de RNC incompleto! Debe de tener 9 dígitos numéricos.", "Error"
+                    , MessageBoxButton.OK, MessageBoxImage.Warning);
+                RNCTextBox.Focus();
+                return esValido;
+            }
+
             if (DireccionTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                MessageBox.Show("Completa el campo que está vacío!", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 DireccionTextBox.Focus();
                 return esValido;
@@ -81,7 +81,7 @@ namespace ARS_System.UI.Registros
             if (CiudadComboBox.SelectedValue == null)
             {
                 esValido = false;
-                MessageBox.Show("Seleccione una ciudad", "Fallo",
+                MessageBox.Show("Selecciona una Ciudad!", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 CiudadComboBox.Focus();
                 return esValido;
@@ -90,8 +90,17 @@ namespace ARS_System.UI.Registros
             if (TelefonoTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Completa el campo que está vacio", "Fallo",
+                MessageBox.Show("Completa el campo que está vacío!", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
+                TelefonoTextBox.Focus();
+                return esValido;
+            }
+
+            if (TelefonoTextBox.Text.Length < 10)
+            {
+                esValido = false;
+                MessageBox.Show("Número de Teléfono incompleto! Debe de tener 10 dígitos numéricos.", "Error"
+                    , MessageBoxButton.OK, MessageBoxImage.Warning);
                 TelefonoTextBox.Focus();
                 return esValido;
             }
@@ -116,7 +125,7 @@ namespace ARS_System.UI.Registros
             else
             {
                 Limpiar();
-                MessageBox.Show("No existe en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No existe en la Base de Datos!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -135,11 +144,11 @@ namespace ARS_System.UI.Registros
             if (paso)
             {
                 Limpiar();
-                MessageBox.Show("Guardado con exito!", "Exito",
+                MessageBox.Show("Guardado con Exito!", "Exito",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
-                MessageBox.Show("Guardado Fallida", "Fallo",
+                MessageBox.Show("No se pudo guardar!", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
@@ -148,11 +157,11 @@ namespace ARS_System.UI.Registros
             if (AseguradorasBLL.Eliminar(Utilidades.ToInt(AseguradoraIdTextBox.Text)))
             {
                 Limpiar();
-                MessageBox.Show("Registro eliminado!", "Exito",
+                MessageBox.Show("Registro Eliminado!", "Exito",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
-                MessageBox.Show("No fue posible eliminar", "Fallo",
+                MessageBox.Show("No fue posible Eliminar!", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }

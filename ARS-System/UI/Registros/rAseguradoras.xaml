@@ -14,7 +14,7 @@
                 <Label Content="Aseguradora Id:"/>
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="AseguradoraIdTextBox" Text="{Binding AseguradoraId}" Width="100" Height="20" Margin="5,0,0,0"/>
+                    <TextBox x:Name="AseguradoraIdTextBox" Text="{Binding AseguradoraId}" Width="100" Height="25" Margin="5,0,0,0"/>
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" >
                         <StackPanel Orientation="Horizontal">
 
