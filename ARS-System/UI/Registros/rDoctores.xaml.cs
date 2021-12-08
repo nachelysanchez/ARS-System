@@ -57,7 +57,7 @@ namespace ARS_System.UI.Registros
             if (NombreTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Completa el campo que está vacio!", "Fallo",
+                MessageBox.Show("Completa el campo que está vacío!", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 NombreTextBox.Focus();
                 return esValido;
@@ -66,7 +66,7 @@ namespace ARS_System.UI.Registros
             if (CelularTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Completa el campo que está vacio!", "Fallo",
+                MessageBox.Show("Completa el campo que está vacío!", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 CelularTextBox.Focus();
                 return esValido;
@@ -76,15 +76,17 @@ namespace ARS_System.UI.Registros
             if (CelularTextBox.Text.Length < 10)
             {
                 esValido = false;
-                MessageBox.Show("Número de Celular incompleto! Debe de tener 10 digitos numéricos.", "Error"
+                MessageBox.Show("Número de Celular incompleto! Debe de tener 10 dígitos numéricos.", "Error"
                     , MessageBoxButton.OK, MessageBoxImage.Warning);
                 CelularTextBox.Focus();
+                return esValido;
+
             }
 
             if (TelefonoTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Completa el campo que está vacio!", "Fallo",
+                MessageBox.Show("Completa el campo que está vacío!", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 TelefonoTextBox.Focus();
                 return esValido;
@@ -93,15 +95,16 @@ namespace ARS_System.UI.Registros
             if (TelefonoTextBox.Text.Length < 10)
             {
                 esValido = false;
-                MessageBox.Show("Número de Telefono incompleto! Debe de tener 10 digitos numéricos.", "Error"
+                MessageBox.Show("Número de Teléfono incompleto! Debe de tener 10 dígitos numéricos.", "Error"
                     , MessageBoxButton.OK, MessageBoxImage.Warning);
                 TelefonoTextBox.Focus();
+                return esValido;
             }
 
             if (DireccionTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Completa el campo que está vacio!", "Fallo",
+                MessageBox.Show("Completa el campo que está vacío!", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 DireccionTextBox.Focus();
                 return esValido;
@@ -110,7 +113,7 @@ namespace ARS_System.UI.Registros
             if (CiudadComboBox.SelectedValue == null)
             {
                 esValido = false;
-                MessageBox.Show("Seleccione una ciudad!", "Fallo",
+                MessageBox.Show("Seleccione una Ciudad!", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 CiudadComboBox.Focus();
                 return esValido;
@@ -130,9 +133,10 @@ namespace ARS_System.UI.Registros
             if (ExequaturTextBox.Text.Length < 5)
             {
                 esValido = false;
-                MessageBox.Show("Número de Exequatur incompleto! Debe tener 5 digitos numéricos.", "Error"
+                MessageBox.Show("Número de Exequatur incompleto! Debe tener 5 dígitos numéricos.", "Error"
                     , MessageBoxButton.OK, MessageBoxImage.Warning);
                 ExequaturTextBox.Focus();
+                return esValido;
             }
 
             return esValido;
@@ -239,18 +243,18 @@ namespace ARS_System.UI.Registros
                 }
                 else
                 {
-                    MessageBox.Show("No existe en la Base de Datos!", "Error");
+                    MessageBox.Show("No Existe en la Base de Datos!", "Error");
                 }
             }
 
             if (paso)
             {
                 Limpiar();
-                MessageBox.Show("Transaccion Exitosa!", "Exito",
+                MessageBox.Show("Transacción Exitosa!", "Exito",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
-                MessageBox.Show("Transaccion Fallida!", "Fallo",
+                MessageBox.Show("Transacción Fallida!", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
@@ -259,11 +263,11 @@ namespace ARS_System.UI.Registros
             if (DoctoresBLL.Eliminar(Utilidades.ToInt(DoctorIdTextBox.Text)))
             {
                 Limpiar();
-                MessageBox.Show("Registro eliminado!", "Exito",
+                MessageBox.Show("Registro Eliminado!", "Exito",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
-                MessageBox.Show("No fue posible eliminar", "Fallo",
+                MessageBox.Show("No fue posible Eliminar", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }

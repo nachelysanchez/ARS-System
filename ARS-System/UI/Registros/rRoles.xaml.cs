@@ -46,7 +46,7 @@ namespace ARS_System.UI.Registros
             {
                 esValido = false;
 
-                MessageBox.Show("Ha ocurrido un error, inserte el Nombre", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Completa el campo de Nombre!", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 NombreTextBox.Focus();
             }
             return esValido;
@@ -63,7 +63,7 @@ namespace ARS_System.UI.Registros
             {
                 this.rol = new Roles();
 
-                MessageBox.Show("No se ha Encontrado", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("No se ha Encontrado!", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             sigte = false;
             this.DataContext = this.rol;
@@ -83,7 +83,7 @@ namespace ARS_System.UI.Registros
             {
                 if(RolesBLL.ExisteNombre(NombreTextBox.Text))
                 {
-                    MessageBox.Show("Este Rol ya Existe", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Este Rol ya Existe!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 sigte = true;
@@ -97,7 +97,7 @@ namespace ARS_System.UI.Registros
                 MessageBox.Show("Se ha guardado el Rol!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
-                MessageBox.Show("No se guardó el Rol", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No se guardó el Rol!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
             sigte = true;
         }
 
@@ -107,10 +107,10 @@ namespace ARS_System.UI.Registros
             {
                 Limpiar();
 
-                MessageBox.Show("Rol eliminado!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Rol Eliminado!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
-                MessageBox.Show("No fue posible eliminar", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No fue posible Eliminar!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
             sigte = true;
         }
     }
