@@ -372,11 +372,11 @@ namespace ARS_System.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     ReclamacionId = table.Column<int>(type: "INTEGER", nullable: false),
                     ServicioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    AfiliadoId = table.Column<int>(type: "INTEGER", nullable: false),
                     ValorTotal = table.Column<float>(type: "REAL", nullable: false),
                     NoProcede = table.Column<float>(type: "REAL", nullable: false),
                     ValorReclamado = table.Column<float>(type: "REAL", nullable: false),
-                    Copago = table.Column<float>(type: "REAL", nullable: false),
-                    AfiliadoId = table.Column<int>(type: "INTEGER", nullable: true)
+                    Copago = table.Column<float>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -386,7 +386,7 @@ namespace ARS_System.Migrations
                         column: x => x.AfiliadoId,
                         principalTable: "Afiliados",
                         principalColumn: "AfiliadoId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ReclamacionesDetalle_Reclamaciones_ReclamacionId",
                         column: x => x.ReclamacionId,
@@ -449,7 +449,7 @@ namespace ARS_System.Migrations
             migrationBuilder.InsertData(
                 table: "Provincias",
                 columns: new[] { "ProvinciaId", "Fecha", "Nombres" },
-                values: new object[] { 1, new DateTime(2021, 12, 7, 13, 3, 5, 975, DateTimeKind.Local).AddTicks(2404), "Duarte" });
+                values: new object[] { 1, new DateTime(2021, 12, 8, 0, 29, 57, 189, DateTimeKind.Local).AddTicks(3291), "Duarte" });
 
             migrationBuilder.InsertData(
                 table: "Roles",
@@ -459,12 +459,12 @@ namespace ARS_System.Migrations
             migrationBuilder.InsertData(
                 table: "Servicios",
                 columns: new[] { "ServicioId", "Descripcion", "Fecha", "VecesAsignado" },
-                values: new object[] { 1, "Consulta", new DateTime(2021, 12, 7, 13, 3, 5, 980, DateTimeKind.Local).AddTicks(2118), 0 });
+                values: new object[] { 1, "Consulta", new DateTime(2021, 12, 8, 0, 29, 57, 225, DateTimeKind.Local).AddTicks(9048), 0 });
 
             migrationBuilder.InsertData(
                 table: "Servicios",
                 columns: new[] { "ServicioId", "Descripcion", "Fecha", "VecesAsignado" },
-                values: new object[] { 2, "Emergencia", new DateTime(2021, 12, 7, 13, 3, 5, 980, DateTimeKind.Local).AddTicks(4233), 0 });
+                values: new object[] { 2, "Emergencia", new DateTime(2021, 12, 8, 0, 29, 57, 226, DateTimeKind.Local).AddTicks(8902), 0 });
 
             migrationBuilder.InsertData(
                 table: "Sexos",
@@ -514,7 +514,7 @@ namespace ARS_System.Migrations
             migrationBuilder.InsertData(
                 table: "Reclamaciones",
                 columns: new[] { "ReclamacionId", "AfiliadoId", "DoctorId", "Fecha", "NAF", "NoAutorizacion", "PrestadorId", "Total" },
-                values: new object[] { 1, 1, 1, new DateTime(2021, 12, 7, 13, 3, 5, 981, DateTimeKind.Local).AddTicks(3618), 845632, 52361, 1, 0f });
+                values: new object[] { 1, 1, 1, new DateTime(2021, 12, 8, 0, 29, 57, 230, DateTimeKind.Local).AddTicks(2944), 845632, 52361, 1, 0f });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Afiliados_AseguradoraId",

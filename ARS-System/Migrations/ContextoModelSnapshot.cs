@@ -399,7 +399,7 @@ namespace ARS_System.Migrations
                         new
                         {
                             ProvinciaId = 1,
-                            Fecha = new DateTime(2021, 12, 7, 13, 3, 5, 975, DateTimeKind.Local).AddTicks(2404),
+                            Fecha = new DateTime(2021, 12, 8, 0, 29, 57, 189, DateTimeKind.Local).AddTicks(3291),
                             Nombres = "Duarte"
                         });
                 });
@@ -447,7 +447,7 @@ namespace ARS_System.Migrations
                             ReclamacionId = 1,
                             AfiliadoId = 1,
                             DoctorId = 1,
-                            Fecha = new DateTime(2021, 12, 7, 13, 3, 5, 981, DateTimeKind.Local).AddTicks(3618),
+                            Fecha = new DateTime(2021, 12, 8, 0, 29, 57, 230, DateTimeKind.Local).AddTicks(2944),
                             NAF = 845632,
                             NoAutorizacion = 52361,
                             PrestadorId = 1,
@@ -461,7 +461,7 @@ namespace ARS_System.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AfiliadoId")
+                    b.Property<int>("AfiliadoId")
                         .HasColumnType("INTEGER");
 
                     b.Property<float>("Copago")
@@ -538,14 +538,14 @@ namespace ARS_System.Migrations
                         {
                             ServicioId = 1,
                             Descripcion = "Consulta",
-                            Fecha = new DateTime(2021, 12, 7, 13, 3, 5, 980, DateTimeKind.Local).AddTicks(2118),
+                            Fecha = new DateTime(2021, 12, 8, 0, 29, 57, 225, DateTimeKind.Local).AddTicks(9048),
                             VecesAsignado = 0
                         },
                         new
                         {
                             ServicioId = 2,
                             Descripcion = "Emergencia",
-                            Fecha = new DateTime(2021, 12, 7, 13, 3, 5, 980, DateTimeKind.Local).AddTicks(4233),
+                            Fecha = new DateTime(2021, 12, 8, 0, 29, 57, 226, DateTimeKind.Local).AddTicks(8902),
                             VecesAsignado = 0
                         });
                 });
@@ -773,7 +773,9 @@ namespace ARS_System.Migrations
                 {
                     b.HasOne("ARS_System.Entidades.Afiliados", "Afiliado")
                         .WithMany()
-                        .HasForeignKey("AfiliadoId");
+                        .HasForeignKey("AfiliadoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ARS_System.Entidades.Reclamaciones", null)
                         .WithMany("RDetalle")
