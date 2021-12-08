@@ -109,7 +109,7 @@ namespace ARS_System.UI.Registros
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
             float total = 0;
-            reclamacion.RDetalle.Add(new ReclamacionesDetalle(Utilidades.ToInt(IdTextBox.Text), (int)ServicioComboBox.SelectedValue,
+            reclamacion.RDetalle.Add(new ReclamacionesDetalle(Utilidades.ToInt(IdTextBox.Text), (int)ServicioComboBox.SelectedValue, (int)AfiliadoComboBox.SelectedValue,
                 Utilidades.ToFloat(ValorTextBox.Text), Utilidades.ToFloat(NoProcedeTextBox.Text),
                 Utilidades.ToFloat(ValorRTextBox.Text), Utilidades.ToFloat(CopagoTextBox.Text), (Servicios)ServicioComboBox.SelectedItem,
                 (Afiliados)AfiliadoComboBox.SelectedItem));
