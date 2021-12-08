@@ -23,6 +23,7 @@ namespace ARS_System.UI.Registros
     {
 
         private Roles rol = new Roles();
+        private static bool sigte = true;
         public rRoles()
         {
             InitializeComponent();
@@ -41,19 +42,12 @@ namespace ARS_System.UI.Registros
 
             bool esValido = true;
 
-            if (RolIdTextBox.Text.Length == 0)
-            {
-                esValido = false;
-
-                MessageBox.Show("Ha ocurrido un error, inserte el Id del Rol", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-
-            }
-
-            if (NombreTextBox.Focus())
+            if (NombreTextBox.Text.Length == 0)
             {
                 esValido = false;
 
                 MessageBox.Show("Ha ocurrido un error, inserte el Nombre", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                NombreTextBox.Focus();
             }
             return esValido;
         }
@@ -71,19 +65,29 @@ namespace ARS_System.UI.Registros
 
                 MessageBox.Show("No se ha Encontrado", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+            sigte = false;
             this.DataContext = this.rol;
         }
 
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
+            sigte = true;
         }
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
             if (!Validar())
                 return;
-
+            if(sigte)
+            {
+                if(RolesBLL.ExisteNombre(NombreTextBox.Text))
+                {
+                    MessageBox.Show("Este Rol ya Existe", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                sigte = true;
+            }
             var paso = RolesBLL.Guardar(this.rol);
 
             if (paso)
@@ -94,6 +98,7 @@ namespace ARS_System.UI.Registros
             }
             else
                 MessageBox.Show("No se guardó el Rol", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+            sigte = true;
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
@@ -106,6 +111,7 @@ namespace ARS_System.UI.Registros
             }
             else
                 MessageBox.Show("No fue posible eliminar", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+            sigte = true;
         }
     }
 }

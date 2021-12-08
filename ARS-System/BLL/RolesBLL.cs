@@ -152,6 +152,26 @@ namespace ARS_System.BLL
 
             return encontrado;
         }
+
+        public static bool ExisteNombre(string nombre)
+        {
+            bool encontrado = false;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                encontrado = contexto.Roles.Any(e => e.Nombre == nombre);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
         public static List<Roles> GetRoles()
         {
             List<Roles> lista = new List<Roles>();

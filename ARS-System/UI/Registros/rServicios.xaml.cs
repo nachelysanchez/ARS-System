@@ -49,11 +49,12 @@ namespace ARS_System.UI.Registros
         {
             bool esValido = true;
 
-            if (DescripcionTextBox.Focus())
+            if (DescripcionTextBox.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Complete el campo faltante", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
+                DescripcionTextBox.Focus();
             }
 
             return esValido;

@@ -14,7 +14,7 @@
                 <Label Content="Rol Id:" />
 
                 <StackPanel Orientation="Horizontal" >
-                    <TextBox x:Name="RolIdTextBox" Text="{Binding RolId}" Width="100" Height="18" />
+                    <TextBox x:Name="RolIdTextBox" Text="{Binding RolId}" Width="100" Height="25" />
 
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click">
                         <StackPanel Orientation="Horizontal">
