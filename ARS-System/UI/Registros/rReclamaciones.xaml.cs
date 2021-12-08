@@ -60,14 +60,14 @@ namespace ARS_System.UI.Registros
         {
             bool esValido = true;
 
-            if (NoAutorizacionTextBox.Text.Length == 0)
+            if (Utilidades.ToInt(NoAutorizacionTextBox.Text) == 0)
             {
                 esValido = false;
                 MessageBox.Show("Complete el numero de autorización", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 NoAutorizacionTextBox.Focus();
             }
-            else if (NAFTextBox.Text.Length == 0)
+            else if (Utilidades.ToInt(NAFTextBox.Text) == 0)
             {
                 esValido = false;
                 MessageBox.Show("Complete el NAF", "Fallo",
@@ -91,6 +91,49 @@ namespace ARS_System.UI.Registros
 
             return esValido;
         }
+
+        private bool ValidarDetalle()
+        {
+            bool esValido = true;
+
+            if (ServicioComboBox.SelectedIndex < 0)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione un", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                ServicioComboBox.Focus();
+            }
+            else if (NoProcedeTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Complete el No Procede", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                NoProcedeTextBox.Focus();
+            }
+            else if (ValorTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Complete el Monto", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                ValorTextBox.Focus();
+            }
+            else if (ValorRTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Complete el Valor Reclamado", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                ValorRTextBox.Focus();
+            }
+            else if (CopagoTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Complete el CoPago", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                CopagoTextBox.Focus();
+            }
+
+            return esValido;
+        }
         private void BuscarButton_Click_1(object sender, RoutedEventArgs e)
         {
             Reclamaciones encontrado = ReclamacionesBLL.Buscar(reclamacion.ReclamacionId);
@@ -108,6 +151,10 @@ namespace ARS_System.UI.Registros
         }
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!ValidarDetalle())
+            {
+                return;
+            }
             float total = 0;
             reclamacion.RDetalle.Add(new ReclamacionesDetalle(Utilidades.ToInt(IdTextBox.Text), (int)ServicioComboBox.SelectedValue, (int)AfiliadoComboBox.SelectedValue,
                 Utilidades.ToFloat(ValorTextBox.Text), Utilidades.ToFloat(NoProcedeTextBox.Text),
