@@ -57,9 +57,10 @@ namespace ARS_System.BLL
 
                 foreach (var detalle in doctores.Detalle)
                 {
-                    contexto.Entry(detalle).State = EntityState.Added;
-                    contexto.Entry(detalle.Especialidades).State = EntityState.Modified;
+                    //contexto.Entry(detalle).State = EntityState.Added;
+                   
                     detalle.Especialidades.VecesAsignado += 1;
+                    contexto.Entry(detalle.Especialidades).State = EntityState.Modified;
                 }
                 paso = contexto.SaveChanges() > 0;
             }
@@ -88,16 +89,22 @@ namespace ARS_System.BLL
                      .AsNoTracking()
                      .SingleOrDefault();
 
+                Especialidades especialidad;
+
                 foreach (var detalle in doctorAnterior.Detalle)
                 {
-                    detalle.Especialidades.VecesAsignado -= 1;
+                    
+                    especialidad = contexto.Especialidades.Find(detalle.EspecialidadId);
+                    especialidad.VecesAsignado -= 1;
                 }
                 contexto.Database.ExecuteSqlRaw($"Delete FROM DoctoresDetalle Where DoctorId={doctores.DoctorId}");
 
                 foreach (var item in doctores.Detalle)
                 {
-                    
-                    item.Especialidades.VecesAsignado += 1;
+                    especialidad = contexto.Especialidades.Find(item.EspecialidadId);
+                    especialidad.VecesAsignado += 1;
+
+                    contexto.Entry(especialidad).State = EntityState.Modified;
                     contexto.Entry(item).State = EntityState.Added;
                 }
 

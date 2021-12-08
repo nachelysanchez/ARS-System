@@ -13,12 +13,12 @@
             <StackPanel Orientation="Horizontal" Height="58">
                 <StackPanel>
                     <Label Content="Desde"/>
-                    <DatePicker x:Name="DesdeDatePicker"/>
+                    <DatePicker x:Name="DesdeDatePicker" MouseLeave="desdee"/>
                 </StackPanel>
 
                 <StackPanel>
                     <Label Content="Hasta"/>
-                    <DatePicker x:Name="HastaDatePicker"/>
+                    <DatePicker x:Name="HastaDatePicker" MouseLeave="hastaa"  />
                 </StackPanel>
 
                 <StackPanel Margin="5,0">

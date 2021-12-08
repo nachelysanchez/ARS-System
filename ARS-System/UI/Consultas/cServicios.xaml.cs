@@ -40,9 +40,13 @@ namespace ARS_System.UI.Consultas
                 {
                     case 0:
                         listado = ServiciosBLL.GetList("ServicioId", criterio, desde, hasta);
+                        DesdeDatePicker.SelectedDate = null;
+                        HastaDatePicker.SelectedDate = null;
                         break;
                     case 1:
                         listado = ServiciosBLL.GetList("Descripcion", criterio, desde, hasta);
+                        DesdeDatePicker.SelectedDate = null;
+                        HastaDatePicker.SelectedDate = null;
                         break;
                 }
             }
@@ -53,6 +57,17 @@ namespace ARS_System.UI.Consultas
 
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
+        }
+        private void desdee(object sender, MouseEventArgs e)
+        {
+            CriterioTextBox.Text = null;
+            FiltroComboBox.SelectedItem = null;
+        }
+
+        private void hastaa(object sender, MouseEventArgs e)
+        {
+            CriterioTextBox.Text = null;
+            FiltroComboBox.SelectedItem = null;
         }
     }
 }

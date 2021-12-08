@@ -179,7 +179,7 @@ namespace ARS_System.UI.Registros
         {
             if (!ValidarDetalle())
                 return;
-            doctores.Detalle.Add(new DoctoresDetalle(Utilidades.ToInt(DoctorIdTextBox.Text), (int)EspecialidadComboBox.SelectedValue,
+            doctores.Detalle.Add(new DoctoresDetalle(Utilidades.ToInt(DoctorIdTextBox.Text), ((Especialidades)EspecialidadComboBox.SelectedItem).EspecialidadId,
                 ObservacionTextBox.Text, (Especialidades)EspecialidadComboBox.SelectedItem));
             Actualizar();
         }
