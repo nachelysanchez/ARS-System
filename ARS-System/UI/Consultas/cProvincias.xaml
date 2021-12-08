@@ -51,7 +51,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Provincia Id" Binding="{Binding ProvinciaId}"/>
                         <DataGridTextColumn Header="Nombre de la Provincia" Binding="{Binding Nombres}"/>
-                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha, StringFormat=dd/mm/yyyy}"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha, StringFormat=dd/MM/yyyy}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

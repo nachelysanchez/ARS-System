@@ -23,7 +23,7 @@
                 <Label Content="Nombre de la Provincia : "/>
                 <TextBox x:Name="NombreProvinciaTextBox" Margin="5,0,0,0" Text="{Binding Nombres}"/>
                 <Label Content="Fecha de creacion"/>
-                <DatePicker Name="FechaDatePicker" SelectedDate="{Binding Fecha, StringFormat=dd/mm/yyyy}" Margin="5,0,0,0" />
+                <DatePicker Name="FechaDatePicker" SelectedDate="{Binding Fecha, StringFormat=dd/MM/yyyy}" Margin="5,0,0,0" />
 
             </StackPanel>
 
