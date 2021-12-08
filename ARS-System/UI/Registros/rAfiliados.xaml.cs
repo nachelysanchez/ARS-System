@@ -131,6 +131,11 @@ namespace ARS_System.UI.Registros
                 esValido = false;
                 MessageBox.Show("Ingrese el celular", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 CelularTextBox.Focus();
+            }else if(DireccionTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese su Direccion", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                DireccionTextBox.Focus();
             }
             else if (EmailTextBox.Text.Length == 0)
             {
