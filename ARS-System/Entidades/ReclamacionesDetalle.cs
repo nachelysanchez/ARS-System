@@ -14,6 +14,7 @@ namespace ARS_System.Entidades
         public int Id { get; set; }
         public int ReclamacionId { get; set; }
         public int ServicioId { get; set; }
+        public int AfiliadoId { get; set; }
         public float ValorTotal { get; set; }
         public float NoProcede { get; set; }
         public float ValorReclamado { get; set; }
@@ -21,6 +22,7 @@ namespace ARS_System.Entidades
 
         [ForeignKey("ServicioId")]
         public Servicios Servicio { get; set; }
+        [ForeignKey("AfiliadoId")]
         public Afiliados Afiliado { get; set; }
 
         public ReclamacionesDetalle()
@@ -35,12 +37,13 @@ namespace ARS_System.Entidades
             Servicio = null;
         }
 
-        public ReclamacionesDetalle(int ReclId, int servicioId, float valor, 
+        public ReclamacionesDetalle(int ReclId, int servicioId, int afiliadoId, float valor, 
             float noprocede, float recl, float copago, Servicios servicio, Afiliados a)
         {
             Id = 0;
             ReclamacionId = ReclId;
             ServicioId = servicioId;
+            AfiliadoId = afiliadoId;
             ValorTotal = valor;
             NoProcede = noprocede;
             ValorReclamado = recl;
