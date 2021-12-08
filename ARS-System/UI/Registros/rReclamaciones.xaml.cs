@@ -99,7 +99,7 @@ namespace ARS_System.UI.Registros
             if (ServicioComboBox.SelectedIndex < 0)
             {
                 esValido = false;
-                MessageBox.Show("Seleccione un", "Fallo",
+                MessageBox.Show("Seleccione un Servicio", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 ServicioComboBox.Focus();
             }
