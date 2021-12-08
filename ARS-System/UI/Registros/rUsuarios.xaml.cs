@@ -99,11 +99,11 @@ namespace ARS_System.UI.Registros
         {
             bool esValido = true;
 
-            if (ObservacionTextBox.Text.Length == 0)
+            if (PermisoComboBox.SelectedIndex < 0)
             {
                 esValido = false;
                 GuardarButton.IsEnabled = false;
-                MessageBox.Show("Ingrese Una observacion", "Fallo",
+                MessageBox.Show("Seleccione un permiso", "Fallo",
                       MessageBoxButton.OK, MessageBoxImage.Warning);
                 GuardarButton.IsEnabled = true;
             }
