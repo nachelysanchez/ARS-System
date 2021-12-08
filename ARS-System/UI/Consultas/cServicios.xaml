@@ -49,6 +49,7 @@
                         <DataGridTextColumn Header="Servicio Id" Binding="{Binding ServicioId}"/>
                         <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha, StringFormat=dd/MM/yyyy}"/>
                         <DataGridTextColumn Header="Descripcion" Binding="{Binding Descripcion}"/>
+                        <DataGridTextColumn Header="VecesAsignado" Binding="{Binding VecesAsignado}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

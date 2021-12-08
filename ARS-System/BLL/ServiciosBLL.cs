@@ -167,7 +167,8 @@ namespace ARS_System.BLL
                     {
                         s.ServicioId,
                         s.Fecha,
-                        s.Descripcion
+                        s.Descripcion,
+                        s.VecesAsignado
 
                     }
                 );
