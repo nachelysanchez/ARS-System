@@ -45,8 +45,9 @@ namespace ARS_System.UI.Registros
             if (NombrePermisoTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Ingrese un nombre ", "Fallo",
+                MessageBox.Show("Ingrese una Descripcion ", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
+                NombrePermisoTextBox.Focus();
             }
             return esValido;
         }

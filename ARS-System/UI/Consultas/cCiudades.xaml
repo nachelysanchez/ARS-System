@@ -45,7 +45,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Ciudad Id" Binding="{Binding CiudadId}"/>
                         <DataGridTextColumn Header="Nombre de la Ciudad" Binding="{Binding Nombres}"/>
-                        <DataGridTextColumn Header="Provincia " Binding="{Binding Provincias.Nombres}"/>
+                        <DataGridTextColumn Header="Provincia " Binding="{Binding Provincia}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
